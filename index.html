@@ -507,23 +507,40 @@
 
         /* Skills */
         .skill {
-            padding: 16px;
             background: var(--panel);
             border: 1px solid var(--border);
-            border-radius: 14px
+            border-radius: 16px;
+            padding: 18px 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
         }
 
         .skill h4 {
-            margin: 0 0 .6rem;
-            font-size: 16px
+            margin: 0 0 0.6rem;
+            font-size: 16.5px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .skill small {
+            display: block;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px;
         }
 
         .bar {
-            height: 10px;
-            background: color-mix(in oklab, var(--ink) 10%, transparent);
+            height: 12px;
+            background: #1e293b;
             border-radius: 999px;
             overflow: hidden;
-            position: relative
+            position: relative;
+            margin-top: 6px;
         }
 
         .bar>span {
@@ -531,8 +548,18 @@
             inset: 0 auto 0 0;
             width: 0%;
             background: linear-gradient(90deg, var(--accent), var(--primary));
-            border-radius: inherit
+            border-radius: inherit;
+            transition: width 1.2s ease-in-out;
         }
+
+        .percent {
+            text-align: right;
+            margin-top: 6px;
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 14px;
+        }
+
 
         /* Projects */
         .filters {
@@ -862,46 +889,72 @@
         <section id="skills" aria-label="Skills">
             <div class="container">
                 <h2 data-aos="fade-up">Skills</h2>
+
                 <div class="grid cols-3" style="margin-top:14px" data-aos="fade-up" data-aos-delay="80">
-                    <div class="skill" aria-label="Backend skills">
+
+                    <!-- Backend -->
+                    <div class="skill">
                         <h4>Backend</h4>
-                        <div class="bar" aria-label="Java" aria-valuemin="0" aria-valuemax="100" aria-valuenow="92"
-                            role="progressbar"><span data-target="92"></span></div>
+                        <div class="bar" role="progressbar" aria-valuenow="92">
+                            <span data-target="92"></span>
+                        </div>
+                        <div class="percent">92%</div>
                         <small>Java, Spring Boot, REST, JWT</small>
                     </div>
-                    <div class="skill" aria-label="Frontend skills">
+
+                    <!-- Frontend -->
+                    <div class="skill">
                         <h4>Frontend</h4>
-                        <div class="bar" aria-label="Frontend" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"
-                            role="progressbar"><span data-target="80"></span></div>
-                        <small>HTML/CSS, JS, React basics</small>
+                        <div class="bar" role="progressbar" aria-valuenow="85">
+                            <span data-target="85"></span>
+                        </div>
+                        <div class="percent">85%</div>
+                        <small>HTML/CSS, JavaScript, React Basics</small>
                     </div>
-                    <div class="skill" aria-label="Mobile skills">
+
+                    <!-- Mobile -->
+                    <div class="skill">
                         <h4>Mobile</h4>
-                        <div class="bar" aria-label="Android" aria-valuemin="0" aria-valuemax="100" aria-valuenow="78"
-                            role="progressbar"><span data-target="78"></span></div>
+                        <div class="bar" role="progressbar" aria-valuenow="80">
+                            <span data-target="80"></span>
+                        </div>
+                        <div class="percent">80%</div>
                         <small>Android (Java), Retrofit</small>
                     </div>
-                    <div class="skill" aria-label="IoT skills">
+
+                    <!-- IoT -->
+                    <div class="skill">
                         <h4>IoT</h4>
-                        <div class="bar" aria-label="IoT" aria-valuemin="0" aria-valuemax="100" aria-valuenow="82"
-                            role="progressbar"><span data-target="82"></span></div>
+                        <div class="bar" role="progressbar" aria-valuenow="88">
+                            <span data-target="88"></span>
+                        </div>
+                        <div class="percent">88%</div>
                         <small>ESP32/ESP8266, Sensors, Arduino</small>
                     </div>
-                    <div class="skill" aria-label="Tools & DevOps skills">
+
+                    <!-- Tools & DevOps -->
+                    <div class="skill">
                         <h4>Tools & DevOps</h4>
-                        <div class="bar" aria-label="Tools" aria-valuemin="0" aria-valuemax="100" aria-valuenow="74"
-                            role="progressbar"><span data-target="74"></span></div>
+                        <div class="bar" role="progressbar" aria-valuenow="78">
+                            <span data-target="78"></span>
+                        </div>
+                        <div class="percent">78%</div>
                         <small>Git/GitHub, Postman, Tomcat</small>
                     </div>
-                    <div class="skill" aria-label="Databases skills">
+
+                    <!-- Databases -->
+                    <div class="skill">
                         <h4>Databases</h4>
-                        <div class="bar" aria-label="DB" aria-valuemin="0" aria-valuemax="100" aria-valuenow="76"
-                            role="progressbar"><span data-target="76"></span></div>
+                        <div class="bar" role="progressbar" aria-valuenow="82">
+                            <span data-target="82"></span>
+                        </div>
+                        <div class="percent">82%</div>
                         <small>MySQL, File-based storage</small>
                     </div>
                 </div>
             </div>
         </section>
+
 
         <!-- PROJECTS -->
         <section id="projects" aria-label="Projects">
