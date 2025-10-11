@@ -1,478 +1,784 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="-_bd27rmhRSRaKJiDezCPsG1cSiVUrFqNkjn8evSKW0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nadeesha D Shalom | Portfolio</title>
+    <meta name="description"
+        content="Nadeesha D Shalom — Software Engineering undergraduate. Java + Spring Boot, JSP/Servlets, PHP-MySQL, Android (Retrofit), IoT (ESP32/LoRa/GPS)." />
+    <link rel="icon" href="assets/img/n.png" /> <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Poppins:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet"> <!-- Bootstrap + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- AOS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- GLightbox / Swiper (already used in your previous site; kept for gallery) -->
+    <link href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
+    <style>
+        /* ------------------------- Design System --------------------------*/
+        :root {
+            --bg: #0b1220;
+            --bg-soft: rgba(255, 255, 255, 0.06);
+            --text: #e7ebf0;
+            --muted: #a6b0c3;
+            --brand: #00e5ff;
+            /* accent glow */
+            --brand-2: #7c3aed;
+            /* secondary accent */
+            --card: rgba(255, 255, 255, 0.06);
+            --glass: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.12);
+        }
 
-  <title>Nadeesha D Shalom | Profile</title>
-  <meta name="description" content="Nadeesha D Shalom — Sri Lankan Software Engineering undergraduate. Java & Spring Boot, JSP/Servlets, PHP-MySQL, Android (Retrofit), IoT (ESP32/LoRa/GPS), and research projects." />
-  <meta name="keywords" content="Nadeesha Shalom, Nadeesha D Shalom, software engineer student, Sri Lanka, Java, Spring Boot, JSP, Servlet, PHP, MySQL, Android, Retrofit, ESP32, LoRa, GPS, IoT, TeaWeb, Vehicle Rental System, Tutor Booking, research, GitHub Pages" />
+        :root.light {
+            --bg: #f7fafc;
+            --bg-soft: #ffffff;
+            --text: #0e1726;
+            --muted: #44506b;
+            --brand: #0ea5e9;
+            --brand-2: #7c3aed;
+            --card: #ffffff;
+            --glass: #ffffff;
+            --border: rgba(2, 6, 23, 0.08);
+        }
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Nadeesha D Shalom | Portfolio" />
-  <meta property="og:description" content="Software Engineering student building web, mobile, and IoT solutions: TeaWeb, VehicleRentalSystem, Tutor Booking, Casper50 rescue boat, AutoNet Fisher, and more." />
-  <meta property="og:url" content="https://nadeesha-d-shalom.github.io/Nadeesha_UI.github.io/" />
-  <meta property="og:image" content="https://nadeesha-d-shalom.github.io/Nadeesha_UI.github.io/assets/img/my-profile-img.jpeg" />
+        * {
+            box-sizing: border-box
+        }
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Nadeesha D Shalom | Portfolio" />
-  <meta name="twitter:description" content="Sri Lankan Software Engineering student. Backend, web, Android, and IoT projects." />
-  <meta name="twitter:image" content="https://nadeesha-d-shalom.github.io/Nadeesha_UI.github.io/assets/img/my-profile-img.jpeg" />
+        html,
+        body {
+            height: 100%
+        }
 
-  <!-- Favicons -->
-  <link href="assets/img/n.png" rel="icon" />
-  <link href="assets/img/n.png" rel="apple-touch-icon" />
+        body {
+            background: radial-gradient(1200px 600px at 20% -10%, rgba(124, 58, 237, 0.25), transparent 60%), radial-gradient(900px 600px at 90% 10%, rgba(0, 229, 255, 0.18), transparent 50%), var(--bg);
+            color: var(--text);
+            font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+            line-height: 1.6;
+        }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        /* Utilities */
+        .container-narrow {
+            max-width: 1050px
+        }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+        .section {
+            padding: 80px 0
+        }
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet" />
+        .badge-soft {
+            background: rgba(0, 229, 255, 0.12);
+            color: var(--brand);
+            border: 1px solid rgba(0, 229, 255, 0.35);
+            padding: .35rem .6rem;
+            border-radius: .7rem;
+            font-weight: 600;
+            letter-spacing: .2px
+        }
 
-  <style>
-    /* Small custom touches without breaking your current theme */
-    .badge-soft {
-      background: rgba(197, 143, 54, 0.12);
-      color: #c58f36;
-      border: 1px solid rgba(197, 143, 54, 0.25);
-      padding: .35rem .6rem;
-      border-radius: .65rem;
-      font-weight: 600;
-      letter-spacing: .2px;
-    }
-    .hero .cta-row a { text-decoration: none; }
-    .project-tags .badge { margin-right: .25rem; margin-bottom: .25rem; }
-  </style>
+        .glass {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ------------------------- Header / Sidebar --------------------------*/
+        #header {
+            position: fixed;
+            inset: 0 auto 0 0;
+            width: 300px;
+            z-index: 999;
+            padding: 20px 18px;
+            border-right: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+        }
+
+        @media (max-width: 1199px) {
+            #header {
+                left: -100%
+            }
+
+            #header.header-show {
+                left: 0
+            }
+        }
+
+        .header-toggle {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 1000;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--brand);
+            color: #081018;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 229, 255, .4)
+        }
+
+        .profile-img img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            margin: 10px auto;
+            border: 6px solid rgba(255, 255, 255, .14)
+        }
+
+        .sitename {
+            font-size: 22px;
+            font-weight: 800;
+            margin: 6px 0 12px 0;
+            text-align: center
+        }
+
+        .social-links a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 4px;
+            color: var(--text);
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            transition: .25s;
+        }
+
+        .social-links a:hover {
+            color: #081018;
+            background: var(--brand);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 229, 255, .45)
+        }
+
+        .navmenu {
+            margin-top: 14px
+        }
+
+        .navmenu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .navmenu a {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 12px 12px;
+            border-radius: 10px;
+            color: var(--muted);
+            text-decoration: none;
+            transition: .2s;
+            font-weight: 600;
+        }
+
+        .navmenu a .navicon {
+            font-size: 18px
+        }
+
+        .navmenu a:hover,
+        .navmenu a.active {
+            background: var(--bg-soft);
+            color: var(--text);
+            border: 1px solid var(--border);
+            text-shadow: 0 0 10px rgba(0, 229, 255, .35);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px
+        }
+
+        .theme-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--bg-soft);
+            color: var(--text);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .theme-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(124, 58, 237, .35)
+        }
+
+        .theme-btn.active {
+            background: var(--brand);
+            color: #081018
+        }
+
+        /* ------------------------- Main Layout --------------------------*/
+        @media (min-width: 1200px) {
+
+            main,
+            footer {
+                margin-left: 300px
+            }
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            background: linear-gradient(90deg, var(--brand), var(--brand-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-title p {
+            color: var(--muted)
+        }
+
+        /* ------------------------- HERO (Split + Parallax) --------------------------*/
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            align-items: center
+        }
+
+        .hero-wrap {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 32px
+        }
+
+        @media (max-width: 992px) {
+            .hero-wrap {
+                grid-template-columns: 1fr;
+                gap: 20px
+            }
+        }
+
+        .hero-left {
+            position: relative;
+            min-height: 420px;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .hero-layer {
+            position: absolute;
+            inset: auto;
+            will-change: transform;
+            transition: transform .08s linear;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: radial-gradient(800px 400px at 10% 10%, rgba(124, 58, 237, .35), transparent 40%), radial-gradient(900px 500px at 90% 20%, rgba(0, 229, 255, .25), transparent 45%), linear-gradient(135deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .03));
+        }
+
+        .hero-photo {
+            z-index: 2;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 68%;
+            border-radius: 20px;
+            border: 6px solid rgba(255, 255, 255, .12);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, .45)
+        }
+
+        .hero-right {
+            align-self: center
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.05;
+            margin: 0 0 10px
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            color: var(--muted);
+            margin-bottom: 18px
+        }
+
+        .typed-wrap {
+            font-size: 20px;
+            font-weight: 700
+        }
+
+        .cta-row a {
+            text-decoration: none
+        }
+
+        .cta-row .btn {
+            border-radius: 12px;
+            padding: .65rem 1rem
+        }
+
+        .btn-brand {
+            background: var(--brand);
+            color: #081018;
+            border: 0;
+            box-shadow: 0 8px 24px rgba(0, 229, 255, .35)
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text);
+            background: transparent
+        }
+
+        .btn-outline:hover {
+            background: var(--bg-soft)
+        }
+
+        /* ------------------------- Cards / Sections --------------------------*/
+        .cardX {
+            padding: 24px;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            transition: .25s;
+            height: 100%
+        }
+
+        .cardX:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, .28)
+        }
+
+        .progress {
+            height: 12px;
+            background: rgba(255, 255, 255, .08);
+            border-radius: 999px
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--brand), var(--brand-2));
+            box-shadow: 0 0 16px rgba(0, 229, 255, .35)
+        }
+
+        /* Portfolio */
+        .portfolio .item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            border: 1px solid var(--border)
+        }
+
+        .portfolio img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+            transition: .35s
+        }
+
+        .portfolio .meta {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background: linear-gradient(180deg, transparent 35%, rgba(0, 0, 0, .65));
+            padding: 16px;
+            opacity: 0;
+            transition: .3s;
+        }
+
+        .portfolio .meta h5 {
+            margin: 0;
+            font-weight: 800
+        }
+
+        .portfolio .meta p {
+            margin: 2px 0 6px;
+            color: #cfe8ff
+        }
+
+        .portfolio .meta .links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--bg-soft);
+            color: var(--text);
+            border: 1px solid var(--border);
+            margin-right: 6px
+        }
+
+        .portfolio .item:hover img {
+            transform: scale(1.06) rotate(.5deg)
+        }
+
+        .portfolio .item:hover .meta {
+            opacity: 1
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 0;
+            color: var(--muted)
+        }
+
+        .footer-glow .sitename {
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--brand), var(--brand-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shine 3s ease-in-out infinite alternate
+        }
+
+        @keyframes shine {
+            from {
+                filter: drop-shadow(0 0 2px var(--brand))
+            }
+
+            to {
+                filter: drop-shadow(0 0 10px var(--brand-2))
+            }
+        }
+    </style>
 </head>
 
-<body class="index-page">
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+<body> <!-- Mobile toggle --> <i class="bi bi-list header-toggle d-xl-none" id="menuToggle"></i> <!-- Sidebar -->
+    <aside id="header" class="glass">
+        <div class="profile-img"> <img src="assets/img/my-profile-img.jpeg" alt="Nadeesha D Shalom" /> </div>
+        <h1 class="sitename text-center">Nadeesha D Shalom</h1>
+        <div class="social-links text-center"> <a href="https://github.com/Nadeesha-D-Shalom" class="github"
+                aria-label="GitHub"><i class="bi bi-github"></i></a> <a
+                href="https://www.linkedin.com/in/nadeesha-shalom-a5a2a4251/" class="linkedin" aria-label="LinkedIn"><i
+                    class="bi bi-linkedin"></i></a> <a href="https://www.instagram.com/nadeesha_d_shalom"
+                class="instagram" aria-label="Instagram"><i class="bi bi-instagram"></i></a> <a
+                href="https://www.facebook.com/profile.php?id=100009164177872" class="facebook" aria-label="Facebook"><i
+                    class="bi bi-facebook"></i></a> </div>
+        <nav class="navmenu">
+            <ul>
+                <li><a class="active" href="#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+                <li><a href="#about"><i class="bi bi-person navicon"></i>About</a></li>
+                <li><a href="#skills"><i class="bi bi-stars navicon"></i>Skills</a></li>
+                <li><a href="#projects"><i class="bi bi-briefcase navicon"></i>Projects</a></li>
+                <li><a href="#contact"><i class="bi bi-envelope navicon"></i>Contact</a></li>
+            </ul>
+        </nav> <!-- Theme Toggle -->
+        <div class="theme-toggle text-center"> <button class="theme-btn" id="lightBtn" title="Light"><i
+                    class="bi bi-sun"></i></button> <button class="theme-btn active" id="darkBtn" title="Dark"><i
+                    class="bi bi-moon-stars"></i></button> </div>
+    </aside>
+    <main> <!-- HERO -->
+        <section id="hero" class="hero section container-narrow">
+            <div class="hero-wrap"> <!-- Left: Parallax stack -->
+                <div class="hero-left cardX" id="parallaxWrap" aria-hidden="true">
+                    <div class="hero-layer hero-bg" data-depth="2"></div> <img class="hero-layer hero-photo"
+                        data-depth="8" src="assets/img/my-profile-img.jpeg" alt="Profile" /> <img class="hero-layer"
+                        data-depth="5" src="https://svgshare.com/i/17yN.svg" alt=""
+                        style="top:12%;left:6%;width:120px;opacity:.45;filter:drop-shadow(0 8px 20px rgba(0,229,255,.25))">
+                    <img class="hero-layer" data-depth="3" src="https://svgshare.com/i/17yO.svg" alt=""
+                        style="bottom:10%;right:10%;width:160px;opacity:.35">
+                </div>
+                <!-- Right: Text -->
+                <div class="hero-right" data-aos="fade-up" data-aos-delay="150">
+                    <div class="badge-soft mb-2">Open to Internships — Backend / Full-Stack</div>
+                    <h1 class="hero-title">Hi, I’m Nadeesha</h1>
+                    <p class="hero-sub">Software Engineering undergraduate building practical systems for the web,
+                        Android, and IoT.</p>
+                    <div class="typed-wrap mb-3">
+                        <span id="typed"></span>
+                    </div>
+                    <div class="cta-row d-flex gap-2 flex-wrap">
+                        <a class="btn btn-brand" href="#projects"><i class="bi bi-rocket-takeoff me-1"></i>See
+                            Projects</a>
+                        <a class="btn btn-outline" href="assets/docs/Nadeesha_D_Shalom_CV.pdf" target="_blank"><i
+                                class="bi bi-file-earmark-arrow-down me-1"></i>Download CV</a>
+                    </div>
+                </div>
+            </div>
+        </section> <!-- ABOUT -->
+        <section id="about" class="section">
+            <div class="container container-narrow">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>About</h2>
+                    <p>Undergraduate at SLIIT with a builder mindset. I ship Java + Spring Boot backends, JSP/Servlet
+                        apps on Tomcat, Android apps with Retrofit, and IoT prototypes on ESP32/LoRa/GPS. I document and
+                        version everything cleanly.</p>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-4" data-aos="zoom-in">
+                        <div class="cardX"> <strong class="d-block mb-2">Contact</strong>
+                            <div class="small text-muted">Tissamaharama, Sri Lanka</div>
+                            <div class="small text-muted">+94 70 732 8800</div>
+                            <div class="small text-muted">nadeeshashalom1@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="col-md-8" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="cardX"> <strong class="d-block mb-2">Focus</strong>
+                            <div>Backend • Android • IoT • PHP-MySQL</div>
+                            <hr class="my-3" />
+                            <p class="mb-0">Current builds: TeaWeb (PHP-MySQL), Vehicle Rental System (JSP/Servlet +
+                                sessions + file I/O), Tutor Booking (Spring Boot + Thymeleaf), Casper50 (LoRa rescue
+                                boat), AutoNet Fisher (autonomous fishing boat).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> <!-- SKILLS -->
+        <section id="skills" class="section">
+            <div class="container container-narrow">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Skills</h2>
+                    <p>Hands-on across backend, Android, web, and embedded. I value correctness, clarity, and
+                        maintainability.</p>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-6" data-aos="fade-up">
+                        <div class="cardX">
+                            <h5 class="mb-3">Programming</h5>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between"><span>Java</span><span>95%</span></div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="95" style="width:0%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between"><span>Python</span><span>85%</span></div>
+                                <div class="progress">
+                                    <div class="progress-bar" aria-valuenow="85" style="width:0%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between"><span>C / C++</span><span>80%</span></div>
+                                <div class="progress">
+                                    <div class="progress-bar" aria-valuenow="80" style="width:0%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex justify-content-between"><span>SQL</span><span>90%</span></div>
+                                <div class="progress">
+                                    <div class="progress-bar" aria-valuenow="90" style="width:0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="cardX">
+                            <h5 class="mb-3">Backend & Platforms</h5>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between"><span>Spring Boot /
+                                        REST</span><span>85%</span></div>
+                                <div class="progress">
+                                    <div class="progress-bar" aria-valuenow="85" style="width:0%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between"><span>JSP / Servlets /
+                                        Tomcat</span><span>85%</span></div>
+                                <div class="progress">
+                                    <div class="progress-bar" aria-valuenow="85" style="width:0%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between"><span>Security (JWT,
+                                        OAuth2)</span><span>80%</span></div>
+                                <div class="progress">
+                                    <div class="progress-bar" aria-valuenow="80" style="width:0%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex justify-content-between"><span>MySQL /
+                                        PostgreSQL</span><span>90%</span></div>
+                                <div class="progress">
+                                    <div class="progress-bar" aria-valuenow="90" style="width:0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> <!-- PROJECTS -->
+        <section id="projects" class="section">
+            <div class="container container-narrow">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Projects</h2>
+                    <p>Representative work across web, Android, and IoT with clean repos and deployable artifacts.</p>
+                </div>
+                <div class="row g-3 portfolio">
+                    <div class="col-md-4" data-aos="flip-left">
+                        <div class="item">
+                            <img src="assets/img/portfolio/teaweb.jpg" alt="TeaWeb" />
+                            <div class="meta">
+                                <h5>TeaWeb</h5>
+                                <p>PHP + MySQL Admin CRUD</p>
+                                <div class="links">
+                                    <a href="assets/img/portfolio/teaweb.jpg" class="glightbox" data-gallery="p"><i
+                                            class="bi bi-zoom-in"></i></a>
+                                    <a href="https://github.com/Nadeesha-D-Shalom" target="_blank" rel="noopener"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
+                        <div class="item">
+                            <img src="assets/img/portfolio/rentc.jpg" alt="Vehicle Rental System" />
+                            <div class="meta">
+                                <h5>Vehicle Rental System</h5>
+                                <p>JSP/Servlets + Sessions + File I/O</p>
+                                <div class="links">
+                                    <a href="assets/img/portfolio/rentc.jpg" class="glightbox" data-gallery="p"><i
+                                            class="bi bi-zoom-in"></i></a>
+                                    <a href="https://github.com/Nadeesha-D-Shalom" target="_blank" rel="noopener"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
+                        <div class="item">
+                            <img src="assets/img/portfolio/tutor.jpg" alt="Tutor Booking" />
+                            <div class="meta">
+                                <h5>Tutor Booking</h5>
+                                <p>Spring Boot + Thymeleaf</p>
+                                <div class="links">
+                                    <a href="assets/img/portfolio/tutor.jpg" class="glightbox" data-gallery="p"><i
+                                            class="bi bi-zoom-in"></i></a>
+                                    <a href="https://github.com/Nadeesha-D-Shalom" target="_blank" rel="noopener"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpeg" alt="Portrait of Nadeesha D Shalom" class="img-fluid rounded-circle" />
-    </div>
+                    <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
+                        <div class="item">
+                            <img src="assets/img/portfolio/android-greenhouse.jpg" alt="Greenhouse App" />
+                            <div class="meta">
+                                <h5>Greenhouse App</h5>
+                                <p>Android + Retrofit + MySQL</p>
+                                <div class="links">
+                                    <a href="assets/img/portfolio/android-greenhouse.jpg" class="glightbox"
+                                        data-gallery="p"><i class="bi bi-zoom-in"></i></a>
+                                    <a href="https://github.com/Nadeesha-D-Shalom" target="_blank" rel="noopener"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <a href="#hero" class="logo d-flex align-items-center justify-content-center">
-      <h1 class="sitename">Nadeesha D Shalom</h1>
-    </a>
+                    <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
+                        <div class="item">
+                            <img src="assets/img/portfolio/casper50.jpg" alt="Casper50" />
+                            <div class="meta">
+                                <h5>Casper50 — Rescue Boat</h5>
+                                <p>ESP32 + LoRa + GPS</p>
+                                <div class="links">
+                                    <a href="assets/img/portfolio/casper50.jpg" class="glightbox" data-gallery="p"><i
+                                            class="bi bi-zoom-in"></i></a>
+                                    <a href="https://github.com/Nadeesha-D-Shalom" target="_blank" rel="noopener"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <div class="social-links text-center">
-      <a href="https://github.com/Nadeesha-D-Shalom" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
-      <a href="https://www.linkedin.com/in/nadeesha-shalom-a5a2a4251/" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-      <a href="https://www.instagram.com/nadeesha_d_shalom" class="instagram" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-      <a href="https://www.facebook.com/profile.php?id=100009164177872" class="facebook" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-    </div>
+                    <div class="col-md-4" data-aos="flip-left" data-aos-delay="300">
+                        <div class="item">
+                            <img src="assets/img/portfolio/autonet-fisher.jpg" alt="AutoNet Fisher" />
+                            <div class="meta">
+                                <h5>AutoNet Fisher</h5>
+                                <p>Autonomy • Sensors • ESP32</p>
+                                <div class="links">
+                                    <a href="assets/img/portfolio/autonet-fisher.jpg" class="glightbox"
+                                        data-gallery="p"><i class="bi bi-zoom-in"></i></a>
+                                    <a href="https://github.com/Nadeesha-D-Shalom" target="_blank" rel="noopener"><i
+                                            class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i>About</a></li>
-        <li><a href="#skills"><i class="bi bi-stars navicon"></i> Skills</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#projects"><i class="bi bi-briefcase navicon"></i> Projects</a></li>
-        <li><a href="#achievements"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="main">
-    <!-- Hero -->
-    <section id="hero" class="hero section dark-background">
-      <img src="assets/img/back.jpg" alt="Background" data-aos="fade-in" />
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2 class="mb-3">Nadeesha D Shalom</h2>
-        <p class="mb-4">I'm
-          <span class="typed" data-typed-items="Software Engineer (UG), Backend Developer, Android & IoT Enthusiast, Open‑Source Learner">Software Engineer (UG)</span>
-          <span class="typed-cursor" aria-hidden="true"></span>
-        </p>
-        <div class="cta-row d-flex gap-2 flex-wrap">
-          <a class="btn btn-light btn-sm" href="#projects"><i class="bi bi-rocket-takeoff me-1"></i>See Projects</a>
-          <a class="btn btn-outline-light btn-sm" href="assets/docs/Nadeesha_D_Shalom_CV.pdf" target="_blank"><i class="bi bi-file-earmark-arrow-down me-1"></i>Download CV</a>
-          <span class="badge-soft">Open to Internships — Backend / Full‑stack</span>
+                <div class="text-center mt-4"><a class="btn btn-outline" href="https://github.com/Nadeesha-D-Shalom"
+                        target="_blank"><i class="bi bi-github me-1"></i>More on GitHub</a></div>
+            </div>
+        </section> <!-- CONTACT -->
+        <section id="contact" class="section">
+            <div class="container container-narrow">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Contact</h2>
+                    <p>Open to internships, freelance, and collaborations.</p>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-5" data-aos="fade-right">
+                        <div class="cardX">
+                            <div class="d-flex align-items-center mb-3"><i
+                                    class="bi bi-geo-alt me-2"></i><strong>Address</strong></div>
+                            <div class="text-muted">884/1B, Debarawewa, Tissamaharama, LK</div>
+                            <hr />
+                            <div class="d-flex align-items-center mb-2"><i
+                                    class="bi bi-telephone me-2"></i><strong>Call</strong></div>
+                            <div class="text-muted">+94 70 732 8800</div>
+                            <hr />
+                            <div class="d-flex align-items-center mb-2"><i
+                                    class="bi bi-envelope me-2"></i><strong>Email</strong></div>
+                            <div class="text-muted">nadeeshashalom1@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="col-md-7" data-aos="fade-left">
+                        <div class="cardX"> <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31722.67349073256!2d81.2765271389601!3d6.277748179276395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae47c3b67fd79d9%3A0xb14ecf53b8a401de!2sDebarawewa!5e0!3m2!1sen!2slk!4v1710956632154!5m2!1sen!2slk"
+                                width="100%" height="320" style="border:0;border-radius:12px" allowfullscreen
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="text-center footer-glow">
+        <div class="container container-narrow">
+            <p class="mb-0">© <span id="year"></span> <span class="sitename">Nadeesha D Shalom</span> — All Rights
+                Reserved</p>
         </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="about section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>Undergraduate Software Engineering student at SLIIT with a builder mindset. I love shipping practical systems: Java + Spring Boot backends, JSP/Servlet apps on Tomcat, Android apps with Retrofit, and IoT prototypes on ESP32/LoRa/GPS. I also maintain clean GitHub repos and enjoy documenting work so others can follow along.</p>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/my-profile-img.jpeg" class="img-fluid" alt="Nadeesha portrait" />
-          </div>
-          <div class="col-lg-8 content">
-            <h2>Software Engineering Undergraduate</h2>
-            <p class="fst-italic py-3">Focused on backend engineering, file‑based systems, and IoT/embedded side projects. Strong on step‑by‑step debugging, version control, and tidy UI integrations.</p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i><strong> Email:</strong> <span>nadeeshashalom1@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i><strong> City:</strong> <span>Tissamaharama, Sri Lanka</span></li>
-                  <li><i class="bi bi-chevron-right"></i><strong> Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i><strong> Degree:</strong> <span>BSc (Hons) IT — Software Engineering (Reading)</span></li>
-                  <li><i class="bi bi-chevron-right"></i><strong> Focus:</strong> <span>Backend • Android • IoT • PHP‑MySQL</span></li>
-                  <li><i class="bi bi-chevron-right"></i><strong> GitHub:</strong> <span><a href="https://github.com/Nadeesha-D-Shalom" target="_blank">Nadeesha‑D‑Shalom</a></span></li>
-                </ul>
-              </div>
-            </div>
-            <p class="py-3">Currently polishing <em>TeaWeb</em> (PHP‑MySQL) product showcase, a JSP/Servlet‑based <em>Vehicle Rental System</em>, a <em>Tutor Booking</em> app with Spring Boot + Thymeleaf, and research‑grade IoT builds like <em>Casper50</em> (LoRa rescue boat) and <em>AutoNet Fisher</em> (autonomous fishing boat).</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="skills section light-background">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>Hands‑on across backend, Android, web, and embedded. I value correctness, clarity, and maintainability.</p>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row skills-content skills-animation">
-          <div class="col-lg-6">
-            <h4>Programming</h4>
-            <div class="progress"><span class="skill"><span>Java</span> <i class="val">95%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div></div></div>
-            <div class="progress"><span class="skill"><span>Python</span> <i class="val">85%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div></div></div>
-            <div class="progress"><span class="skill"><span>C / C++</span> <i class="val">80%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div></div></div>
-            <div class="progress"><span class="skill"><span>SQL</span> <i class="val">90%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div></div></div>
-
-            <h4 class="mt-4">Backend & APIs</h4>
-            <div class="progress"><span class="skill"><span>Spring Boot • REST</span> <i class="val">85%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="85"></div></div></div>
-            <div class="progress"><span class="skill"><span>JSP/Servlets • Tomcat</span> <i class="val">85%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="85"></div></div></div>
-            <div class="progress"><span class="skill"><span>Security (JWT, OAuth2, Keycloak)</span> <i class="val">80%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="80"></div></div></div>
-          </div>
-
-          <div class="col-lg-6">
-            <h4>Databases & Cloud</h4>
-            <div class="progress"><span class="skill"><span>MySQL</span> <i class="val">90%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="90"></div></div></div>
-            <div class="progress"><span class="skill"><span>PostgreSQL</span> <i class="val">85%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="85"></div></div></div>
-            <div class="progress"><span class="skill"><span>MongoDB</span> <i class="val">80%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="80"></div></div></div>
-            <div class="progress"><span class="skill"><span>AWS / Firebase</span> <i class="val">75%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="75"></div></div></div>
-
-            <h4 class="mt-4">Android & IoT</h4>
-            <div class="progress"><span class="skill"><span>Android (Java, Retrofit)</span> <i class="val">80%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="80"></div></div></div>
-            <div class="progress"><span class="skill"><span>ESP32 • LoRa • GPS</span> <i class="val">80%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="80"></div></div></div>
-            <div class="progress"><span class="skill"><span>Flutter</span> <i class="val">80%</i></span><div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" aria-valuenow="80"></div></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resume -->
-    <section id="resume" class="resume section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-        <p>Motivated problem‑solver with a track record of shipping working software and IoT prototypes. Strong collaborator, comfortable with Git and clean code practices.</p>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Summary</h3>
-            <div class="resume-item pb-0">
-              <h4>Nadeesha <b>Shalom</b></h4>
-              <p><em>Software Engineering undergraduate passionate about backend systems, Android apps, and embedded/IoT builds.</em></p>
-              <ul>
-                <li>884/1B, Debarawewa, Tissamaharama, LK</li>
-                <li>+94 70 732 8800</li>
-                <li>nadeeshashalom1@gmail.com</li>
-              </ul>
-            </div>
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>BSc (Hons) IT — Software Engineering</h4>
-              <h5>2024 — Present</h5>
-              <p><em>SLIIT, Malabe, Sri Lanka</em></p>
-              <p>Deepening knowledge in OOP, DSA, web engineering, DBMS, and software architecture while building real projects.</p>
-            </div>
-            <div class="resume-item">
-              <h4>Higher Diploma in Software Engineering</h4>
-              <h5>2019 — 2021</h5>
-              <p><em>PIBT, Colombo, Sri Lanka</em></p>
-              <p>Completed a comprehensive program in computing and software development.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Licenses & Certifications</h3>
-            <div class="resume-item">
-              <h4>EnglishScore (British Council)</h4>
-              <h5>2019</h5>
-              <p><em>British Council Teaching Centre — Matara</em></p>
-              <p>Developed listening, reading, speaking, and writing skills.</p>
-            </div>
-            <div class="resume-item">
-              <h4>The Complete Python Bootcamp: Zero to Hero</h4>
-              <h5>2024 — 2025</h5>
-              <ul>
-                <li>From fundamentals to OOP, files, and real‑world applications.</li>
-                <li>Built practice scripts and mini‑projects to automate tasks.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects (Portfolio) -->
-    <section id="projects" class="portfolio section light-background">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Projects</h2>
-        <p>Representative work across web, Android, and IoT. Many were built step‑by‑step with Git discipline and deployable artifacts.</p>
-      </div>
-
-      <div class="container">
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-web">Web</li>
-            <li data-filter=".filter-android">Android</li>
-            <li data-filter=".filter-iot">IoT</li>
-          </ul>
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-            <!-- TeaWeb -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/teaweb.jpg" class="img-fluid" alt="TeaWeb admin dashboard" />
-                <div class="portfolio-info">
-                  <h4>TeaWeb</h4>
-                  <p>PHP + MySQL product showcase with Admin dashboard</p>
-                  <div class="project-tags">
-                    <span class="badge bg-dark">PHP</span>
-                    <span class="badge bg-dark">MySQL</span>
-                    <span class="badge bg-dark">Admin CRUD</span>
-                  </div>
-                  <a href="assets/img/portfolio/teaweb.jpg" title="TeaWeb" data-gallery="portfolio-gallery-web" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="https://github.com/Nadeesha-D-Shalom" class="details-link" target="_blank" rel="noopener" title="Repository / details"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Vehicle Rental System (JSP/Servlet) -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/rentc.jpg" class="img-fluid" alt="Vehicle Rental System JSP/Servlet" />
-                <div class="portfolio-info">
-                  <h4>Vehicle Rental System</h4>
-                  <p>JSP/Servlets with file‑based storage, sessions, and admin dashboard</p>
-                  <div class="project-tags">
-                    <span class="badge bg-dark">JSP/Servlet</span>
-                    <span class="badge bg-dark">Tomcat</span>
-                    <span class="badge bg-dark">File I/O</span>
-                  </div>
-                  <a href="assets/img/portfolio/rentc.jpg" title="Vehicle Rental System" data-gallery="portfolio-gallery-web" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="https://github.com/Nadeesha-D-Shalom" class="details-link" target="_blank" rel="noopener" title="Repository / details"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tutor Booking (Spring Boot + Thymeleaf) -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/tutor.jpg" class="img-fluid" alt="Tutor Booking Spring Boot" />
-                <div class="portfolio-info">
-                  <h4>Tutor Booking</h4>
-                  <p>Spring Boot CRUD with Thymeleaf, sessions, and file‑based storage</p>
-                  <div class="project-tags">
-                    <span class="badge bg-dark">Spring Boot</span>
-                    <span class="badge bg-dark">Thymeleaf</span>
-                    <span class="badge bg-dark">Sessions</span>
-                  </div>
-                  <a href="assets/img/portfolio/tutor.jpg" title="Tutor Booking" data-gallery="portfolio-gallery-web" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="https://github.com/Nadeesha-D-Shalom" class="details-link" target="_blank" rel="noopener" title="Repository / details"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Android Soil Health / Greenhouse App -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-android">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/android-greenhouse.jpg" class="img-fluid" alt="Android Greenhouse App" />
-                <div class="portfolio-info">
-                  <h4>Greenhouse App</h4>
-                  <p>Android + Retrofit pulling real‑time sensor data from Java backend</p>
-                  <div class="project-tags">
-                    <span class="badge bg-dark">Android</span>
-                    <span class="badge bg-dark">Retrofit</span>
-                    <span class="badge bg-dark">MySQL</span>
-                  </div>
-                  <a href="assets/img/portfolio/android-greenhouse.jpg" title="Greenhouse App" data-gallery="portfolio-gallery-android" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="https://github.com/Nadeesha-D-Shalom" class="details-link" target="_blank" rel="noopener" title="Repository / details"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Casper50 Rescue Boat (LoRa + GPS) -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-iot">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/casper50.jpg" class="img-fluid" alt="Casper50 LoRa rescue boat" />
-                <div class="portfolio-info">
-                  <h4>Casper50 — Rescue Boat</h4>
-                  <p>ESP32 + LoRa + GPS distress alert system with timed telemetry</p>
-                  <div class="project-tags">
-                    <span class="badge bg-dark">ESP32</span>
-                    <span class="badge bg-dark">LoRa</span>
-                    <span class="badge bg-dark">GPS</span>
-                  </div>
-                  <a href="assets/img/portfolio/casper50.jpg" title="Casper50 Rescue Boat" data-gallery="portfolio-gallery-iot" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="https://github.com/Nadeesha-D-Shalom" class="details-link" target="_blank" rel="noopener" title="Repository / details"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- AutoNet Fisher (Autonomous fishing boat) -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-iot">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/autonet-fisher.jpg" class="img-fluid" alt="AutoNet Fisher autonomous boat" />
-                <div class="portfolio-info">
-                  <h4>AutoNet Fisher</h4>
-                  <p>AI‑assisted autonomous fishing boat — GPS/compass and route logic</p>
-                  <div class="project-tags">
-                    <span class="badge bg-dark">Autonomy</span>
-                    <span class="badge bg-dark">ESP32</span>
-                    <span class="badge bg-dark">Sensors</span>
-                  </div>
-                  <a href="assets/img/portfolio/autonet-fisher.jpg" title="AutoNet Fisher" data-gallery="portfolio-gallery-iot" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="https://github.com/Nadeesha-D-Shalom" class="details-link" target="_blank" rel="noopener" title="Repository / details"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-3" data-aos="fade-up" data-aos-delay="200">
-          <a class="btn btn-outline-dark btn-sm" href="https://github.com/Nadeesha-D-Shalom" target="_blank"><i class="bi bi-github me-1"></i>More on GitHub</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Achievements / Interests -->
-    <section id="achievements" class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Achievements & Interests</h2>
-        <p>Growing via competitions, coursework, and continuous learning.</p>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row g-3">
-          <div class="col-md-6">
-            <div class="p-3 border rounded-3 h-100">
-              <h5 class="mb-2"><i class="bi bi-award me-2"></i>Academic & Community</h5>
-              <ul class="mb-0">
-                <li>SLIIT — active in OOP, DSA, DBMS, and software engineering modules.</li>
-                <li>Batch/committee contributions and teamwork across multiple projects.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="p-3 border rounded-3 h-100">
-              <h5 class="mb-2"><i class="bi bi-mortarboard me-2"></i>Learning</h5>
-              <ul class="mb-0">
-                <li>Udemy coursework in Python and Java mastery; LinkedIn profile building.</li>
-                <li>Exploring reverse engineering and cybersecurity fundamentals.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="contact section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Open to internships, freelance, and collaboration. Let’s build something useful.</p>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4">
-          <div class="col-lg-5">
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>884/1B, Debarawewa, Tissamaharama, LK</p>
-                </div>
-              </div>
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call</h3>
-                  <p>+94 70 732 8800</p>
-                </div>
-              </div>
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email</h3>
-                  <p>nadeeshashalom1@gmail.com</p>
-                </div>
-              </div>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31722.67349073256!2d81.2765271389601!3d6.277748179276395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae47c3b67fd79d9%3A0xb14ecf53b8a401de!2sDebarawewa!5e0!3m2!1sen!2slk!4v1710956632154!5m2!1sen!2slk" frameborder="0" style="border:0; width:100%; height:270px;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer id="footer" class="footer position-relative light-background">
-    <div class="container">
-      <div class="copyright text-center">
-        <p>© <span id="year"></span> <strong class="px-1 sitename">Nadeesha D Shalom</strong> <span>All Rights Reserved</span></p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script>
-    // current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    </footer> <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script> /* ===== Sidebar toggle (mobile) ===== */ const menuToggle = document.getElementById('menuToggle'); const header = document.getElementById('header'); menuToggle.addEventListener('click', () => header.classList.toggle('header-show')); /* ===== Theme Toggle (Dark default) ===== */ const htmlEl = document.documentElement; const lightBtn = document.getElementById('lightBtn'); const darkBtn = document.getElementById('darkBtn'); const THEME_KEY = 'nds-theme'; function applyTheme(theme) { if (theme === 'light') { htmlEl.classList.add('light'); lightBtn.classList.add('active'); darkBtn.classList.remove('active'); } else { htmlEl.classList.remove('light'); darkBtn.classList.add('active'); lightBtn.classList.remove('active'); } localStorage.setItem(THEME_KEY, theme); } const stored = localStorage.getItem(THEME_KEY); applyTheme(stored ? stored : 'dark'); lightBtn.addEventListener('click', () => applyTheme('light')); darkBtn.addEventListener('click', () => applyTheme('dark')); /* ===== AOS ===== */ AOS.init({ duration: 1000, easing: 'ease-in-out', once: true, offset: 80 }); /* ===== Typed.js ===== */ new Typed('#typed', { strings: ['Software Engineer (UG)', 'Backend Developer', 'Android & IoT Enthusiast'], typeSpeed: 60, backSpeed: 35, backDelay: 1600, loop: true }); /* ===== GLightbox ===== */ GLightbox({ selector: '.glightbox' }); /* ===== Skills bar animate on reveal ===== */ function animateBars() { document.querySelectorAll('.progress-bar').forEach(bar => { const target = bar.getAttribute('aria-valuenow'); bar.style.width = target + '%'; }); } let skillsObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { animateBars(); skillsObserver.disconnect(); } }); }, { threshold: .3 }); const skillsSection = document.getElementById('skills'); if (skillsSection) { skillsObserver.observe(skillsSection); } /* ===== GSAP text reveal ===== */ gsap.registerPlugin(ScrollTrigger); document.querySelectorAll('.section-title h2').forEach(el => { gsap.from(el, { opacity: 0, y: 40, duration: 0.9, scrollTrigger: { trigger: el, start: 'top 85%' } }); }); /* ===== 3D Parallax (hero) ===== */ (function () { const wrap = document.getElementById('parallaxWrap'); if (!wrap) return; const layers = wrap.querySelectorAll('.hero-layer'); wrap.addEventListener('mousemove', (e) => { const rect = wrap.getBoundingClientRect(); const x = (e.clientX - rect.left) / rect.width - .5; const y = (e.clientY - rect.top) / rect.height - .5; layers.forEach(layer => { const depth = parseFloat(layer.getAttribute('data-depth')) || 1; const translateX = -x * depth * 12; const translateY = -y * depth * 12; layer.style.transform = `translate(${translateX}px, ${translateY}px)`; }); }); wrap.addEventListener('mouseleave', () => { layers.forEach(layer => layer.style.transform = 'translate(0,0)'); }); })(); /* ===== Active nav highlight on scroll ===== */ const links = document.querySelectorAll('.navmenu a'); function setActive() { const pos = window.scrollY + 140; links.forEach(a => { if (!a.hash) return; const sec = document.querySelector(a.hash); if (!sec) return; if (pos >= sec.offsetTop && pos <= sec.offsetTop + sec.offsetHeight) { links.forEach(l => l.classList.remove('active')); a.classList.add('active'); } }); } window.addEventListener('scroll', setActive); window.addEventListener('load', () => { document.getElementById('year').textContent = new Date().getFullYear(); setActive(); }); </script>
 </body>
+
 </html>
