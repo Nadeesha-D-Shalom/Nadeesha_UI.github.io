@@ -560,6 +560,61 @@
             font-size: 14px;
         }
 
+        .skill-category {
+            background: var(--panel);
+            border-radius: 20px;
+            padding: 26px 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            margin: 0 0 16px;
+            color: var(--text-dark);
+            font-family: Montserrat, sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .sub-skill {
+            margin-bottom: 12px;
+        }
+
+        .sub-skill span:first-child {
+            display: block;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .bar {
+            height: 10px;
+            background: #1e293b;
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar>span {
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            border-radius: inherit;
+            transition: width 1.2s ease;
+        }
+
+        .percent {
+            text-align: right;
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+
 
         /* Projects */
         .filters {
@@ -877,8 +932,9 @@
                             <div class="fact"><strong>Location:</strong><br />Tissamaharama, Sri Lanka</div>
                             <div class="fact"><strong>Email:</strong><br /><a
                                     href="mailto:nadeeshashalom1@gmail.com">nadeeshashalom1@gmail.com</a></div>
-                            <div class="fact"><strong>Languages:</strong><br />English, Sinhala</div>
-                            <div class="fact"><strong>Interests:</strong><br />System design, IoT, Mobile UX</div>
+                            <div class="fact"><strong>Languages:</strong><br />English, Sinhala, Russian</div>
+                            <div class="fact"><strong>Interests:</strong><br />System design, IoT, Mobile app develop
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -890,70 +946,115 @@
             <div class="container">
                 <h2 data-aos="fade-up">Skills</h2>
 
-                <div class="grid cols-3" style="margin-top:14px" data-aos="fade-up" data-aos-delay="80">
-
-                    <!-- Backend -->
-                    <div class="skill">
-                        <h4>Backend</h4>
-                        <div class="bar" role="progressbar" aria-valuenow="92">
-                            <span data-target="92"></span>
-                        </div>
-                        <div class="percent">92%</div>
-                        <small>Java, Spring Boot, REST, JWT</small>
+                <!-- BACKEND -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="50">
+                    <h3>Backend</h3>
+                    <div class="sub-skill"><span>Java</span>
+                        <div class="bar"><span data-target="90"></span></div>
+                        <div class="percent">90%</div>
                     </div>
-
-                    <!-- Frontend -->
-                    <div class="skill">
-                        <h4>Frontend</h4>
-                        <div class="bar" role="progressbar" aria-valuenow="85">
-                            <span data-target="85"></span>
-                        </div>
+                    <div class="sub-skill"><span>Spring Boot</span>
+                        <div class="bar"><span data-target="85"></span></div>
                         <div class="percent">85%</div>
-                        <small>HTML/CSS, JavaScript, React Basics</small>
                     </div>
-
-                    <!-- Mobile -->
-                    <div class="skill">
-                        <h4>Mobile</h4>
-                        <div class="bar" role="progressbar" aria-valuenow="80">
-                            <span data-target="80"></span>
-                        </div>
+                    <div class="sub-skill"><span>REST API</span>
+                        <div class="bar"><span data-target="80"></span></div>
                         <div class="percent">80%</div>
-                        <small>Android (Java), Retrofit</small>
                     </div>
-
-                    <!-- IoT -->
-                    <div class="skill">
-                        <h4>IoT</h4>
-                        <div class="bar" role="progressbar" aria-valuenow="88">
-                            <span data-target="88"></span>
-                        </div>
-                        <div class="percent">88%</div>
-                        <small>ESP32/ESP8266, Sensors, Arduino</small>
-                    </div>
-
-                    <!-- Tools & DevOps -->
-                    <div class="skill">
-                        <h4>Tools & DevOps</h4>
-                        <div class="bar" role="progressbar" aria-valuenow="78">
-                            <span data-target="78"></span>
-                        </div>
-                        <div class="percent">78%</div>
-                        <small>Git/GitHub, Postman, Tomcat</small>
-                    </div>
-
-                    <!-- Databases -->
-                    <div class="skill">
-                        <h4>Databases</h4>
-                        <div class="bar" role="progressbar" aria-valuenow="82">
-                            <span data-target="82"></span>
-                        </div>
-                        <div class="percent">82%</div>
-                        <small>MySQL, File-based storage</small>
+                    <div class="sub-skill"><span>JWT Authentication</span>
+                        <div class="bar"><span data-target="75"></span></div>
+                        <div class="percent">75%</div>
                     </div>
                 </div>
+
+                <!-- FRONTEND -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Frontend</h3>
+                    <div class="sub-skill"><span>HTML</span>
+                        <div class="bar"><span data-target="95"></span></div>
+                        <div class="percent">95%</div>
+                    </div>
+                    <div class="sub-skill"><span>CSS</span>
+                        <div class="bar"><span data-target="90"></span></div>
+                        <div class="percent">90%</div>
+                    </div>
+                    <div class="sub-skill"><span>JavaScript</span>
+                        <div class="bar"><span data-target="80"></span></div>
+                        <div class="percent">80%</div>
+                    </div>
+                    <div class="sub-skill"><span>React (Basics)</span>
+                        <div class="bar"><span data-target="70"></span></div>
+                        <div class="percent">70%</div>
+                    </div>
+                </div>
+
+                <!-- MOBILE -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="150">
+                    <h3>Mobile</h3>
+                    <div class="sub-skill"><span>Android (Java)</span>
+                        <div class="bar"><span data-target="85"></span></div>
+                        <div class="percent">85%</div>
+                    </div>
+                    <div class="sub-skill"><span>Retrofit</span>
+                        <div class="bar"><span data-target="75"></span></div>
+                        <div class="percent">75%</div>
+                    </div>
+                    <div class="sub-skill"><span>Jetpack Compose (UI)</span>
+                        <div class="bar"><span data-target="65"></span></div>
+                        <div class="percent">65%</div>
+                    </div>
+                </div>
+
+                <!-- IoT -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3>IoT</h3>
+                    <div class="sub-skill"><span>ESP32 / ESP8266</span>
+                        <div class="bar"><span data-target="90"></span></div>
+                        <div class="percent">90%</div>
+                    </div>
+                    <div class="sub-skill"><span>Arduino C++</span>
+                        <div class="bar"><span data-target="85"></span></div>
+                        <div class="percent">85%</div>
+                    </div>
+                    <div class="sub-skill"><span>Sensor Integration</span>
+                        <div class="bar"><span data-target="80"></span></div>
+                        <div class="percent">80%</div>
+                    </div>
+                </div>
+
+                <!-- Tools & DevOps -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="250">
+                    <h3>Tools & DevOps</h3>
+                    <div class="sub-skill"><span>Git / GitHub</span>
+                        <div class="bar"><span data-target="90"></span></div>
+                        <div class="percent">90%</div>
+                    </div>
+                    <div class="sub-skill"><span>Postman</span>
+                        <div class="bar"><span data-target="85"></span></div>
+                        <div class="percent">85%</div>
+                    </div>
+                    <div class="sub-skill"><span>Tomcat</span>
+                        <div class="bar"><span data-target="80"></span></div>
+                        <div class="percent">80%</div>
+                    </div>
+                </div>
+
+                <!-- DATABASES -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Databases</h3>
+                    <div class="sub-skill"><span>MySQL</span>
+                        <div class="bar"><span data-target="88"></span></div>
+                        <div class="percent">88%</div>
+                    </div>
+                    <div class="sub-skill"><span>File-based Storage</span>
+                        <div class="bar"><span data-target="80"></span></div>
+                        <div class="percent">80%</div>
+                    </div>
+                </div>
+
             </div>
         </section>
+
 
 
         <!-- PROJECTS -->
