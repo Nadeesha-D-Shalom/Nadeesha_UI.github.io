@@ -399,6 +399,34 @@
         }
 
 
+        .avatar {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+            filter: brightness(1.05);
+        }
+
+        .avatar:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 35px rgba(37, 99, 235, 0.4);
+        }
+
+
 
 
 
@@ -771,8 +799,8 @@
                 <div class="card connect-card" data-aos="fade-up">
                     <div class="connect-header">
                         <h3>Connect</h3>
-                        <img src="assets/img/portfolio/my-profile-img.jpeg" alt="Nadeesha D Shalom"
-                            class="connect-photo" />
+                        <img src="https://nadeesha-d-shalom.github.io/Nadeesha_UI.github.io/assets/img/my-profile-img.jpeg"
+                            alt="Nadeesha D Shalom" class="connect-photo" />
                     </div>
 
                     <div class="connect-grid">
@@ -806,7 +834,11 @@
             <div class="container">
                 <h2 data-aos="fade-up">About</h2>
                 <div class="about-wrap" data-aos="fade-up" data-aos-delay="80">
-                    <div class="avatar" role="img" aria-label="Profile image placeholder"></div>
+                    <div class="avatar" role="img" aria-label="Nadeesha D Shalom profile image">
+                        <img src="https://nadeesha-d-shalom.github.io/Nadeesha_UI.github.io/assets/img/my-profile-img.jpeg"
+                            alt="Nadeesha D Shalom" />
+                    </div>
+
                     <div>
                         <div class="card">
                             <p>I'm Nadeesha, a Software Engineering undergraduate from Sri Lanka focused on building
