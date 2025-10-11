@@ -368,6 +368,13 @@
         }
 
         /* About */
+        .about-wrap {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: clamp(20px, 3vw, 36px);
+            align-items: start
+        }
+
         .avatar {
             position: relative;
             width: 100%;
@@ -396,11 +403,16 @@
             box-shadow: 0 0 35px rgba(37, 99, 235, 0.4);
         }
 
-        /* Remove the overlay that was hiding the image */
+
         .avatar::after {
             content: none;
         }
 
+        .about-facts {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px
+        }
 
 
 
