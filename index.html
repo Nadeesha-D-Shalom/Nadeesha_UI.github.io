@@ -1,401 +1,191 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nadeesha D Shalom | Portfolio</title>
-  <meta name="description" content="Software Engineering Undergraduate specialized in Java, Spring Boot, Android, and IoT.">
-  <link rel="icon" href="assets/img/n.png" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b1220;
-      --text: #e7ebf0;
-      --muted: #a6b0c3;
-      --brand: #00e5ff;
-      --brand2: #7c3aed;
-      --card: rgba(255, 255, 255, 0.06);
-      --border: rgba(255, 255, 255, 0.12);
-      --toggle-bg: #101827;
-      --toggle-btn: #00e5ff;
-    }
-    :root.light {
-      --bg: #f7fafc;
-      --text: #0e1726;
-      --muted: #44506b;
-      --brand: #0ea5e9;
-      --brand2: #7c3aed;
-      --card: #fff;
-      --border: rgba(2, 6, 23, 0.08);
-      --toggle-bg: #e5e7eb;
-      --toggle-btn: #0ea5e9;
-    }
-    body {
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(124, 58, 237, .25), transparent 60%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(0, 229, 255, .18), transparent 50%),
-                  var(--bg);
-      color: var(--text);
-      font-family: "Inter", sans-serif;
-      margin: 0;
-      transition: background 0.5s, color 0.5s;
-    }
-
-    a { text-decoration: none; color: var(--brand); transition: 0.3s; }
-    a:hover { color: var(--brand2); }
-
-    /* Sidebar */
-    #header {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      width: 290px;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(12px);
-      border-right: 1px solid var(--border);
-      padding: 20px;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: left 0.4s ease;
-    }
-
-    .profile-img img {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      display: block;
-      margin: auto;
-      border: 5px solid rgba(255,255,255,0.15);
-    }
-
-    .sitename {
-      text-align: center;
-      font-weight: 800;
-      font-size: 20px;
-      margin-top: 10px;
-    }
-
-    .profile-info {
-      text-align: center;
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-
-    .social-links {
-      text-align: center;
-      margin: 10px 0;
-    }
-
-    .social-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      color: var(--text);
-      border: 1px solid var(--border);
-      margin: 3px;
-      transition: 0.3s;
-    }
-
-    .social-links a:hover {
-      background: var(--brand);
-      color: #081018;
-      transform: translateY(-2px);
-    }
-
-    .navmenu ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 0 0;
-    }
-
-    .navmenu a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-      border-radius: 10px;
-      color: var(--muted);
-      transition: 0.25s;
-    }
-
-    .navmenu a.active,
-    .navmenu a:hover {
-      background: rgba(255,255,255,0.08);
-      color: var(--brand);
-    }
-
-    /* Toggle */
-    .theme-toggle-bar {
-      margin-top: 15px;
-      background: var(--toggle-bg);
-      border-radius: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 4px 6px;
-      position: relative;
-      height: 44px;
-      cursor: pointer;
-      transition: background 0.4s;
-    }
-
-    .theme-toggle-slider {
-      position: absolute;
-      top: 3px;
-      bottom: 3px;
-      left: 3px;
-      width: calc(50% - 5px);
-      border-radius: 30px;
-      background: var(--toggle-btn);
-      transition: transform 0.4s, background 0.4s;
-    }
-
-    .theme-toggle-bar.light .theme-toggle-slider { transform: translateX(100%); }
-
-    .theme-toggle-bar span {
-      width: 50%;
-      text-align: center;
-      font-weight: 600;
-      font-size: 14px;
-      z-index: 2;
-      transition: color 0.4s;
-    }
-
-    .theme-toggle-bar.light .dark-label { color: var(--muted); }
-    .theme-toggle-bar:not(.light) .light-label { color: var(--muted); }
-
-    main { margin-left: 290px; transition: margin 0.4s ease; }
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      align-items: center;
-      padding: 80px 20px;
-    }
-
-    .hero-wrap {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 32px;
-    }
-
-    .hero-left {
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(800px 400px at 10% 10%, rgba(124,58,237,0.35), transparent 40%),
-                  radial-gradient(900px 500px at 90% 20%, rgba(0,229,255,0.25), transparent 45%);
-    }
-
-    .hero-photo {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-      width: 68%;
-      border-radius: 20px;
-      border: 6px solid rgba(255,255,255,0.12);
-    }
-
-    .hero-title {
-      font-size: 52px;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-
-    .hero-sub {
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    .btn-brand {
-      background: var(--brand);
-      color: #081018;
-      border: 0;
-      border-radius: 10px;
-      padding: 0.6rem 1rem;
-      transition: 0.3s;
-    }
-    .btn-brand:hover { background: var(--brand2); color: #fff; }
-
-    .section { padding: 80px 20px; }
-    .section-title h2 {
-      font-size: 34px;
-      font-weight: 800;
-      margin-bottom: 10px;
-      background: linear-gradient(90deg,var(--brand),var(--brand2));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .cardX {
-      padding: 22px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 0;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    @media(max-width: 992px) {
-      main { margin: 0; }
-      #header { left: -100%; }
-      .header-show { left: 0; }
-      .hero-wrap { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
-  <i class="bi bi-list header-toggle d-xl-none" id="menuToggle"></i>
-
-  <aside id="header">
-    <div>
-      <div class="profile-img"><img src="assets/img/my-profile-img.jpeg" alt="Profile"></div>
-      <h1 class="sitename">Nadeesha D Shalom</h1>
-      <div class="profile-info">
-        📧 nadeeshashalom1@gmail.com<br>
-        📱 +94 70 732 8800<br>
-        🇱🇰 Sri Lanka
-      </div>
-      <div class="social-links">
-        <a href="https://github.com/Nadeesha-D-Shalom"><i class="bi bi-github"></i></a>
-        <a href="https://www.linkedin.com/in/nadeesha-shalom-a5a2a4251/"><i class="bi bi-linkedin"></i></a>
-        <a href="https://www.instagram.com/nadeesha_d_shalom"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=100009164177872"><i class="bi bi-facebook"></i></a>
-      </div>
-      <nav class="navmenu">
-        <ul>
-          <li><a class="active" href="#hero"><i class="bi bi-house"></i>Home</a></li>
-          <li><a href="#about"><i class="bi bi-person"></i>About</a></li>
-          <li><a href="#skills"><i class="bi bi-stars"></i>Skills</a></li>
-          <li><a href="#projects"><i class="bi bi-briefcase"></i>Projects</a></li>
-          <li><a href="#contact"><i class="bi bi-envelope"></i>Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="theme-toggle-bar" id="themeToggle">
-      <div class="theme-toggle-slider"></div>
-      <span class="light-label"><i class="bi bi-sun"></i> Light</span>
-      <span class="dark-label"><i class="bi bi-moon-stars"></i> Dark</span>
-    </div>
-  </aside>
-
-  <main>
-    <section id="hero" class="hero">
-      <div class="hero-wrap">
-        <div class="hero-left cardX" id="parallaxWrap">
-          <div class="hero-bg"></div>
-          <img class="hero-photo" src="assets/img/my-profile-img.jpeg" alt="">
-        </div>
-        <div class="hero-right" data-aos="fade-up">
-          <div class="badge-soft mb-2">Open to Internships — Backend / Full-Stack</div>
-          <h1 class="hero-title">Hi, I’m Nadeesha</h1>
-          <p class="hero-sub">Software Engineering Undergraduate building real-world systems for Web, Android and IoT.</p>
-          <p><span id="typed"></span></p>
-          <a class="btn btn-brand mt-3" href="#projects"><i class="bi bi-rocket-takeoff me-1"></i>View Projects</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up"><h2>About</h2></div>
-        <div class="row g-3">
-          <div class="col-md-4"><div class="cardX"><strong>Contact</strong><br>Tissamaharama, Sri Lanka<br>+94 70 732 8800<br>nadeeshashalom1@gmail.com</div></div>
-          <div class="col-md-8"><div class="cardX"><strong>Focus</strong><br>Backend • Android • IoT • PHP-MySQL<br><br>Current builds: TeaWeb (PHP-MySQL), Vehicle Rental System (JSP/Servlets), Tutor Booking (Spring Boot + Thymeleaf), Casper50 (LoRa rescue boat), AutoNet Fisher (autonomous fishing boat).</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up"><h2>Skills</h2></div>
-        <div class="row g-3">
-          <div class="col-md-6"><div class="cardX">
-            <div>Java 95%</div><div class="progress"><div class="progress-bar" style="width:0%" aria-valuenow="95"></div></div>
-            <div class="mt-3">Python 85%</div><div class="progress"><div class="progress-bar" style="width:0%" aria-valuenow="85"></div></div>
-          </div></div>
-          <div class="col-md-6"><div class="cardX">
-            <div>Spring Boot 85%</div><div class="progress"><div class="progress-bar" style="width:0%" aria-valuenow="85"></div></div>
-            <div class="mt-3">MySQL 90%</div><div class="progress"><div class="progress-bar" style="width:0%" aria-valuenow="90"></div></div>
-          </div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up"><h2>Projects</h2></div>
-        <div class="row g-3 portfolio">
-          <div class="col-md-4" data-aos="flip-left"><div class="cardX">TeaWeb (PHP + MySQL)</div></div>
-          <div class="col-md-4" data-aos="flip-left"><div class="cardX">Vehicle Rental System (JSP/Servlets)</div></div>
-          <div class="col-md-4" data-aos="flip-left"><div class="cardX">Tutor Booking (Spring Boot + Thymeleaf)</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up"><h2>Contact</h2></div>
-        <div class="cardX text-center">Tissamaharama, Sri Lanka | +94 70 732 8800 | nadeeshashalom1@gmail.com</div>
-      </div>
-    </section>
-  </main>
-
-  <footer>© <span id="year"></span> Nadeesha D Shalom — All Rights Reserved</footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
-    new Typed('#typed', { strings: ['Software Engineer (UG)', 'Backend Developer', 'Android & IoT Enthusiast'], typeSpeed: 60, backSpeed: 30, loop: true });
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    /* Progress animation */
-    const bars = document.querySelectorAll('.progress-bar');
-    const io = new IntersectionObserver(e => {
-      e.forEach(x => {
-        if (x.isIntersecting) {
-          bars.forEach(b => { b.style.width = b.getAttribute('aria-valuenow') + '%'; });
-          io.disconnect();
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadeesha Shalom — Full-Stack Developer</title> <!-- Tailwind CSS + AOS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
         }
-      });
-    }, { threshold: .3 });
-    io.observe(document.getElementById('skills'));
 
-    /* Theme toggle */
-    const html = document.documentElement, toggle = document.getElementById('themeToggle');
-    function setTheme(t) {
-      if (t === 'light') { html.classList.add('light'); toggle.classList.add('light'); }
-      else { html.classList.remove('light'); toggle.classList.remove('light'); }
-      localStorage.setItem('theme', t);
-    }
-    setTheme(localStorage.getItem('theme') || 'dark');
-    toggle.onclick = () => { const newTheme = html.classList.contains('light') ? 'dark' : 'light'; setTheme(newTheme); };
+        /* hero particles */
+        #particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(74, 144, 226, 0.1), transparent 70%);
+            overflow: hidden;
+            z-index: 0;
+        }
 
-    /* Sidebar toggle (mobile) */
-    document.getElementById('menuToggle').onclick = () => document.getElementById('header').classList.toggle('header-show');
-  </script>
+        #particles span {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #4A90E2;
+            border-radius: 50%;
+            animation: float 12s linear infinite;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0.2;
+            }
+
+            to {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* scroll progress */
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0;
+            background: linear-gradient(90deg, #4A90E2, #F5A623);
+            z-index: 50;
+            transition: width 0.2s ease-out;
+        }
+
+        /* lotus pattern overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/lotus.png');
+            opacity: 0.03;
+            z-index: -1;
+        }
+
+        /* dark-mode transition */
+        .transition-bg {
+            transition: background-color 0.5s, color 0.5s;
+        }
+    </style>
+</head>
+
+<body
+    class="transition-bg bg-[#F5F5F5] text-[#1A1A1A] dark:bg-[#1A1A1A] dark:text-[#F5F5F5] font-[Inter,sans-serif] relative">
+    <!-- Progress Bar -->
+    <div id="progressBar"></div> <!-- Header -->
+    <header class="fixed top-0 w-full backdrop-blur bg-white/70 dark:bg-[#111]/70 shadow-md z-40">
+        <nav class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
+            <h1 class="text-2xl font-semibold">Nadeesha Shalom</h1>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#about" class="hover:text-[#4A90E2]">About</a></li>
+                <li><a href="#projects" class="hover:text-[#4A90E2]">Projects</a></li>
+                <li><a href="#contact" class="hover:text-[#4A90E2]">Contact</a></li>
+            </ul> <!-- Mode Toggle --> <button id="themeToggle" aria-label="Toggle Dark Mode"
+                class="w-10 h-10 rounded-full flex items-center justify-center border border-gray-400 dark:border-gray-600">
+                <svg id="sun" class="w-5 h-5 text-[#F5A623] hidden" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zM4.22 4.22a1 1 0 011.42 0L6.34 4.9a1 1 0 11-1.42 1.42L4.22 5.64a1 1 0 010-1.42zM2 10a1 1 0 011-1h1a1 1 0 110 2H3a1 1 0 01-1-1zm7 7a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm6.78-10.36a1 1 0 010 1.42l-.7.7a1 1 0 11-1.42-1.42l.7-.7a1 1 0 011.42 0zM17 9h1a1 1 0 110 2h-1a1 1 0 110-2z" />
+                </svg> <svg id="moon" class="w-5 h-5 text-[#4A90E2]" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707 8 8 0 1017.293 13.293z" />
+                </svg> </button>
+        </nav>
+    </header> <!-- Hero -->
+    <section id="hero" class="h-screen flex flex-col items-center justify-center text-center relative overflow-hidden">
+        <div id="particles"></div>
+        <div class="relative z-10" data-aos="fade-up"> <img src="https://via.placeholder.com/160" alt="Developer Photo"
+                class="rounded-full mx-auto mb-6 shadow-lg">
+            <h2 class="text-4xl md:text-5xl font-bold mb-3">Full-Stack Developer Crafting Innovative Solutions</h2>
+            <p class="text-lg mb-6 max-w-xl mx-auto">Passionate about turning ideas into scalable web applications from
+                the heart of Sri Lanka.</p> <a href="#projects"
+                class="bg-[#4A90E2] hover:bg-[#F5A623] text-white px-6 py-3 rounded-full font-medium transition transform hover:scale-105">View
+                My Work</a>
+        </div>
+    </section> <!-- About -->
+    <section id="about" class="max-w-6xl mx-auto py-20 px-6 grid md:grid-cols-2 gap-10 items-center">
+        <div data-aos="fade-right">
+            <h3 class="text-3xl font-semibold mb-4">About Me</h3>
+            <p class="leading-relaxed">Experienced developer with 5+ years in React, Node.js, and cloud services. Based
+                in Colombo, Sri Lanka, I specialize in building user-centric apps that drive impact. My focus is on
+                creating solutions that are scalable, accessible, and aesthetically refined — from concept to
+                deployment.</p>
+        </div>
+        <div class="flex flex-wrap gap-6 justify-center" data-aos="fade-left"> <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"
+                class="w-12 h-12"> <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"
+                class="w-12 h-12"> <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node"
+                class="w-12 h-12"> <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"
+                class="w-12 h-12"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg"
+                alt="AWS" class="w-12 h-12"> </div>
+    </section> <!-- Projects -->
+    <section id="projects" class="bg-[#fafafa] dark:bg-[#111] py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-3xl font-semibold mb-10 text-center" data-aos="fade-up">Featured Projects</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-[#1E1E1E] p-5 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition transform"
+                    data-aos="zoom-in"> <img src="https://via.placeholder.com/400x200" alt="Project 1"
+                        class="rounded-lg mb-4">
+                    <h4 class="text-xl font-semibold mb-2">E-Commerce Platform</h4>
+                    <p class="text-sm mb-4">Built a responsive online store using MERN stack with Stripe payments and
+                        optimized load times by 40%.</p>
+                    <div class="flex space-x-3"> <a href="#"
+                            class="px-4 py-2 bg-[#4A90E2] text-white rounded hover:bg-[#F5A623]">Live Demo</a> <a
+                            href="#"
+                            class="px-4 py-2 border border-[#4A90E2] rounded hover:bg-[#4A90E2] hover:text-white">GitHub</a>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-[#1E1E1E] p-5 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition transform"
+                    data-aos="zoom-in" data-aos-delay="100"> <img src="https://via.placeholder.com/400x200"
+                        alt="Project 2" class="rounded-lg mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Portfolio Website</h4>
+                    <p class="text-sm mb-4">Personal portfolio built with React and Tailwind to showcase projects and
+                        skills with smooth animations.</p>
+                    <div class="flex space-x-3"> <a href="#"
+                            class="px-4 py-2 bg-[#4A90E2] text-white rounded hover:bg-[#F5A623]">Live Demo</a> <a
+                            href="#"
+                            class="px-4 py-2 border border-[#4A90E2] rounded hover:bg-[#4A90E2] hover:text-white">GitHub</a>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-[#1E1E1E] p-5 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition transform"
+                    data-aos="zoom-in" data-aos-delay="200"> <img src="https://via.placeholder.com/400x200"
+                        alt="Project 3" class="rounded-lg mb-4">
+                    <h4 class="text-xl font-semibold mb-2">IoT Monitoring System</h4>
+                    <p class="text-sm mb-4">Real-time data visualization for IoT sensors using Node.js and WebSockets
+                        with secure API integration.</p>
+                    <div class="flex space-x-3"> <a href="#"
+                            class="px-4 py-2 bg-[#4A90E2] text-white rounded hover:bg-[#F5A623]">Live Demo</a> <a
+                            href="#"
+                            class="px-4 py-2 border border-[#4A90E2] rounded hover:bg-[#4A90E2] hover:text-white">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Contact / Sidebar -->
+    <aside id="contact"
+        class="fixed right-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-l from-[#4A90E2]/90 to-[#F5A623]/80 text-white py-6 px-4 rounded-l-xl shadow-lg hidden lg:block"
+        data-aos="fade-left">
+        <div class="space-y-4 text-sm"> <a href="tel:+94770000000" class="block hover:underline">📞 +94 770 000 000</a>
+            <a href="mailto:nadeesha@example.com" class="block hover:underline">📧 nadeesha@example.com</a>
+            <p>📍 Colombo, Sri Lanka</p>
+        </div>
+    </aside> <!-- Footer -->
+    <footer class="text-center py-6 border-t border-gray-300 dark:border-gray-700">
+        <p>© 2025 Nadeesha Shalom. All rights reserved.</p>
+        <div class="flex justify-center mt-3 space-x-6"> <a href="https://linkedin.com" aria-label="LinkedIn"
+                class="hover:text-[#4A90E2]">LinkedIn</a> <a href="https://github.com/Nadeesha-D-Shalom"
+                aria-label="GitHub" class="hover:text-[#F5A623]">GitHub</a> </div>
+    </footer> <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script> AOS.init({ duration: 800, once: true }); /* scroll progress */ window.addEventListener('scroll', () => { const progress = document.getElementById('progressBar'); const scrollTop = window.scrollY; const height = document.body.scrollHeight - window.innerHeight; progress.style.width = (scrollTop / height) * 100 + '%'; }); /* dark/light mode */ const toggle = document.getElementById('themeToggle'); const sun = document.getElementById('sun'); const moon = document.getElementById('moon'); if (localStorage.theme === 'dark') { document.documentElement.classList.add('dark'); sun.classList.remove('hidden'); moon.classList.add('hidden'); } toggle.onclick = () => { document.documentElement.classList.toggle('dark'); const isDark = document.documentElement.classList.contains('dark'); sun.classList.toggle('hidden', !isDark); moon.classList.toggle('hidden', isDark); localStorage.theme = isDark ? 'dark' : 'light'; }; /* floating particles */ const container = document.getElementById('particles'); for (let i = 0; i < 25; i++) { const s = document.createElement('span'); s.style.left = Math.random() * 100 + '%'; s.style.animationDelay = Math.random() * 12 + 's'; container.appendChild(s); } </script>
 </body>
+
 </html>
