@@ -370,14 +370,17 @@
         /* About */
         .about-wrap {
             display: grid;
-            grid-template-columns: .9fr 1.1fr;
-            gap: clamp(20px, 3vw, 36px);
-            align-items: start
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: clamp(24px, 3vw, 36px);
+            align-items: start;
         }
 
+        /* Limit image width for balance */
         .avatar {
             position: relative;
             width: 100%;
+            max-width: 380px;
+            /* prevents image from becoming too large */
             aspect-ratio: 1 / 1;
             border-radius: 20px;
             background: linear-gradient(135deg, #2563eb, #10b981);
@@ -403,16 +406,24 @@
             box-shadow: 0 0 35px rgba(37, 99, 235, 0.4);
         }
 
+        /* Make layout responsive */
+        @media (max-width: 900px) {
+            .about-wrap {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
 
-        .avatar::after {
-            content: none;
+            .avatar {
+                max-width: 300px;
+                margin-bottom: 20px;
+            }
+
+            .about-facts {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .about-facts {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px
-        }
 
 
 
