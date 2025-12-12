@@ -513,6 +513,65 @@
       color: var(--accent);
     }
 
+    /* ===== Clients Marquee ===== */
+.clients-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.clients-track {
+  display: flex;
+  gap: 60px;
+  width: max-content;
+  animation: marqueeMove 22s linear infinite;
+}
+
+.client-card {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 28px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.55);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.client-card img {
+  max-height: 56px;
+  width: auto;
+  object-fituration: contain;
+  filter: brightness(1.05);
+}
+
+.client-card:hover {
+  transform: translateY(-4px) scale(1.04);
+  border-color: rgba(13, 202, 240, 0.35);
+  box-shadow:
+    0 0 0 8px rgba(13, 202, 240, 0.06),
+    0 24px 60px rgba(0, 0, 0, 0.65);
+}
+
+/* Pause animation on hover */
+.clients-marquee:hover .clients-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
     /* Contact (no form) */
     .contact-line{
       display:flex;
@@ -1327,6 +1386,54 @@
         </div>
       </section>
 
+      <!-- MY CLIENTS -->
+<section id="clients">
+  <div class="section-head">
+    <div>
+      <h2 class="section-title" data-aos="fade-up">My Clients</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="50">
+        Trusted collaborations and real-world partnerships
+      </p>
+    </div>
+  </div>
+
+  <div class="glass p-4 overflow-hidden" data-aos="fade-up" data-aos-delay="90">
+    <div class="clients-marquee">
+      <div class="clients-track">
+
+        <!-- Client Item -->
+        <a
+          href="https://ceymoslanka.com"
+          target="_blank"
+          rel="noopener"
+          class="client-card"
+        >
+          <img
+            src="assets/img/clients/ceymosLogo.png"
+            alt="Ceymos Lanka"
+          />
+        </a>
+
+        <!-- Duplicate for seamless loop -->
+        <a
+          href="https://ceymoslanka.com"
+          target="_blank"
+          rel="noopener"
+          class="client-card"
+        >
+          <img
+            src="assets/img/clients/ceymosLogo.png"
+            alt="Ceymos Lanka"
+          />
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
       <!-- CONTACT (NO FORM) -->
       <section id="contact">
         <div class="section-head">
@@ -1360,8 +1467,8 @@
             <div class="glass p-4">
               <div style="font-weight:800;font-size:16px;">Availability</div>
               <div class="muted mt-2" style="line-height:1.8;font-size:13px;">
-                Open to internships, junior roles, and freelance projects in full-stack development (Spring Boot / React),
-                as well as applied AI/ML and IoT prototypes.
+                Freelance projects in full-stack development (Spring Boot / React),
+                as well as applied AI/ML.
               </div>
               <div class="mt-3 d-flex flex-wrap gap-2">
                 <a class="btn btn-sm btn-outline-info" target="_blank" rel="noopener" href="https://www.linkedin.com/in/nadeesha-shalom-a5a2a4251">
@@ -1493,6 +1600,19 @@
           a: rand(0.45, 0.90)
         });
       }
+
+
+      (function () {
+  const track = document.querySelector(".clients-track");
+  if (!track) return;
+
+  const items = track.children.length;
+  if (items < 2) {
+    track.style.animationDuration = "14s";
+  }
+})();
+
+      
 
       function step(){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
