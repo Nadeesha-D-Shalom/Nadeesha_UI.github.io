@@ -3,400 +3,586 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nadeesha D Shalom – Software Engineering Undergraduate & Full-Stack Developer from Sri Lanka | Java Spring Boot, React.js, AI/ML, IoT">
-    <title>Nadeesha D Shalom | Portfolio</title>
+    <meta name="description" content="Personal portfolio of Nadeesha D Shalom, Software Engineering undergraduate and Full-Stack Developer specializing in Java Spring Boot, React.js, AI/ML, and IoT projects.">
+    <meta name="keywords" content="Nadeesha D Shalom, Software Engineer, Full-Stack Developer, AI/ML, IoT, Portfolio">
+    <title>Nadeesha D Shalom - Portfolio</title>
     <link rel="icon" href="assets/img/n.png" type="image/png">
-
-    <!-- Fonts & Icons -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-
-    <!-- Bootstrap 5 + AOS + Typed.js -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --bg: #f8fbff;
-            --text: #222;
-            --accent: #0dcaf0;
-            --accent-dark: #0056b3;
-        }
+        /* Custom CSS - main.css content embedded here */
         body {
             font-family: 'Poppins', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            scroll-behavior: smooth;
+            background-color: #f8f9fa; /* off-white/light gray */
+            color: #333;
+            overflow-x: hidden;
         }
-        a { text-decoration: none; }
-
-        /* Sidebar */
+        a {
+            text-decoration: none;
+        }
         .sidebar {
             position: fixed;
-            top: 0; left: 0;
-            width: 260px;
+            top: 0;
+            left: 0;
+            width: 300px;
             height: 100vh;
-            background: #fff;
-            box-shadow: 4px 0 15px rgba(0,0,0,0.08);
+            background-color: #ffffff;
             padding: 40px 20px;
-            text-align: center;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
             z-index: 1000;
+            transition: all 0.3s ease;
         }
         .sidebar .profile-img {
-            width: 160px;
-            height: 160px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 5px solid var(--accent);
-            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            filter: brightness(0.8); /* a bit dark profile */
         }
         .sidebar h1 {
-            font-size: 1.9rem;
+            font-size: 24px;
             font-weight: 700;
-            margin: 15px 0 10px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .sidebar .social-icons {
+            text-align: center;
+            margin-bottom: 30px;
         }
         .sidebar .social-icons a {
-            font-size: 1.6rem;
-            margin: 0 12px;
-            color: #444;
-            transition: color .3s;
+            margin: 0 10px;
+            color: #0056b3; /* deep blue accent */
+            font-size: 20px;
+            transition: color 0.3s;
         }
-        .sidebar .social-icons a:hover { color: var(--accent); }
+        .sidebar .social-icons a:hover {
+            color: #0dcaf0; /* teal accent */
+        }
         .sidebar .nav-menu {
-            margin-top: 40px;
             list-style: none;
             padding: 0;
         }
+        .sidebar .nav-menu li {
+            margin-bottom: 15px;
+        }
         .sidebar .nav-menu a {
-            display: block;
-            padding: 12px;
-            color: #444;
-            font-weight: 500;
-            border-radius: 8px;
-            transition: all .3s;
+            color: #333;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
         }
         .sidebar .nav-menu a:hover {
-            background: var(--accent);
-            color: white;
+            background-color: #0dcaf0;
+            color: #fff;
         }
-
-        .main-content { margin-left: 260px; }
-
-        /* Hero */
+        .sidebar .nav-menu i {
+            margin-right: 10px;
+        }
+        .main-content {
+            margin-left: 300px;
+            padding: 40px;
+        }
         .hero {
+            background: url('assets/img/1111.jpg') no-repeat center center/cover;
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0.6)), url('assets/img/1111.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
+            color: #fff;
+            position: relative;
         }
-        .hero h1 { font-size: 3.5rem; font-weight: 700; }
-        .typed-text { font-size: 1.7rem; min-height: 50px; }
-        .btn-download {
-            background: var(--accent);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero .content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .hero .typed {
+            font-size: 24px;
+            font-weight: 400;
+            min-height: 30px;
+        }
+        .hero .btn-download {
+            margin-top: 30px;
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .hero .btn-download:hover {
+            background-color: #0dcaf0;
+        }
+        .section {
+            padding: 60px 0;
+        }
+        .section h3 {
+            font-size: 32px;
             font-weight: 600;
-            margin-top: 20px;
-            transition: .4s;
+            margin-bottom: 30px;
+            color: #0056b3;
         }
-        .btn-download:hover {
-            background: var(--accent-dark);
-            transform: translateY(-3px);
+        .about p {
+            font-size: 16px;
+            line-height: 1.6;
         }
-
-        /* Sections */
-        .section { padding: 100px 0; }
-        .section h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            font-weight: 600;
-            color: var(--accent-dark);
-            margin-bottom: 60px;
+        .skills .progress {
+            height: 10px;
+            margin-bottom: 20px;
         }
-
-        /* Skills */
-        .progress { height: 12px; border-radius: 10px; margin-bottom: 20px; }
-        .progress-bar { background: var(--accent); }
-
-        /* Timeline (Education & Experience) */
-        .timeline {
+        .skills .progress-bar {
+            background-color: #0dcaf0;
+        }
+        .resume .timeline {
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
         }
-        .timeline::after {
+        .resume .timeline::after {
             content: '';
             position: absolute;
             width: 6px;
-            background: var(--accent);
-            top: 0; bottom: 0; left: 50%;
+            background-color: #ddd;
+            top: 0;
+            bottom: 0;
+            left: 50%;
             margin-left: -3px;
         }
-        .timeline .container {
+        .resume .container {
             padding: 10px 40px;
             position: relative;
+            background-color: inherit;
             width: 50%;
         }
-        .timeline .container::after {
+        .resume .container::after {
             content: '';
             position: absolute;
-            width: 25px; height: 25px;
-            background: white;
-            border: 4px solid var(--accent);
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #0dcaf0;
             top: 15px;
             border-radius: 50%;
             z-index: 1;
         }
-        .timeline .left { left: 0; }
-        .timeline .right { left: 50%; }
-        .timeline .right::after { left: -16px; }
-        .timeline .content {
-            padding: 20px 30px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        .resume .left {
+            left: 0;
         }
-
-        /* Portfolio Cards */
+        .resume .right {
+            left: 50%;
+        }
+        .resume .right::after {
+            left: -16px;
+        }
+        .resume .content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .resume .accordion-button {
+            font-weight: 500;
+        }
         .portfolio .card {
             border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all .4s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .portfolio .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(13,202,240,0.2);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
         }
-
-        /* Snowflakes (December only) */
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Snow effect */
         .snowflake {
-            position: fixed;
-            top: -10px;
             color: #fff;
-            font-size: 1.2em;
-            pointer-events: none;
+            font-size: 1em;
+            position: absolute;
+            top: -50px;
             animation: fall linear infinite;
-            z-index: 9999;
         }
         @keyframes fall {
-            to { transform: translateY(100vh); }
+            to {
+                transform: translateY(105vh);
+            }
         }
-
-        /* Responsive */
+        /* Hamburger for mobile */
         @media (max-width: 992px) {
             .sidebar {
                 width: 100%;
                 height: auto;
                 position: relative;
-                padding: 20px;
+                box-shadow: none;
             }
-            .main-content { margin-left: 0; }
-            .timeline::after { left: 31px; }
-            .timeline .container { width: 100%; padding-left: 70px; padding-right: 25px; }
-            .timeline .container::after { left: 15px; }
-            .timeline .right { left: 0%; }
+            .main-content {
+                margin-left: 0;
+            }
+            .nav-menu {
+                display: none;
+            }
+            /* Add hamburger logic in JS */
+        }
+        /* Card hover effects */
+        .card-hover:hover {
+            box-shadow: 0 4px 8px rgba(0, 86, 179, 0.3);
+            transform: translateY(-5px);
+        }
+        /* Subtle gradients */
+        .section {
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
         }
     </style>
 </head>
 <body>
 
-    <!-- Snow Effect (Dec 1 – Dec31 every year) -->
-    <script>
-        const today = new Date();
-        if (today.getMonth() === 11) { // December = month 11
-            setInterval(() => {
-                const snow = document.createElement('div');
-                snow.classList.add('snowflake');
-                snow.innerText = ['*', '❅', '❆'][Math.floor(Math.random()*3)];
-                snow.style.left = Math.random() * 100 + 'vw';
-                snow.style.animationDuration = Math.random() * 20 + 25 + 's';
-                snow.style.opacity = Math.random() * 0.6 + 0.3;
-                snow.style.fontSize = Math.random() * 10 + 12 + 'px';
-                document.body.appendChild(snow);
-                setTimeout(() => snow.remove(), 45000);
-            }, 600);
-        }
-    </script>
-
     <!-- Sidebar -->
     <div class="sidebar">
-        <img src="assets/img/my-profile-img.jpeg" alt="Nadeesha D Shalom" class="profile-img">
+        <img src="assets/img/my-profile-img.jpeg" alt="Profile" class="profile-img">
         <h1>Nadeesha D Shalom</h1>
         <div class="social-icons">
-            <a href="https://facebook.com/profile.php?id=100009164177872" target="_blank"><i class="bi bi-facebook"></i></a>
-            <a href="https://instagram.com/nadeesha_d_shalom" target="_blank"><i class="bi bi-instagram"></i></a>
-            <a href="https://linkedin.com/in/nadeesha-shalom-a5a2a4251" target="_blank"><i class="bi bi-linkedin"></i></a>
-            <a href="https://github.com/Nadeesha-D-Shalom" target="_blank"><i class="bi bi-github"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100009164177872" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/nadeesha_d_shalom" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/nadeesha-shalom-a5a2a4251" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Nadeesha-D-Shalom" target="_blank"><i class="fab fa-github"></i></a>
         </div>
         <ul class="nav-menu">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#skills"><i class="fas fa-tools"></i> Skills</a></li>
+            <li><a href="#resume"><i class="fas fa-file-alt"></i> Resume</a></li>
+            <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+            <li><a href="#research"><i class="fas fa-search"></i> Research Interests</a></li>
+            <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
     </div>
 
+    <!-- Main Content -->
     <div class="main-content">
 
-        <!-- Hero -->
+        <!-- Hero Section -->
         <section id="hero" class="hero">
-            <div>
-                <h1>Nadeesha D Shalom</h1>
-                <div class="typed-text"></div>
-                <a href="assets/pdf/NadeeshaShalom_Resume.pdf" download class="btn-download">Download Resume</a>
+            <div class="content">
+                <h2>Nadeesha D Shalom</h2>
+                <div class="typed"></div>
+                <a href="assets/pdf/NadeeshaShalom_Resume.pdf" class="btn-download" download>Download Resume</a>
             </div>
         </section>
 
-        <!-- About -->
+        <!-- About Section -->
         <section id="about" class="section" data-aos="fade-up">
             <div class="container">
-                <h2>About Me</h2>
-                <p class="lead text-center mx-auto" style="max-width:900px;">
-                    I'm a passionate Software Engineering undergraduate at SLIIT, Sri Lanka, and a Full-Stack Developer specializing in Java Spring Boot, React.js, AI/ML, and IoT solutions. I love turning ideas into real-world applications that solve everyday problems — especially in agriculture, healthcare, and automation. Always learning, always building.
-                </p>
+                <h3>About Me</h3>
+                <p>I am Nadeesha D Shalom, a passionate Software Engineering undergraduate at the Sri Lanka Institute of Information Technology (SLIIT). As a Full-Stack Developer from Sri Lanka, I specialize in Java Spring Boot, React.js, AI/ML, and IoT projects. With a strong foundation in software development, I am dedicated to creating innovative solutions that address real-world challenges. My journey in technology has been marked by continuous learning and hands-on experience through various projects and certifications. I am eager to contribute to dynamic teams and explore opportunities in tech jobs and freelance work for 2025–2026.</p>
             </div>
         </section>
 
-        <!-- Skills -->
-        <section id="skills" class="section bg-light" data-aos="fade-up">
+        <!-- Skills Section -->
+        <section id="skills" class="section" data-aos="fade-up">
             <div class="container">
-                <h2>Skills</h2>
+                <h3>Skills</h3>
                 <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <h5>Programming Languages</h5>
-                        <div class="progress mb-3"><div class="progress-bar" style="width:92%">Java</div></div>
-                        <div class="progress mb-3"><div class="progress-bar" style="width:88%">Python</div></div>
-                        <div class="progress mb-3"><div class="progress-bar" style="width:85%">JavaScript / React.js</div></div>
-
-                        <h5 class="mt-5">Frameworks & Tools</h5>
-                        <div class="progress mb-3"><div class="progress-bar" style="width:87%">Spring Boot</div></div>
-                        <div class="progress mb-3"><div class="progress-bar" style="width:85%">Git & GitHub</div></div>
-                        <div class="progress mb-3"><div class="progress-bar" style="width:80%">MySQL / DBMS</div></div>
-
-                        <h5 class="mt-5">Concepts & Methodologies</h5>
-                        <div class="progress mb-3"><div class="progress-bar" style="width:90%">OOP & Design Patterns</div></div>
-                        <div class="progress mb-3"><div class="progress-bar" style="width:88%">SDLC • Agile • Scrum</div></div>
-                        <div class="progress mb-3"><div class="progress-bar" style="width:82%">Data Structures & Algorithms</div></div>
-                        <div class="progress mb-3"><div class="progress-bar" style="width:78%">AI / Machine Learning</div></div>
-                        <div class="progress mb-3"><div class="progress-bar" style="width:75%">IoT & Embedded Systems</div></div>
+                    <div class="col-md-6">
+                        <h4>Programming Languages</h4>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%">Java - 90%</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 85%">Python - 85%</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%">JavaScript/React.js - 80%</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Frameworks & Tools</h4>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 85%">Spring Boot - 85%</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%">Git & GitHub - 80%</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 75%">MySQL/DBMS - 75%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <h4>Methodologies & Concepts</h4>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%">OOP - 90%</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 85%">SDLC/Agile/Scrum - 85%</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%">Data Structures & Algorithms - 80%</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Specializations</h4>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%">AI/ML - 80%</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 75%">IoT - 75%</div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%">Problem Solving/Analytical Thinking - 70%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h4>Other Skills</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Software Development Life Cycle (SDLC)</li>
+                            <li><i class="fas fa-check"></i> Code Reusability and Maintainability</li>
+                            <li><i class="fas fa-check"></i> SOLID Principles</li>
+                            <li><i class="fas fa-check"></i> Interfaces (Java)</li>
+                            <li><i class="fas fa-check"></i> Abstraction (OOP)</li>
+                            <li><i class="fas fa-check"></i> Object-Oriented Analysis and Design (OOAD)</li>
+                            <li><i class="fas fa-check"></i> UML Diagrams</li>
+                            <li><i class="fas fa-check"></i> Python GUI</li>
+                            <li><i class="fas fa-check"></i> Databases · Database Management System (DBMS)</li>
+                            <li><i class="fas fa-check"></i> English Language Skills</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Resume / Education + Certifications -->
+        <!-- Resume Section -->
         <section id="resume" class="section" data-aos="fade-up">
             <div class="container">
-                <h2>Resume</h2>
-
-                <h4 class="text-center mb-5">Education</h4>
+                <h3>Resume</h3>
                 <div class="timeline">
-
+                    <!-- Education as one main bar, then degrees and certificates -->
                     <div class="container left">
                         <div class="content">
-                            <h5>B.Sc (Hons) Software Engineering</h5>
-                            <p><strong>Sri Lanka Institute of Information Technology (SLIIT)</strong><br>Feb 2024 – Present (Exp. 2028)</p>
-                            <small>Relevant Coursework: DSA • OOP • Databases • ML • IoT • Web Dev • Networks</small>
+                            <h4>Education</h4>
+                            <p><strong>Bachelor of Science (Hons) in Software Engineering</strong><br>
+                            Sri Lanka Institute of Information Technology (SLIIT), Malabe, Sri Lanka<br>
+                            February 2024 – Present (Expected Graduation: 2028)<br>
+                            Relevant Coursework: Data Structures & Algorithms • Object-Oriented Programming • Database Systems • Software Engineering Principles • Computer Networks • Web Application Development • Machine Learning Fundamentals • Embedded Systems & IoT • Operating Systems.</p>
+                            <p><strong>Higher Diploma in Software Engineering</strong><br>
+                            Pioneer Institute of Business And Technology, Sri Lanka<br>
+                            2019 - 2021<br>
+                            Higher Diploma in Computing & Software Development.</p>
+                            <p><strong>High School, O/L and G.C.E. Advanced Level Commerce</strong><br>
+                            Debarawewa National College, Debarawewa, Sri Lanka<br>
+                            2013 - 2021<br>
+                            G.C.E. Advanced Level in Commerce (Accounting, Business Studies, Information Communication Technology). Member of the prefect board (2015-2018), deputy head prefect in 2018, participated in extracurricular activities.</p>
+                            <p><strong>English Language and Literature/Letters</strong><br>
+                            EnglishScore / British Council<br>
+                            January 2019 - April 2019<br>
+                            Developed listening, reading, participation, speaking, and writing skills.</p>
                         </div>
                     </div>
-
+                    <!-- Certifications -->
                     <div class="container right">
                         <div class="content">
-                            <h5>Associate of Computer Engineering</h5>
-                            <p><strong>Pioneer Institute of Business and Technology (PIBT)</strong><br>2020 – 2022</p>
+                            <h4>Certifications</h4>
+                            <div class="accordion" id="certAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cert1">Programming in Python - Python for Beginners</button></h2>
+                                    <div id="cert1" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Issuer: University of Moratuwa<br>Issued: Dec 2025<br>Credential ID: UvAfOj3HMJ<br>Skills: Python (Programming Language) · Software Development Life Cycle (SDLC) · Code Reusability and Maintainability<br>
+                                            <a href="assets/pdf/Python_for_Beginners_E-Certificate.pdf" target="_blank">View PDF</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cert2">SDLC - Software Development Life Cycle</button></h2>
+                                    <div id="cert2" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Issuer: Udemy<br>Issued: Sep 2025<br>Credential ID: UC-558c67b8-da03-4328-b3a5-0871aeeb5e1f<br>Skills: Software Development Life Cycle (SDLC) · Agile Methodologies · Scrum<br>
+                                            <a href="https://www.udemy.com/certificate/UC-558c67b8-da03-4328-b3a5-0871aeeb5e1f/" target="_blank">Show Credential</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cert3">Software Engineer Intern Certificate</button></h2>
+                                    <div id="cert3" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Issuer: HackerRank<br>Issued: Sep 2025<br>Credential ID: 30857E8AO31F<br>
+                                            <a href="assets/pdf/software_engineer_intern certificate.pdf" target="_blank">View PDF</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cert4">Git & GitHub Masterclass: The Practical Bootcamp</button></h2>
+                                    <div id="cert4" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Issuer: Udemy<br>Issued: Jul 2025<br>Credential ID: UC-3f1d6dcc-d9d3-48a0-b421-ebcaef0dd41d<br>Skills: GitHub · Git BASH<br>
+                                            <a href="https://www.udemy.com/certificate/UC-3f1d6dcc-d9d3-48a0-b421-ebcaef0dd41d/" target="_blank">Show Credential</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cert5">MySQL For Beginners: Real Database Experience Real Fast</button></h2>
+                                    <div id="cert5" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Issuer: Udemy<br>Issued: Jul 2025<br>Credential ID: UC-ea8d3f3a-8448-482f-8abe-50b1ba05c8c6<br>Skills: Databases · Database Management System (DBMS)<br>
+                                            <a href="https://www.udemy.com/certificate/UC-ea8d3f3a-8448-482f-8abe-50b1ba05c8c6/" target="_blank">Show Credential</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cert6">Java OOP: Object Oriented Programming with Exercises - 2025</button></h2>
+                                    <div id="cert6" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Issuer: Udemy<br>Issued: Jun 2025<br>Credential ID: UC-d6f712681-8791-40fe-8c3d-4387476a0b07<br>Skills: Java · Object-Oriented Programming (OOP) · Java Programming · Java SE (Standard Edition) · Software Development · SOLID Principles · Interfaces (Java) · Abstraction (OOP)<br>
+                                            <a href="https://www.udemy.com/certificate/UC-d6f712681-8791-40fe-8c3d-4387476a0b07/" target="_blank">Show Credential</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cert7">Java (Basic)</button></h2>
+                                    <div id="cert7" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Issuer: HackerRank<br>Issued: Apr 2025<br>Credential ID: 98IFC5F0FA57<br>Skills: Java<br>
+                                            <a href="assets/pdf/java_basic certificate.pdf" target="_blank">View PDF</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cert8">Java Object Oriented Programming: OOPS OOAD & Design Patterns</button></h2>
+                                    <div id="cert8" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Issuer: Udemy<br>Issued: Apr 2025<br>Credential ID: UC-12ed977c-54a1-43c6-a7e9-fa97a2e69a2c<br>Skills: Object-Oriented Programming (OOP) · Java Programming · Object-Oriented Analysis and Design (OOAD) · UML Diagrams · Code Reusability and Maintainability<br>
+                                            <a href="https://www.udemy.com/certificate/UC-12ed977c-54a1-43c6-a7e9-fa97a2e69a2c/" target="_blank">Show Credential</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cert9">Master the Coding Interview: Data Structures + Algorithms</button></h2>
+                                    <div id="cert9" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Issuer: Udemy<br>Issued: Mar 2025<br>Credential ID: UC-48c32912-52fe-4304-8318-b59ed85ebcae<br>Skills: Data Structures · Algorithms · Problem Solving · Analytical Thinking<br>
+                                            <a href="https://www.udemy.com/certificate/UC-48c32912-52fe-4304-8318-b59ed85ebcae/" target="_blank">Show Credential</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cert10">The Complete Python Bootcamp From Zero to Hero in Python</button></h2>
+                                    <div id="cert10" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Issuer: Udemy<br>Issued: Mar 2025<br>Credential ID: UC-ecd21743-85c4-48dc-80cb-1cd45b91a15b<br>Skills: Python (Programming Language) · Object-Oriented Programming (OOP) · python GUI<br>
+                                            <a href="https://www.udemy.com/certificate/UC-ecd21743-85c4-48dc-80cb-1cd45b91a15b/" target="_blank">Show Credential</a><br>
+                                            Note: Excited to share that I have completed 'The Complete Python Bootcamp From Zero to Hero in Python' by Jose Portilla on Udemy! This course has strengthened my Python skills, and I’m eager to apply them in real-world projects. 🚀 #Python #Programming #Udemy #Coding
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cert11">Crash Course on Python</button></h2>
+                                    <div id="cert11" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Issuer: Google<br>Issued: Nov 2022<br>Skills: Python (Programming Language) · Object-Oriented Programming (OOP)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cert12">What is Data Science?</button></h2>
+                                    <div id="cert12" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Issuer: IBM<br>Issued: Aug 2022
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="container left">
-                        <div class="content">
-                            <h5>Higher Diploma in Software Engineering</h5>
-                            <p><strong>Pioneer Institute of Business and Technology (PIBT)</strong><br>2019 – 2021</p>
-                        </div>
-                    </div>
-
-                    <div class="container right">
-                        <div class="content">
-                            <h5>G.C.E. Advanced Level (Commerce Stream)</h5>
-                            <p><strong>Debarawewa National College</strong><br>2013 – 2021<br>Deputy Head Prefect (2018)</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <h4 class="text-center mt-5 mb-4">Certifications</h4>
-                <div class="accordion" id="certifications">
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c1">Python for Beginners – University of Moratuwa (Dec 2025)</button></h2>
-                        <div id="c1" class="accordion-collapse collapse"><div class="accordion-body">
-                            Credential ID: UvAfOj3HMJ • <a href="assets/pdf/Python_for_Beginners_E-Certificate.pdf" target="_blank">View PDF</a>
-                        </div></div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2">SDLC – Udemy (Sep 2025)</button></h2>
-                        <div id="c2" class="accordion-collapse collapse"><div class="accordion-body">
-                            ID: UC-558c67b8-da03-4328-b3a5-0871aeeb5e1f • <a href="https://www.udemy.com/certificate/UC-558c67b8-da03-4328-b3a5-0871aeeb5e1f/" target="_blank">Show Credential</a>
-                        </div></div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c3">Software Engineer Intern – HackerRank (Sep 2025)</button></h2>
-                        <div id="c3" class="accordion-collapse collapse"><div class="accordion-body">
-                            ID: 30857E8AO31F • <a href="assets/pdf/software_engineer_intern certificate.pdf" target="_blank">View PDF</a>
-                        </div></div>
-                    </div>
-
-                    <!-- Repeat the pattern for the rest (shortened for readability) -->
-                    <!-- You can copy-paste the remaining ones exactly like above -->
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c12">What is Data Science? – IBM (Aug 2022)</button></h2>
-                        <div id="c12" class="accordion-collapse collapse"><div class="accordion-body">Introductory course on Data Science concepts</div></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Portfolio -->
-        <section id="portfolio" class="section bg-light" data-aos="fade-up">
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section" data-aos="fade-up">
             <div class="container">
-                <h2>Portfolio</h2>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <h5>TeaWeb Export System</h5>
-                                <p>Full-stack tea export management platform</p>
-                                <a href="https://ceymoslanka.com" target="_blank" class="btn btn-outline-primary">Live Site</a>
+                <h3>Portfolio</h3>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card card-hover">
+                            <div class="card-body">
+                                <h5 class="card-title">TeaWeb Export System</h5>
+                                <p class="card-text">A web-based export management system for tea industry.</p>
+                                <a href="https://ceymoslanka.com" target="_blank" class="btn btn-primary">View Project</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <h5>Airline Reservation System</h5>
-                                <p>Java + MySQL desktop application</p>
-                                <a href="https://github.com/Nadeesha-D-Shalom/Airline_Reservation_System" target="_blank" class="btn btn-outline-primary">GitHub</a>
+                    <div class="col-md-4 mb-4">
+                        <div class="card card-hover">
+                            <div class="card-body">
+                                <h5 class="card-title">Airline Reservation System</h5>
+                                <p class="card-text">System for managing airline bookings and reservations.</p>
+                                <a href="https://github.com/Nadeesha-D-Shalom/Airline_Reservation_System" target="_blank" class="btn btn-primary">View Project</a>
                             </div>
                         </div>
                     </div>
-                    <!-- Repeat for other 4 projects (same structure) -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <h5>Casper50 Boat IoT Rover</h5>
-                                <p>Autonomous boat with IoT sensors</p>
-                                <a href="https://github.com/Nadeesha-D-Shalom/Casper50-Boat" target="_blank" class="btn btn-outline-primary">GitHub</a>
+                    <div class="col-md-4 mb-4">
+                        <div class="card card-hover">
+                            <div class="card-body">
+                                <h5 class="card-title">Vehicle Rental System</h5>
+                                <p class="card-text">Application for vehicle rental management.</p>
+                                <a href="https://github.com/Nadeesha-D-Shalom/VehicleRentalSystem" target="_blank" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card card-hover">
+                            <div class="card-body">
+                                <h5 class="card-title">Soil Health Monitor App</h5>
+                                <p class="card-text">IoT-based mobile app for monitoring soil health.</p>
+                                <a href="https://github.com/Nadeesha-D-Shalom/Soil-Health-Monitor-App" target="_blank" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card card-hover">
+                            <div class="card-body">
+                                <h5 class="card-title">Diabetes Prediction using Logistic Regression</h5>
+                                <p class="card-text">ML project for predicting diabetes using logistic regression.</p>
+                                <a href="https://github.com/Nadeesha-D-Shalom/Diabetes-Prediction-Logistic-Regression" target="_blank" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card card-hover">
+                            <div class="card-body">
+                                <h5 class="card-title">Casper50 Boat IoT Rover</h5>
+                                <p class="card-text">Autonomous boat project with IoT capabilities.</p>
+                                <a href="https://github.com/Nadeesha-D-Shalom/Casper50-Boat" target="_blank" class="btn btn-primary">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -404,33 +590,95 @@
             </div>
         </section>
 
-        <!-- Contact -->
+        <!-- Research Interests Section -->
+        <section id="research" class="section" data-aos="fade-up">
+            <div class="container">
+                <h3>Research Interests</h3>
+                <ul>
+                    <li>AI/ML for agriculture applications</li>
+                    <li>IoT automation and smart systems</li>
+                    <li>Machine Learning in healthcare (e.g., disease prediction)</li>
+                    <li>Full-Stack development with emerging technologies</li>
+                    <li>Sustainable tech solutions for developing countries</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section" data-aos="fade-up">
+            <div class="container">
+                <h3>Achievements</h3>
+                <ul>
+                    <li>Participated in various coding competitions and hackathons</li>
+                    <li>Contributor to open-source projects on GitHub</li>
+                    <li>Successful team collaboration in group projects at SLIIT</li>
+                    <li>Deputy Head Prefect at Debarawewa National College (2018)</li>
+                    <li>Completed multiple Udemy and HackerRank certifications with high proficiency</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
         <section id="contact" class="section" data-aos="fade-up">
             <div class="container">
-                <h2>Get In Touch</h2>
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 text-center">
-                        <p>Email: <a href="mailto:nadeeshashalom1@gmail.com">nadeeshashalom1@gmail.com</a><br>
-                        Phone: +94 707 32 8800</p>
-                        <a href="assets/pdf/NadeeshaShalom_Resume.pdf" download class="btn btn-primary mt-3">Download Resume (PDF)</a>
-                    </div>
-                </div>
+                <h3>Contact Me</h3>
+                <p>Email: <a href="mailto:nadeeshashalom1@gmail.com">nadeeshashalom1@gmail.com</a></p>
+                <p>Phone: +94 707 32 8800</p>
+                <!-- Simple form if needed, but not specified, so just info -->
             </div>
         </section>
 
     </div>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
-        AOS.init({ duration: 1000 });
-        new Typed('.typed-text', {
-            strings: ["Software Engineer", "Full-Stack Developer", "AI/ML Enthusiast", "IoT Innovator"],
-            typeSpeed: 70,
-            backSpeed: 50,
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        var typed = new Typed('.typed', {
+            strings: ['Software Engineer', 'Full-Stack Developer', 'AI/ML Enthusiast', 'IoT Innovator'],
+            typeSpeed: 50,
+            backSpeed: 30,
             loop: true
         });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Snow effect for December
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 20 + 30 + 's'; // Slow speed: 30-50s
+            snowflake.style.opacity = Math.random() * 0.5 + 0.3;
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+            document.body.appendChild(snowflake);
+            setTimeout(() => {
+                snowflake.remove();
+            }, 50000); // Match max animation duration
+        }
+
+        const today = new Date();
+        if (today.getMonth() === 11) { // December is 11
+            setInterval(createSnowflake, 500); // Reduced density
+        }
     </script>
 </body>
 </html>
