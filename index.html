@@ -1,329 +1,2256 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <title>Nadeesha D Shalom | Software Engineering Undergraduate</title>
+  <!-- ====== SEO / META ====== -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Nadeesha D Shalom – Software Engineering undergraduate from Sri Lanka. Full-Stack Developer specialized in Java Spring Boot, React.js, AI/ML, and IoT."/>
-  <meta name="author" content="Nadeesha D Shalom"/>
-  <meta name="keywords" content="Nadeesha D Shalom, Software Engineer, Full Stack Developer, Java, React, AI, IoT, Portfolio"/>
-  <link rel="icon" href="assets/img/n.png"/>
+  <title>Nadeesha D Shalom | Software Engineer • Full-Stack • AI/ML • IoT</title>
+  <meta name="description" content="Nadeesha D Shalom — Software Engineering Undergraduate and Full-Stack Developer from Sri Lanka specializing in Java Spring Boot, React.js, AI/ML, and IoT." />
+  <meta name="keywords" content="Nadeesha D Shalom, Software Engineer, Full-Stack Developer, Java Spring Boot, React.js, AI, ML, IoT, Sri Lanka, Portfolio" />
+  <meta name="author" content="Nadeesha D Shalom" />
+  <meta name="theme-color" content="#0dcaf0" />
 
-  <!-- Fonts -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nadeesha D Shalom | Portfolio" />
+  <meta property="og:description" content="Software Engineering Undergraduate and Full-Stack Developer specializing in Java Spring Boot, React.js, AI/ML, and IoT." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/1111.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/n.png" />
+
+  <!-- ====== FONTS ====== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- AOS -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- ====== ICONS / LIBS ====== -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet" />
 
   <style>
     :root{
-      --bg:#f6f8fb;
-      --panel:#ffffff;
-      --text:#121826;
-      --muted:#5b6472;
-      --border:rgba(0,0,0,.08);
-      --accent:#0dcaf0;
-      --accent2:#0056b3;
-      --radius:18px;
-      --shadow:0 18px 40px rgba(0,0,0,.08);
+      --bg: #f6f8fb;
+      --bg2: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --card: rgba(255,255,255,0.86);
+      --stroke: rgba(17,24,39,0.08);
+      --shadow: 0 18px 50px rgba(16,24,40,0.10);
+      --shadow2: 0 10px 28px rgba(16,24,40,0.10);
+      --accent: #0dcaf0;
+      --accent2: #0056b3;
+      --radius: 18px;
+      --radius2: 26px;
+      --sidebarW: 300px;
+      --sidebarWMobile: 280px;
     }
 
-    html{scroll-behavior:smooth}
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
     body{
-      font-family:Poppins,sans-serif;
-      background:linear-gradient(180deg,#fbfdff,var(--bg));
-      color:var(--text);
-      margin:0;
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 85% 10%, rgba(13,202,240,0.14), transparent 55%),
+        radial-gradient(900px 520px at 18% 28%, rgba(0,86,179,0.12), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+      margin: 0;
+      overflow-x: hidden;
     }
 
-    a{text-decoration:none;color:inherit}
+    /* ====== ACCESSIBILITY ====== */
+    @media (prefers-reduced-motion: reduce) {
+      html{ scroll-behavior: auto; }
+      *{ animation: none !important; transition: none !important; }
+    }
 
-    /* Layout */
+    /* ====== LAYOUT ====== */
     .app{
-      display:grid;
-      grid-template-columns:300px 1fr;
-      min-height:100vh;
+      display: flex;
+      min-height: 100vh;
     }
 
-    /* Sidebar */
+    /* ====== SIDEBAR ====== */
     .sidebar{
-      background:#fff;
-      border-right:1px solid var(--border);
-      padding:22px;
-      position:sticky;
-      top:0;
-      height:100vh;
+      width: var(--sidebarW);
+      position: fixed;
+      left: 0; top: 0; bottom: 0;
+      background: rgba(255,255,255,0.86);
+      backdrop-filter: blur(14px);
+      border-right: 1px solid var(--stroke);
+      padding: 26px 22px;
+      z-index: 50;
+      overflow-y: auto;
     }
 
-    .profile img{
-      width:110px;
-      height:110px;
-      border-radius:50%;
-      object-fit:cover;
-      margin-bottom:12px;
+    .profile-wrap{
+      display: grid;
+      gap: 14px;
+      align-items: center;
+      justify-items: center;
+      padding-top: 8px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--stroke);
+      margin-bottom: 16px;
+    }
+    .profile-img{
+      width: 118px;
+      height: 118px;
+      border-radius: 999px;
+      border: 4px solid rgba(13,202,240,0.25);
+      box-shadow: var(--shadow2);
+      object-fit: cover;
+    }
+    .profile-name{
+      font-weight: 700;
+      font-size: 18px;
+      text-align: center;
+      line-height: 1.2;
+      margin: 0;
+    }
+    .profile-role{
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--muted);
+      text-align: center;
     }
 
-    .profile h4{font-weight:700;margin:0}
-    .profile p{font-size:13px;color:var(--muted)}
-
-    .social a{
-      font-size:18px;
-      margin:0 6px;
-      color:var(--accent2);
+    .social-row{
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      padding-top: 6px;
+    }
+    .social-btn{
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.85);
+      color: var(--text);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      text-decoration: none;
+    }
+    .social-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(16,24,40,0.14);
+      border-color: rgba(13,202,240,0.35);
+      color: var(--accent2);
     }
 
-    .nav a{
-      display:block;
-      padding:10px;
-      border-radius:12px;
-      font-size:14px;
-      color:var(--muted);
+    .nav-title{
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 18px 0 10px;
     }
-    .nav a:hover{background:#eef6ff;color:#000}
 
-    /* Main */
-    .main{padding:28px}
+    .side-nav{
+      display: grid;
+      gap: 8px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--stroke);
+      margin-bottom: 16px;
+    }
+    .nav-linkx{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid transparent;
+      background: transparent;
+      transition: background 220ms ease, transform 220ms ease, border-color 220ms ease;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .nav-linkx i{ color: var(--accent2); }
+    .nav-linkx:hover{
+      background: rgba(13,202,240,0.10);
+      border-color: rgba(13,202,240,0.25);
+      transform: translateX(3px);
+    }
 
-    /* Hero */
+    .sidebar-footer{
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .sidebar-footer a{
+      color: var(--accent2);
+      text-decoration: none;
+    }
+    .sidebar-footer a:hover{
+      text-decoration: underline;
+    }
+
+    /* ====== MOBILE SIDEBAR TOGGLE ====== */
+    .mobile-topbar{
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      display: none;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--stroke);
+      padding: 12px 14px;
+    }
+    .mobile-topbar .brand{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .mobile-topbar .brand img{
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid var(--stroke);
+    }
+    .icon-btn{
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.9);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+    .icon-btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 16px 34px rgba(16,24,40,0.12);
+      border-color: rgba(13,202,240,0.35);
+    }
+
+    .sidebar-backdrop{
+      position: fixed;
+      inset: 0;
+      background: rgba(17,24,39,0.35);
+      z-index: 49;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 240ms ease;
+    }
+    .sidebar-backdrop.show{
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ====== MAIN CONTENT ====== */
+    main{
+      margin-left: var(--sidebarW);
+      width: calc(100% - var(--sidebarW));
+      min-height: 100vh;
+    }
+
+    section{
+      padding: 80px 26px;
+    }
+
+    .section-title{
+      font-size: 26px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+    .section-sub{
+      margin: 0 0 26px;
+      color: var(--muted);
+      max-width: 980px;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* ====== HERO ====== */
     .hero{
-      background:url("assets/img/1111.jpg") center/cover;
-      border-radius:28px;
-      color:#fff;
-      padding:60px;
-      position:relative;
-      box-shadow:var(--shadow);
+      position: relative;
+      padding: 64px 26px 40px;
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--stroke);
+    }
+    .hero-bg{
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.72) 40%, rgba(255,255,255,0.55) 100%),
+        url("assets/img/1111.jpg") center/cover no-repeat;
+      filter: saturate(1.05);
+      transform: scale(1.02);
     }
     .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:rgba(10,15,30,.72);
-      border-radius:28px;
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background:
+        radial-gradient(900px 420px at 12% 20%, rgba(13,202,240,0.18), transparent 60%),
+        radial-gradient(850px 420px at 82% 40%, rgba(0,86,179,0.12), transparent 55%);
+      pointer-events: none;
     }
-    .hero-content{position:relative;z-index:2}
-
-    .hero h1{font-size:44px;font-weight:700}
-    .typed{font-size:20px;color:var(--accent)}
-
-    .btn-main{
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      color:#fff;
-      border:none;
-      padding:14px 20px;
-      border-radius:14px;
-      font-weight:600;
+    .hero-inner{
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    /* Sections */
-    section{
-      margin-top:40px;
-      background:#fff;
-      border-radius:24px;
-      padding:30px;
-      box-shadow:var(--shadow);
+    .hero-badge{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 14px 40px rgba(16,24,40,0.10);
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+    .hero-badge i{ color: var(--accent2); }
+
+    .hero-title{
+      margin: 16px 0 10px;
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .hero-title span{
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
-    section h2{font-weight:700;margin-bottom:12px}
+    .hero-typed{
+      font-size: 18px;
+      color: #0f172a;
+      margin: 0 0 14px;
+      font-weight: 600;
+    }
+    .typed-cursor{ color: var(--accent2); }
 
-    /* Timeline */
+    .hero-text{
+      margin: 0 0 22px;
+      color: var(--muted);
+      max-width: 820px;
+      line-height: 1.8;
+      font-size: 14.5px;
+    }
+
+    .hero-actions{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-accent{
+      border: 1px solid rgba(13,202,240,0.35);
+      background: linear-gradient(90deg, rgba(13,202,240,0.95), rgba(0,86,179,0.95));
+      color: white;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 18px 45px rgba(0,86,179,0.18);
+      transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-accent:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 26px 55px rgba(0,86,179,0.22);
+      filter: brightness(1.02);
+      color: #fff;
+    }
+
+    .btn-ghost{
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.85);
+      color: var(--text);
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-ghost:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 22px 50px rgba(16,24,40,0.12);
+      border-color: rgba(13,202,240,0.30);
+      color: var(--accent2);
+    }
+
+    /* ====== CARDS / UTIL ====== */
+    .glass-card{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+    }
+
+    .grid-2{
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+    .grid-3{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .grid-4{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(13,202,240,0.12);
+      border: 1px solid rgba(13,202,240,0.22);
+      font-size: 12px;
+      color: #0f172a;
+      font-weight: 600;
+    }
+    .pill i{ color: var(--accent2); }
+
+    .muted{ color: var(--muted); }
+
+    /* ====== ABOUT ====== */
+    .about-card{
+      padding: 22px;
+    }
+    .about-points{
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .about-point{
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.75);
+    }
+    .about-point i{
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(13,202,240,0.12);
+      border: 1px solid rgba(13,202,240,0.22);
+      color: var(--accent2);
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+    .about-point h6{
+      margin: 0 0 4px;
+      font-weight: 700;
+      font-size: 13.5px;
+    }
+    .about-point p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 13px;
+    }
+
+    /* ====== SKILLS ====== */
+    .skill-card{
+      padding: 18px;
+    }
+    .skill-card h5{
+      margin: 0 0 12px;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+    }
+    .skill{
+      margin-bottom: 12px;
+    }
+    .skill:last-child{ margin-bottom: 0; }
+    .skill-top{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 7px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .bar{
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(17,24,39,0.08);
+      overflow: hidden;
+      border: 1px solid rgba(17,24,39,0.08);
+    }
+    .bar > span{
+      display: block;
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+      transition: width 900ms ease;
+    }
+
+    /* ====== RESUME / EDUCATION TIMELINE (ONE BAR) ====== */
+    .resume-wrap{
+      display: grid;
+      gap: 16px;
+    }
     .timeline{
-      border-left:3px solid var(--accent2);
-      padding-left:20px;
+      position: relative;
+      padding: 18px 18px 18px 34px;
     }
-    .timeline-item{
-      margin-bottom:22px;
-      position:relative;
+    .timeline::before{
+      content: "";
+      position: absolute;
+      left: 16px;
+      top: 18px;
+      bottom: 18px;
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(0,86,179,0.9), rgba(13,202,240,0.9));
+      opacity: 0.85;
     }
-    .timeline-item::before{
-      content:"";
-      position:absolute;
-      left:-10px;
-      top:6px;
-      width:14px;
-      height:14px;
-      background:var(--accent);
-      border-radius:50%;
+    .t-item{
+      position: relative;
+      padding: 16px 16px 16px 18px;
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.78);
+      margin-bottom: 14px;
+    }
+    .t-item:last-child{ margin-bottom: 0; }
+    .t-item::before{
+      content: "";
+      position: absolute;
+      left: -27px;
+      top: 24px;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: white;
+      border: 3px solid rgba(13,202,240,0.9);
+      box-shadow: 0 10px 30px rgba(16,24,40,0.12);
+    }
+    .t-head{
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .t-left{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      min-width: 240px;
+    }
+    .edu-logo{
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.92);
+      object-fit: contain;
+      padding: 6px;
+    }
+    .t-title{
+      margin: 0;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .t-org{
+      margin: 2px 0 0;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .t-date{
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f172a;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.82);
+    }
+    .t-body{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+    .coursework{
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .coursework .tag{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(0,86,179,0.08);
+      border: 1px solid rgba(0,86,179,0.16);
+      color: #0f172a;
+      font-weight: 600;
     }
 
-    /* Cards */
-    .card-soft{
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:18px;
-      transition:.3s;
-      height:100%;
+    /* ====== CERTIFICATIONS ====== */
+    .certs-card{
+      padding: 18px;
     }
-    .card-soft:hover{
-      transform:translateY(-6px);
-      box-shadow:0 20px 40px rgba(0,0,0,.12);
+    .certs-header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .certs-header h3{
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .cert-note{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      max-width: 820px;
+    }
+    .accordion-button{
+      font-weight: 700;
+      color: #0f172a;
+      background: rgba(255,255,255,0.82);
+    }
+    .accordion-item{
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.78);
+      margin-bottom: 10px;
+    }
+    .accordion-item:last-child{ margin-bottom: 0; }
+    .accordion-button:not(.collapsed){
+      background: rgba(13,202,240,0.10);
+      color: #0f172a;
+      box-shadow: none;
+    }
+    .cert-row{
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .issuer-logo{
+      width: 110px;
+      height: 110px;
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.92);
+      object-fit: contain;
+      padding: 10px;
+      box-shadow: 0 16px 40px rgba(16,24,40,0.10);
+    }
+    .cert-meta{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .meta-chip{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.85);
+      color: #0f172a;
+      font-weight: 600;
+    }
+    .meta-chip i{ color: var(--accent2); margin-right: 6px; }
+    .cert-skills{
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .cert-skills .tag{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(13,202,240,0.10);
+      border: 1px solid rgba(13,202,240,0.22);
+      color: #0f172a;
+      font-weight: 600;
+    }
+    .cert-actions{
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .link-btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.88);
+      font-weight: 700;
+      font-size: 12.5px;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+    .link-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(16,24,40,0.12);
+      border-color: rgba(13,202,240,0.35);
+      color: var(--accent2);
     }
 
-    /* Snow */
-    #snow{position:fixed;inset:0;pointer-events:none;z-index:9999;display:none}
+    /* ====== PORTFOLIO ====== */
+    .project-card{
+      padding: 18px;
+      border-radius: var(--radius2);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.82);
+      box-shadow: 0 18px 50px rgba(16,24,40,0.10);
+      transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(600px 220px at 20% 0%, rgba(13,202,240,0.14), transparent 60%);
+      opacity: 0;
+      transition: opacity 260ms ease;
+      pointer-events: none;
+    }
+    .project-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 26px 70px rgba(16,24,40,0.14);
+      border-color: rgba(13,202,240,0.35);
+    }
+    .project-card:hover::before{ opacity: 1; }
+    .project-title{
+      margin: 0 0 6px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .project-desc{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+    .project-footer{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+    .project-tags{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .project-tags .tag{
+      font-size: 11.5px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(0,86,179,0.08);
+      border: 1px solid rgba(0,86,179,0.14);
+      color: #0f172a;
+      font-weight: 700;
+    }
 
-    @media(max-width:992px){
-      .app{grid-template-columns:1fr}
-      .sidebar{position:relative;height:auto}
+    /* ====== RESEARCH / ACHIEVEMENTS ====== */
+    .info-card{
+      padding: 18px;
+    }
+    .info-list{
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .info-list li{
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.75);
+    }
+    .info-list i{
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,86,179,0.08);
+      border: 1px solid rgba(0,86,179,0.16);
+      color: var(--accent2);
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+    .info-list h6{
+      margin: 0 0 4px;
+      font-weight: 800;
+      font-size: 13.5px;
+    }
+    .info-list p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* ====== CONTACT ====== */
+    .contact-card{
+      padding: 18px;
+    }
+    .contact-item{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,0.75);
+      margin-bottom: 10px;
+    }
+    .contact-item:last-child{ margin-bottom: 0; }
+    .contact-item i{
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(13,202,240,0.12);
+      border: 1px solid rgba(13,202,240,0.22);
+      color: var(--accent2);
+      flex: 0 0 auto;
+    }
+    .contact-item a{
+      color: var(--accent2);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .contact-item a:hover{ text-decoration: underline; }
+    .contact-item .small{
+      color: var(--muted);
+      font-size: 12.5px;
+      margin-top: 2px;
+    }
+
+    /* ====== FOOTER ====== */
+    footer{
+      padding: 28px 26px 34px;
+      color: var(--muted);
+      border-top: 1px solid var(--stroke);
+      text-align: center;
+      font-size: 12.5px;
+    }
+
+    /* ====== SNOW CANVAS (Dec 1–Dec 31) ====== */
+    #snowCanvas{
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 400ms ease;
+    }
+    #snowCanvas.active{ opacity: 1; }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 1100px){
+      .grid-2{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: repeat(2, 1fr); }
+      .grid-4{ grid-template-columns: repeat(2, 1fr); }
+      .hero-title{ font-size: 44px; }
+    }
+
+    @media (max-width: 992px){
+      .mobile-topbar{ display: flex; align-items: center; justify-content: space-between; }
+      .sidebar{
+        width: var(--sidebarWMobile);
+        transform: translateX(-110%);
+        transition: transform 260ms ease;
+      }
+      .sidebar.open{ transform: translateX(0); }
+      main{
+        margin-left: 0;
+        width: 100%;
+      }
+      section{ padding: 70px 16px; }
+      .hero{ padding: 56px 16px 34px; }
+      .hero-title{ font-size: 40px; }
+    }
+
+    @media (max-width: 576px){
+      .grid-3{ grid-template-columns: 1fr; }
+      .grid-4{ grid-template-columns: 1fr; }
+      .hero-title{ font-size: 36px; }
+      .hero-typed{ font-size: 16px; }
+      .cert-row{ grid-template-columns: 1fr; }
+      .issuer-logo{ width: 96px; height: 96px; }
     }
   </style>
 </head>
 
 <body>
+  <!-- Snow (Dec 1–Dec 31) -->
+  <canvas id="snowCanvas" aria-hidden="true"></canvas>
 
-<canvas id="snow"></canvas>
-
-<div class="app">
-
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="profile text-center">
-      <img src="assets/img/my-profile-img.jpeg" alt="Profile">
-      <h4>Nadeesha D Shalom</h4>
-      <p>Software Engineering Undergraduate</p>
-
-      <div class="social">
-        <a href="https://www.facebook.com/profile.php?id=100009164177872"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/nadeesha_d_shalom"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/nadeesha-shalom-a5a2a4251"><i class="bi bi-linkedin"></i></a>
-        <a href="https://github.com/Nadeesha-D-Shalom"><i class="bi bi-github"></i></a>
-      </div>
+  <!-- Mobile Topbar -->
+  <div class="mobile-topbar">
+    <div class="brand">
+      <img src="assets/img/my-profile-img.jpeg" alt="Nadeesha profile" />
+      <span>Nadeesha D Shalom</span>
     </div>
+    <button class="icon-btn" id="menuBtn" type="button" aria-label="Open menu">
+      <i class="bi bi-list" style="font-size: 20px;"></i>
+    </button>
+  </div>
 
-    <nav class="nav mt-4">
-      <a href="#hero">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </aside>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-  <!-- Main -->
-  <main class="main">
-
-    <!-- Hero -->
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <h1>Nadeesha D Shalom</h1>
-        <div class="typed" id="typed"></div>
-        <p class="mt-3">
-          Full-Stack Developer specializing in Java Spring Boot, React.js, AI/ML, and IoT.
-        </p>
-        <a class="btn-main mt-3 d-inline-block" href="assets/pdf/NadeeshaShalom_Resume.pdf" download>
-          Download Resume
-        </a>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am a Software Engineering undergraduate from Sri Lanka with strong interests in full-stack development,
-        AI/ML, and IoT. I focus on building maintainable, scalable systems using industry-standard practices.
-      </p>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills">
-      <h2>Skills</h2>
-      <p>Java, Spring Boot, React.js, MySQL, Git/GitHub, Python, OOP, DSA, AI/ML fundamentals, IoT systems.</p>
-    </section>
-
-    <!-- Education -->
-    <section id="education">
-      <h2>Education</h2>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <strong>SLIIT</strong> — BSc (Hons) Software Engineering<br>
-          <small>2024 – Present (Expected 2028)</small>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="profile-wrap">
+        <img class="profile-img" src="assets/img/my-profile-img.jpeg" alt="Nadeesha D Shalom profile photo">
+        <div>
+          <p class="profile-name">Nadeesha D Shalom</p>
+          <p class="profile-role">Software Engineering Undergraduate • Full-Stack Developer</p>
         </div>
 
-        <div class="timeline-item">
-          <strong>Pioneer Institute of Business & Technology</strong><br>
-          Higher Diploma & Associate Degree in Software Engineering (2019 – 2022)
-        </div>
-
-        <div class="timeline-item">
-          <strong>Debarawewa National College</strong><br>
-          G.C.E. O/L & A/L (Commerce) — Deputy Head Prefect
-        </div>
-
-        <div class="timeline-item">
-          <strong>British Council</strong><br>
-          English Language Training (2019)
+        <div class="social-row" aria-label="Social links">
+          <a class="social-btn" href="https://www.facebook.com/profile.php?id=100009164177872" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a class="social-btn" href="https://www.instagram.com/nadeesha_d_shalom" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a class="social-btn" href="https://www.linkedin.com/in/nadeesha-shalom-a5a2a4251" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a class="social-btn" href="https://github.com/Nadeesha-D-Shalom" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
         </div>
       </div>
-    </section>
 
-    <!-- Certifications -->
-    <section id="certifications">
-      <h2>Certifications</h2>
-      <p>University of Moratuwa, Udemy, HackerRank, IBM, Google — Python, Java, DSA, SDLC, Git.</p>
-    </section>
+      <div class="nav-title">Navigate</div>
+      <nav class="side-nav">
+        <a class="nav-linkx" href="#hero"><i class="bi bi-house-door"></i> Home</a>
+        <a class="nav-linkx" href="#about"><i class="bi bi-person"></i> About</a>
+        <a class="nav-linkx" href="#skills"><i class="bi bi-lightning-charge"></i> Skills</a>
+        <a class="nav-linkx" href="#resume"><i class="bi bi-file-earmark-text"></i> Resume</a>
+        <a class="nav-linkx" href="#portfolio"><i class="bi bi-grid"></i> Portfolio</a>
+        <a class="nav-linkx" href="#research"><i class="bi bi-journal-bookmark"></i> Research Interests</a>
+        <a class="nav-linkx" href="#achievements"><i class="bi bi-trophy"></i> Achievements</a>
+        <a class="nav-linkx" href="#contact"><i class="bi bi-envelope"></i> Contact</a>
+      </nav>
 
-    <!-- Portfolio -->
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-      <div class="row g-3">
-        <div class="col-md-4"><div class="card-soft">TeaWeb Export System</div></div>
-        <div class="col-md-4"><div class="card-soft">Airline Reservation System</div></div>
-        <div class="col-md-4"><div class="card-soft">Vehicle Rental System</div></div>
+      <div class="sidebar-footer">
+        <div class="mb-2">
+          <span class="muted">Email:</span><br/>
+          <a href="mailto:nadeeshashalom1@gmail.com">nadeeshashalom1@gmail.com</a>
+        </div>
+        <div class="mb-2">
+          <span class="muted">Phone:</span><br/>
+          <a href="tel:+94707328800">+94 707 32 8800</a>
+        </div>
+        <div class="muted">
+          Hosted on GitHub Pages • <span id="yearNow"></span>
+        </div>
       </div>
-    </section>
+    </aside>
 
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:nadeeshashalom1@gmail.com">nadeeshashalom1@gmail.com</a></p>
-      <p>Phone: +94 707 32 8800</p>
-    </section>
+    <!-- Main -->
+    <main>
+      <!-- HERO -->
+      <header id="hero" class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
 
-  </main>
-</div>
+        <div class="hero-inner">
+          <div class="hero-badge" data-aos="fade-down" data-aos-duration="700">
+            <i class="bi bi-geo-alt"></i>
+            Sri Lanka • Full-Stack • AI/ML • IoT
+          </div>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+          <h1 class="hero-title" data-aos="fade-up" data-aos-duration="900">
+            <span>Nadeesha</span> D Shalom
+          </h1>
 
-<script>
-AOS.init({once:true,duration:700});
+          <p class="hero-typed" data-aos="fade-up" data-aos-duration="900" data-aos-delay="80">
+            <span id="typed"></span>
+          </p>
 
-new Typed("#typed",{
-  strings:["Software Engineer","Full-Stack Developer","AI/ML Enthusiast","IoT Innovator"],
-  typeSpeed:50,backSpeed:25,loop:true
-});
+          <p class="hero-text" data-aos="fade-up" data-aos-duration="900" data-aos-delay="140">
+            I build production-ready web applications and modern user experiences with a strong engineering foundation.
+            My focus areas include Java Spring Boot, React.js, databases, and applied AI/ML and IoT solutions—designed with
+            clean architecture, performance, and maintainability in mind.
+          </p>
 
-/* Snow (Dec 1–31, slow speed) */
-const now=new Date();
-if(now.getMonth()===11){
-  const c=document.getElementById("snow"),x=c.getContext("2d");
-  c.style.display="block";
-  function r(){c.width=innerWidth;c.height=innerHeight}
-  window.onresize=r;r();
-  const f=[...Array(120)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,s:Math.random()+0.5}));
-  function t(){
-    x.clearRect(0,0,c.width,c.height);
-    f.forEach(e=>{
-      e.y+=e.s*0.4;
-      if(e.y>c.height)e.y=0;
-      x.fillStyle="#fff";
-      x.beginPath();x.arc(e.x,e.y,2,0,Math.PI*2);x.fill();
+          <div class="hero-actions" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
+            <!-- Only one resume download link (as requested) -->
+            <a class="btn-accent" href="assets/pdf/NadeeshaShalom_Resume.pdf" download>
+              <i class="bi bi-download"></i>
+              Download Resume
+            </a>
+            <a class="btn-ghost" href="#portfolio">
+              <i class="bi bi-grid"></i>
+              View Portfolio
+            </a>
+            <a class="btn-ghost" href="#contact">
+              <i class="bi bi-chat-dots"></i>
+              Contact
+            </a>
+          </div>
+
+          <div class="mt-4 d-flex flex-wrap gap-2" data-aos="fade-up" data-aos-duration="900" data-aos-delay="260">
+            <span class="pill"><i class="bi bi-check2-circle"></i> Java Spring Boot</span>
+            <span class="pill"><i class="bi bi-check2-circle"></i> React.js</span>
+            <span class="pill"><i class="bi bi-check2-circle"></i> AI/ML</span>
+            <span class="pill"><i class="bi bi-check2-circle"></i> IoT</span>
+            <span class="pill"><i class="bi bi-check2-circle"></i> MySQL</span>
+            <span class="pill"><i class="bi bi-check2-circle"></i> Git & GitHub</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="container-xl">
+          <h2 class="section-title" data-aos="fade-up">About</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="60">
+            I am a Software Engineering undergraduate at SLIIT, Malabe (Sri Lanka), and a Full-Stack Developer with a strong interest in building
+            reliable systems—from backend services and APIs to modern, responsive frontends. I enjoy delivering practical solutions with clean code,
+            thoughtful UI/UX, and a focus on maintainability. I also explore applied AI/ML and IoT projects where software meets real-world impact.
+          </p>
+
+          <div class="grid-2">
+            <div class="glass-card about-card" data-aos="fade-up" data-aos-delay="90">
+              <div class="about-points">
+                <div class="about-point">
+                  <i class="bi bi-diagram-3"></i>
+                  <div>
+                    <h6>Engineering-first development</h6>
+                    <p>Structured architecture, reusable components, consistent naming, and disciplined version control for long-term maintainability.</p>
+                  </div>
+                </div>
+                <div class="about-point">
+                  <i class="bi bi-speedometer2"></i>
+                  <div>
+                    <h6>Performance and quality focus</h6>
+                    <p>Optimized API usage, predictable state handling, responsive layouts, and careful UI micro-interactions.</p>
+                  </div>
+                </div>
+                <div class="about-point">
+                  <i class="bi bi-braces"></i>
+                  <div>
+                    <h6>Modern full-stack workflow</h6>
+                    <p>Spring Boot and PHP APIs, React frontends, database design, and deployment workflows suitable for real client delivery.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card about-card" data-aos="fade-up" data-aos-delay="130">
+              <h5 class="mb-2" style="font-weight: 800;">Core Profile</h5>
+              <p class="muted mb-3" style="line-height: 1.75; font-size: 13.5px;">
+                Full-Stack Developer • Java/Spring Boot • React.js • Databases • AI/ML & IoT prototyping
+              </p>
+
+              <div class="about-points">
+                <div class="about-point">
+                  <i class="bi bi-geo"></i>
+                  <div>
+                    <h6>Based in Sri Lanka</h6>
+                    <p>Available for internships, freelance work, and remote collaboration.</p>
+                  </div>
+                </div>
+                <div class="about-point">
+                  <i class="bi bi-mortarboard"></i>
+                  <div>
+                    <h6>SLIIT (Expected 2028)</h6>
+                    <p>BSc (Hons) in Software Engineering with strong coursework coverage and practical projects.</p>
+                  </div>
+                </div>
+                <div class="about-point">
+                  <i class="bi bi-award"></i>
+                  <div>
+                    <h6>Certifications-driven growth</h6>
+                    <p>Continuous learning via Udemy, HackerRank, Coursera, and university programs.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="container-xl">
+          <h2 class="section-title" data-aos="fade-up">Skills</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="60">
+            Skills grouped across engineering, backend, frontend, databases, and AI/ML & IoT. The progress bars are visual indicators for strengths and
+            areas of active practice (not a fixed rating).
+          </p>
+
+          <div class="grid-3">
+            <div class="glass-card skill-card" data-aos="fade-up" data-aos-delay="80">
+              <h5><i class="bi bi-cpu me-2"></i>Backend & Engineering</h5>
+              <div class="skill">
+                <div class="skill-top"><span>Java / Java SE</span><span class="muted">Advanced</span></div>
+                <div class="bar"><span data-skill="88"></span></div>
+              </div>
+              <div class="skill">
+                <div class="skill-top"><span>Spring Boot</span><span class="muted">Advanced</span></div>
+                <div class="bar"><span data-skill="84"></span></div>
+              </div>
+              <div class="skill">
+                <div class="skill-top"><span>SDLC • Agile • Scrum</span><span class="muted">Strong</span></div>
+                <div class="bar"><span data-skill="82"></span></div>
+              </div>
+              <div class="skill">
+                <div class="skill-top"><span>SOLID • OOP • Design Patterns</span><span class="muted">Strong</span></div>
+                <div class="bar"><span data-skill="86"></span></div>
+              </div>
+            </div>
+
+            <div class="glass-card skill-card" data-aos="fade-up" data-aos-delay="110">
+              <h5><i class="bi bi-window me-2"></i>Frontend & UI</h5>
+              <div class="skill">
+                <div class="skill-top"><span>React.js</span><span class="muted">Strong</span></div>
+                <div class="bar"><span data-skill="82"></span></div>
+              </div>
+              <div class="skill">
+                <div class="skill-top"><span>HTML • CSS • Responsive UI</span><span class="muted">Strong</span></div>
+                <div class="bar"><span data-skill="86"></span></div>
+              </div>
+              <div class="skill">
+                <div class="skill-top"><span>UI Micro-animations</span><span class="muted">Good</span></div>
+                <div class="bar"><span data-skill="74"></span></div>
+              </div>
+              <div class="skill">
+                <div class="skill-top"><span>Clean UI/UX</span><span class="muted">Strong</span></div>
+                <div class="bar"><span data-skill="80"></span></div>
+              </div>
+            </div>
+
+            <div class="glass-card skill-card" data-aos="fade-up" data-aos-delay="140">
+              <h5><i class="bi bi-database me-2"></i>Data, Tools & AI/ML</h5>
+              <div class="skill">
+                <div class="skill-top"><span>MySQL • DBMS</span><span class="muted">Strong</span></div>
+                <div class="bar"><span data-skill="80"></span></div>
+              </div>
+              <div class="skill">
+                <div class="skill-top"><span>Git • GitHub • Git Bash</span><span class="muted">Strong</span></div>
+                <div class="bar"><span data-skill="84"></span></div>
+              </div>
+              <div class="skill">
+                <div class="skill-top"><span>Python</span><span class="muted">Strong</span></div>
+                <div class="bar"><span data-skill="78"></span></div>
+              </div>
+              <div class="skill">
+                <div class="skill-top"><span>AI/ML Fundamentals</span><span class="muted">Growing</span></div>
+                <div class="bar"><span data-skill="70"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 grid-4">
+            <div class="glass-card info-card" data-aos="fade-up" data-aos-delay="80">
+              <h5 style="font-weight: 800; font-size: 14px;"><i class="bi bi-code-slash me-2"></i>Programming</h5>
+              <div class="mt-2 d-flex flex-wrap gap-2">
+                <span class="pill"><i class="bi bi-check2"></i>Java</span>
+                <span class="pill"><i class="bi bi-check2"></i>Python</span>
+                <span class="pill"><i class="bi bi-check2"></i>JavaScript</span>
+                <span class="pill"><i class="bi bi-check2"></i>OOP</span>
+              </div>
+            </div>
+            <div class="glass-card info-card" data-aos="fade-up" data-aos-delay="110">
+              <h5 style="font-weight: 800; font-size: 14px;"><i class="bi bi-layers me-2"></i>Architecture</h5>
+              <div class="mt-2 d-flex flex-wrap gap-2">
+                <span class="pill"><i class="bi bi-check2"></i>SDLC</span>
+                <span class="pill"><i class="bi bi-check2"></i>SOLID</span>
+                <span class="pill"><i class="bi bi-check2"></i>Design Patterns</span>
+                <span class="pill"><i class="bi bi-check2"></i>Code Reusability</span>
+              </div>
+            </div>
+            <div class="glass-card info-card" data-aos="fade-up" data-aos-delay="140">
+              <h5 style="font-weight: 800; font-size: 14px;"><i class="bi bi-kanban me-2"></i>Delivery</h5>
+              <div class="mt-2 d-flex flex-wrap gap-2">
+                <span class="pill"><i class="bi bi-check2"></i>Agile</span>
+                <span class="pill"><i class="bi bi-check2"></i>Scrum</span>
+                <span class="pill"><i class="bi bi-check2"></i>Team Collaboration</span>
+                <span class="pill"><i class="bi bi-check2"></i>Maintainability</span>
+              </div>
+            </div>
+            <div class="glass-card info-card" data-aos="fade-up" data-aos-delay="170">
+              <h5 style="font-weight: 800; font-size: 14px;"><i class="bi bi-broadcast me-2"></i>IoT</h5>
+              <div class="mt-2 d-flex flex-wrap gap-2">
+                <span class="pill"><i class="bi bi-check2"></i>IoT Prototyping</span>
+                <span class="pill"><i class="bi bi-check2"></i>Automation Concepts</span>
+                <span class="pill"><i class="bi bi-check2"></i>Sensor Integration</span>
+                <span class="pill"><i class="bi bi-check2"></i>Embedded Systems</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RESUME -->
+      <section id="resume">
+        <div class="container-xl">
+          <h2 class="section-title" data-aos="fade-up">Resume</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="60">
+            Education and certifications. Education is presented on a single vertical bar, followed by a structured certification list with issuer logos,
+            credential details, skills, and certificate file links.
+          </p>
+
+          <div class="resume-wrap">
+            <!-- EDUCATION (ONE BAR) -->
+            <div class="glass-card timeline" data-aos="fade-up" data-aos-delay="80">
+              <h3 style="margin:0 0 12px; font-weight:800; font-size:18px; letter-spacing:-0.02em;">
+                <i class="bi bi-mortarboard me-2"></i>Education
+              </h3>
+
+              <!-- SLIIT -->
+              <div class="t-item">
+                <div class="t-head">
+                  <div class="t-left">
+                    <img class="edu-logo" src="assets/img/sliit.png" alt="SLIIT logo">
+                    <div>
+                      <p class="t-title">Bachelor's degree, Computer Software Engineering</p>
+                      <p class="t-org">Sri Lanka Institute of Information Technology (SLIIT) • Malabe, Sri Lanka</p>
+                    </div>
+                  </div>
+                  <div class="t-date">Feb 2024 – Present (Expected 2028)</div>
+                </div>
+                <div class="t-body">
+                  Bachelor of Science (Hons) in Software Engineering. Focus on building robust software systems, applying engineering principles,
+                  and delivering practical full-stack solutions aligned with industry expectations.
+                  <div class="coursework">
+                    <span class="tag">Data Structures & Algorithms</span>
+                    <span class="tag">Object-Oriented Programming</span>
+                    <span class="tag">Database Systems</span>
+                    <span class="tag">Software Engineering Principles</span>
+                    <span class="tag">Computer Networks</span>
+                    <span class="tag">Web Application Development</span>
+                    <span class="tag">Machine Learning Fundamentals</span>
+                    <span class="tag">Embedded Systems & IoT</span>
+                    <span class="tag">Operating Systems</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PIBT -->
+              <div class="t-item">
+                <div class="t-head">
+                  <div class="t-left">
+                    <img class="edu-logo" src="assets/img/pibt.png" alt="PIBT logo">
+                    <div>
+                      <p class="t-title">Associate of Computer Engineering</p>
+                      <p class="t-org">Pioneer Institute of Business and Technology (PIBT) • Sri Lanka</p>
+                    </div>
+                  </div>
+                  <div class="t-date">2020 – 2022</div>
+                </div>
+                <div class="t-body">
+                  Associate-level foundation focused on computing concepts, practical software development, and disciplined learning habits.
+                </div>
+              </div>
+
+              <!-- Higher Diploma (PIBT) -->
+              <div class="t-item">
+                <div class="t-head">
+                  <div class="t-left">
+                    <img class="edu-logo" src="assets/img/pibt.png" alt="PIBT logo">
+                    <div>
+                      <p class="t-title">Higher Diploma, Software Engineering</p>
+                      <p class="t-org">Pioneer Institute of Business and Technology (PIBT) • Sri Lanka</p>
+                    </div>
+                  </div>
+                  <div class="t-date">2019 – 2021</div>
+                </div>
+                <div class="t-body">
+                  Higher Diploma in Computing & Software Development. Strengthened fundamentals in programming and applied development.
+                </div>
+              </div>
+
+              <!-- Debarawewa National College -->
+              <div class="t-item">
+                <div class="t-head">
+                  <div class="t-left">
+                    <img class="edu-logo" src="assets/img/school.png" alt="School logo">
+                    <div>
+                      <p class="t-title">High School, O/L and G.C.E. Advanced Level (Commerce)</p>
+                      <p class="t-org">Debarawewa National College • Debarawewa, Sri Lanka</p>
+                    </div>
+                  </div>
+                  <div class="t-date">2013 – 2021</div>
+                </div>
+                <div class="t-body">
+                  O/L and A/L with Commerce stream (Accounting, Business Studies, ICT). Member of the prefect board (2015–2018) and Deputy Head Prefect (2018),
+                  with active participation in extracurricular activities and leadership responsibilities.
+                </div>
+              </div>
+
+              <!-- EnglishScore / British Council -->
+              <div class="t-item">
+                <div class="t-head">
+                  <div class="t-left">
+                    <img class="edu-logo" src="assets/img/englishscore.png" alt="EnglishScore logo">
+                    <div>
+                      <p class="t-title">English Language and Literature / Letters</p>
+                      <p class="t-org">EnglishScore / British Council</p>
+                    </div>
+                  </div>
+                  <div class="t-date">Jan 2019 – Apr 2019</div>
+                </div>
+                <div class="t-body">
+                  Developed listening, reading, speaking, participation, and writing capabilities. Skills: English.
+                </div>
+              </div>
+            </div>
+
+            <!-- CERTIFICATIONS -->
+            <div class="glass-card certs-card" data-aos="fade-up" data-aos-delay="110">
+              <div class="certs-header">
+                <h3><i class="bi bi-award me-2"></i>Licenses & Certifications</h3>
+              </div>
+              <p class="cert-note">
+                Each certification includes issuer branding (logo/image), issued date, credential ID, skills, and links to either the certificate PDF (assets/pdf/)
+                or credential verification (placeholder or issuer format).
+              </p>
+
+              <div class="accordion" id="certAccordion">
+                <!-- 1: Python for Beginners (UoM) -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="c1h">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1" aria-expanded="true" aria-controls="c1">
+                      Programming in Python — Python for Beginners (University of Moratuwa)
+                    </button>
+                  </h2>
+                  <div id="c1" class="accordion-collapse collapse show" aria-labelledby="c1h" data-bs-parent="#certAccordion">
+                    <div class="accordion-body">
+                      <div class="cert-row">
+                        <img class="issuer-logo" src="assets/img/uom.png" alt="University of Moratuwa logo">
+                        <div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="meta-chip"><i class="bi bi-calendar3"></i>Issued: Dec 2025</span>
+                            <span class="meta-chip"><i class="bi bi-patch-check"></i>Credential ID: UvAfOj3HMJ</span>
+                          </div>
+                          <div class="cert-skills">
+                            <span class="tag">Python (Programming Language)</span>
+                            <span class="tag">Software Development Life Cycle (SDLC)</span>
+                            <span class="tag">Code Reusability and Maintainability</span>
+                          </div>
+                          <div class="cert-actions">
+                            <a class="link-btn" href="assets/pdf/Python_for_Beginners_E-Certificate.pdf" target="_blank" rel="noopener">
+                              <i class="bi bi-file-earmark-pdf"></i> View PDF
+                            </a>
+                            <a class="link-btn" href="#" onclick="return false;">
+                              <i class="bi bi-box-arrow-up-right"></i> Show Credential
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2: SDLC (Udemy) -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="c2h">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2" aria-expanded="false" aria-controls="c2">
+                      SDLC — Software Development Life Cycle (Udemy)
+                    </button>
+                  </h2>
+                  <div id="c2" class="accordion-collapse collapse" aria-labelledby="c2h" data-bs-parent="#certAccordion">
+                    <div class="accordion-body">
+                      <div class="cert-row">
+                        <img class="issuer-logo" src="assets/img/udemy.png" alt="Udemy logo">
+                        <div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="meta-chip"><i class="bi bi-calendar3"></i>Issued: Sep 2025</span>
+                            <span class="meta-chip"><i class="bi bi-patch-check"></i>Credential ID: UC-558c67b8-da03-4328-b3a5-0871aeeb5e1f</span>
+                          </div>
+                          <div class="cert-skills">
+                            <span class="tag">Software Development Life Cycle (SDLC)</span>
+                            <span class="tag">Agile Methodologies</span>
+                            <span class="tag">Scrum</span>
+                          </div>
+                          <div class="cert-actions">
+                            <a class="link-btn" href="assets/img/UC-558c67b8-da03-4328-b3a5-0871aeeb5e1f.jpg" target="_blank" rel="noopener">
+                              <i class="bi bi-image"></i> Certificate Image
+                            </a>
+                            <a class="link-btn" href="https://www.udemy.com/certificate/UC-558c67b8-da03-4328-b3a5-0871aeeb5e1f/" target="_blank" rel="noopener">
+                              <i class="bi bi-box-arrow-up-right"></i> Show Credential
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3: Software Engineer Intern (HackerRank) -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="c3h">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c3" aria-expanded="false" aria-controls="c3">
+                      Software Engineer Intern Certificate (HackerRank)
+                    </button>
+                  </h2>
+                  <div id="c3" class="accordion-collapse collapse" aria-labelledby="c3h" data-bs-parent="#certAccordion">
+                    <div class="accordion-body">
+                      <div class="cert-row">
+                        <img class="issuer-logo" src="assets/img/hackerrank.png" alt="HackerRank logo">
+                        <div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="meta-chip"><i class="bi bi-calendar3"></i>Issued: Sep 2025</span>
+                            <span class="meta-chip"><i class="bi bi-patch-check"></i>Credential ID: 30857E8AO31F</span>
+                          </div>
+                          <div class="cert-actions">
+                            <a class="link-btn" href="assets/pdf/software_engineer_intern certificate.pdf" target="_blank" rel="noopener">
+                              <i class="bi bi-file-earmark-pdf"></i> View PDF
+                            </a>
+                            <a class="link-btn" href="#" onclick="return false;">
+                              <i class="bi bi-box-arrow-up-right"></i> Show Credential
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 4: Git & GitHub Masterclass (Udemy) -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="c4h">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c4" aria-expanded="false" aria-controls="c4">
+                      Git & GitHub Masterclass: The Practical Bootcamp (Udemy)
+                    </button>
+                  </h2>
+                  <div id="c4" class="accordion-collapse collapse" aria-labelledby="c4h" data-bs-parent="#certAccordion">
+                    <div class="accordion-body">
+                      <div class="cert-row">
+                        <img class="issuer-logo" src="assets/img/udemy.png" alt="Udemy logo">
+                        <div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="meta-chip"><i class="bi bi-calendar3"></i>Issued: Jul 2025</span>
+                            <span class="meta-chip"><i class="bi bi-patch-check"></i>Credential ID: UC-3f1d6dcc-d9d3-48a0-b421-ebcaef0dd41d</span>
+                          </div>
+                          <div class="cert-skills">
+                            <span class="tag">GitHub</span>
+                            <span class="tag">Git BASH</span>
+                          </div>
+                          <div class="cert-actions">
+                            <a class="link-btn" href="assets/img/GitHubCourse.jpg" target="_blank" rel="noopener">
+                              <i class="bi bi-image"></i> Certificate Image
+                            </a>
+                            <a class="link-btn" href="https://www.udemy.com/certificate/UC-3f1d6dcc-d9d3-48a0-b421-ebcaef0dd41d/" target="_blank" rel="noopener">
+                              <i class="bi bi-box-arrow-up-right"></i> Show Credential
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 5: MySQL For Beginners (Udemy) -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="c5h">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c5" aria-expanded="false" aria-controls="c5">
+                      MySQL For Beginners: Real Database Experience Real Fast (Udemy)
+                    </button>
+                  </h2>
+                  <div id="c5" class="accordion-collapse collapse" aria-labelledby="c5h" data-bs-parent="#certAccordion">
+                    <div class="accordion-body">
+                      <div class="cert-row">
+                        <img class="issuer-logo" src="assets/img/udemy.png" alt="Udemy logo">
+                        <div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="meta-chip"><i class="bi bi-calendar3"></i>Issued: Jul 2025</span>
+                            <span class="meta-chip"><i class="bi bi-patch-check"></i>Credential ID: UC-ea8d3f3a-8448-482f-8abe-50b1ba05c8c6</span>
+                          </div>
+                          <div class="cert-skills">
+                            <span class="tag">Databases</span>
+                            <span class="tag">Database Management System (DBMS)</span>
+                          </div>
+                          <div class="cert-actions">
+                            <a class="link-btn" href="assets/img/MysqlCertificate.jpg" target="_blank" rel="noopener">
+                              <i class="bi bi-image"></i> Certificate Image
+                            </a>
+                            <a class="link-btn" href="https://www.udemy.com/certificate/UC-ea8d3f3a-8448-482f-8abe-50b1ba05c8c6/" target="_blank" rel="noopener">
+                              <i class="bi bi-box-arrow-up-right"></i> Show Credential
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 6: Java OOP Exercises (Udemy) -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="c6h">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c6" aria-expanded="false" aria-controls="c6">
+                      Java OOP: Object Oriented Programming with Exercises - 2025 (Udemy)
+                    </button>
+                  </h2>
+                  <div id="c6" class="accordion-collapse collapse" aria-labelledby="c6h" data-bs-parent="#certAccordion">
+                    <div class="accordion-body">
+                      <div class="cert-row">
+                        <img class="issuer-logo" src="assets/img/udemy.png" alt="Udemy logo">
+                        <div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="meta-chip"><i class="bi bi-calendar3"></i>Issued: Jun 2025</span>
+                            <span class="meta-chip"><i class="bi bi-patch-check"></i>Credential ID: UC-d6f712681-8791-40fe-8c3d-4387476a0b07</span>
+                          </div>
+                          <div class="cert-skills">
+                            <span class="tag">Java</span>
+                            <span class="tag">Object-Oriented Programming (OOP)</span>
+                            <span class="tag">Java Programming</span>
+                            <span class="tag">Java SE</span>
+                            <span class="tag">Software Development</span>
+                            <span class="tag">SOLID Principles</span>
+                            <span class="tag">Interfaces</span>
+                            <span class="tag">Abstraction</span>
+                          </div>
+                          <div class="cert-actions">
+                            <a class="link-btn" href="assets/img/JAVA_ObjectOriented_Programming.jpg" target="_blank" rel="noopener">
+                              <i class="bi bi-image"></i> Certificate Image
+                            </a>
+                            <a class="link-btn" href="https://www.udemy.com/certificate/UC-d6f712681-8791-40fe-8c3d-4387476a0b07/" target="_blank" rel="noopener">
+                              <i class="bi bi-box-arrow-up-right"></i> Show Credential
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 7: Java (Basic) HackerRank -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="c7h">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c7" aria-expanded="false" aria-controls="c7">
+                      Java (Basic) (HackerRank)
+                    </button>
+                  </h2>
+                  <div id="c7" class="accordion-collapse collapse" aria-labelledby="c7h" data-bs-parent="#certAccordion">
+                    <div class="accordion-body">
+                      <div class="cert-row">
+                        <img class="issuer-logo" src="assets/img/hackerrank.png" alt="HackerRank logo">
+                        <div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="meta-chip"><i class="bi bi-calendar3"></i>Issued: Apr 2025</span>
+                            <span class="meta-chip"><i class="bi bi-patch-check"></i>Credential ID: 98IFC5F0FA57</span>
+                          </div>
+                          <div class="cert-skills">
+                            <span class="tag">Java</span>
+                          </div>
+                          <div class="cert-actions">
+                            <a class="link-btn" href="assets/pdf/java_basic certificate.pdf" target="_blank" rel="noopener">
+                              <i class="bi bi-file-earmark-pdf"></i> View PDF
+                            </a>
+                            <a class="link-btn" href="#" onclick="return false;">
+                              <i class="bi bi-box-arrow-up-right"></i> Show Credential
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 8: OOP OOAD Design Patterns (Udemy) -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="c8h">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c8" aria-expanded="false" aria-controls="c8">
+                      Java Object Oriented Programming: OOPS OOAD & Design Patterns (Udemy)
+                    </button>
+                  </h2>
+                  <div id="c8" class="accordion-collapse collapse" aria-labelledby="c8h" data-bs-parent="#certAccordion">
+                    <div class="accordion-body">
+                      <div class="cert-row">
+                        <img class="issuer-logo" src="assets/img/udemy.png" alt="Udemy logo">
+                        <div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="meta-chip"><i class="bi bi-calendar3"></i>Issued: Apr 2025</span>
+                            <span class="meta-chip"><i class="bi bi-patch-check"></i>Credential ID: UC-12ed977c-54a1-43c6-a7e9-fa97a2e69a2c</span>
+                          </div>
+                          <div class="cert-skills">
+                            <span class="tag">Object-Oriented Programming (OOP)</span>
+                            <span class="tag">Java Programming</span>
+                            <span class="tag">OOAD</span>
+                            <span class="tag">UML Diagrams</span>
+                            <span class="tag">Code Reusability and Maintainability</span>
+                          </div>
+                          <div class="cert-actions">
+                            <a class="link-btn" href="assets/img/OOP OOAD & Design Patterns.jpg" target="_blank" rel="noopener">
+                              <i class="bi bi-image"></i> Certificate Image
+                            </a>
+                            <a class="link-btn" href="https://www.udemy.com/certificate/UC-12ed977c-54a1-43c6-a7e9-fa97a2e69a2c/" target="_blank" rel="noopener">
+                              <i class="bi bi-box-arrow-up-right"></i> Show Credential
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 9: DSA Interview (Udemy) -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="c9h">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c9" aria-expanded="false" aria-controls="c9">
+                      Master the Coding Interview: Data Structures + Algorithms (Udemy)
+                    </button>
+                  </h2>
+                  <div id="c9" class="accordion-collapse collapse" aria-labelledby="c9h" data-bs-parent="#certAccordion">
+                    <div class="accordion-body">
+                      <div class="cert-row">
+                        <img class="issuer-logo" src="assets/img/udemy.png" alt="Udemy logo">
+                        <div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="meta-chip"><i class="bi bi-calendar3"></i>Issued: Mar 2025</span>
+                            <span class="meta-chip"><i class="bi bi-patch-check"></i>Credential ID: UC-48c32912-52fe-4304-8318-b59ed85ebcae</span>
+                          </div>
+                          <div class="cert-skills">
+                            <span class="tag">Data Structures</span>
+                            <span class="tag">Algorithms</span>
+                            <span class="tag">Problem Solving</span>
+                            <span class="tag">Analytical Thinking</span>
+                          </div>
+                          <div class="cert-actions">
+                            <a class="link-btn" href="assets/img/DSA Master the coding interview Certificate.jpg" target="_blank" rel="noopener">
+                              <i class="bi bi-image"></i> Certificate Image
+                            </a>
+                            <a class="link-btn" href="https://www.udemy.com/certificate/UC-48c32912-52fe-4304-8318-b59ed85ebcae/" target="_blank" rel="noopener">
+                              <i class="bi bi-box-arrow-up-right"></i> Show Credential
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 10: Python Bootcamp (Udemy) -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="c10h">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c10" aria-expanded="false" aria-controls="c10">
+                      The Complete Python Bootcamp From Zero to Hero in Python (Udemy)
+                    </button>
+                  </h2>
+                  <div id="c10" class="accordion-collapse collapse" aria-labelledby="c10h" data-bs-parent="#certAccordion">
+                    <div class="accordion-body">
+                      <div class="cert-row">
+                        <img class="issuer-logo" src="assets/img/udemy.png" alt="Udemy logo">
+                        <div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="meta-chip"><i class="bi bi-calendar3"></i>Issued: Mar 2025</span>
+                            <span class="meta-chip"><i class="bi bi-patch-check"></i>Credential ID: UC-ecd21743-85c4-48dc-80cb-1cd45b91a15b</span>
+                          </div>
+                          <div class="cert-skills">
+                            <span class="tag">Python (Programming Language)</span>
+                            <span class="tag">Object-Oriented Programming (OOP)</span>
+                            <span class="tag">python GUI</span>
+                          </div>
+                          <div class="cert-actions">
+                            <a class="link-btn" href="assets/img/Python Certificate.jpg" target="_blank" rel="noopener">
+                              <i class="bi bi-image"></i> Certificate Image
+                            </a>
+                            <a class="link-btn" href="https://www.udemy.com/certificate/UC-ecd21743-85c4-48dc-80cb-1cd45b91a15b/" target="_blank" rel="noopener">
+                              <i class="bi bi-box-arrow-up-right"></i> Show Credential
+                            </a>
+                          </div>
+                          <div class="mt-3" style="font-size: 13px; color: var(--muted); line-height: 1.7;">
+                            <strong style="color:#0f172a;">Note:</strong>
+                            Excited to share that I have completed "The Complete Python Bootcamp From Zero to Hero in Python" by Jose Portilla on Udemy.
+                            This course has strengthened my Python skills, and I’m eager to apply them in real-world projects.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 11: Crash Course on Python (Google) -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="c11h">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c11" aria-expanded="false" aria-controls="c11">
+                      Crash Course on Python (Google)
+                    </button>
+                  </h2>
+                  <div id="c11" class="accordion-collapse collapse" aria-labelledby="c11h" data-bs-parent="#certAccordion">
+                    <div class="accordion-body">
+                      <div class="cert-row">
+                        <img class="issuer-logo" src="assets/img/google.png" alt="Google logo">
+                        <div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="meta-chip"><i class="bi bi-calendar3"></i>Issued: Nov 2022</span>
+                          </div>
+                          <div class="cert-skills">
+                            <span class="tag">Python (Programming Language)</span>
+                            <span class="tag">Object-Oriented Programming (OOP)</span>
+                          </div>
+                          <div class="cert-actions">
+                            <a class="link-btn" href="assets/img/Coursera RYBQMULKS7PP_page-0001.jpg" target="_blank" rel="noopener">
+                              <i class="bi bi-image"></i> Certificate Image
+                            </a>
+                            <a class="link-btn" href="#" onclick="return false;">
+                              <i class="bi bi-box-arrow-up-right"></i> Show Credential
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 12: What is Data Science? (IBM) -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="c12h">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c12" aria-expanded="false" aria-controls="c12">
+                      What is Data Science? (IBM)
+                    </button>
+                  </h2>
+                  <div id="c12" class="accordion-collapse collapse" aria-labelledby="c12h" data-bs-parent="#certAccordion">
+                    <div class="accordion-body">
+                      <div class="cert-row">
+                        <img class="issuer-logo" src="assets/img/ibm.png" alt="IBM logo">
+                        <div>
+                          <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="meta-chip"><i class="bi bi-calendar3"></i>Issued: Aug 2022</span>
+                          </div>
+                          <div class="cert-actions">
+                            <a class="link-btn" href="assets/img/Coursera YB2LW8GEJ7DX_page-0001.jpg" target="_blank" rel="noopener">
+                              <i class="bi bi-image"></i> Certificate Image
+                            </a>
+                            <a class="link-btn" href="#" onclick="return false;">
+                              <i class="bi bi-box-arrow-up-right"></i> Show Credential
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PORTFOLIO -->
+      <section id="portfolio">
+        <div class="container-xl">
+          <h2 class="section-title" data-aos="fade-up">Portfolio</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="60">
+            Selected projects with links. Each card is optimized for clean readability and professional presentation.
+          </p>
+
+          <div class="grid-3">
+            <div class="project-card" data-aos="fade-up" data-aos-delay="80">
+              <h3 class="project-title">TeaWeb Export System (Ceymos Lanka)</h3>
+              <p class="project-desc">
+                Production-focused export company web platform with modern UI, product management, and a structured backend API.
+              </p>
+              <div class="project-footer">
+                <div class="project-tags">
+                  <span class="tag">React</span><span class="tag">PHP</span><span class="tag">MySQL</span>
+                </div>
+                <a class="link-btn" href="https://ceymoslanka.com" target="_blank" rel="noopener">
+                  <i class="bi bi-box-arrow-up-right"></i> Live
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="110">
+              <h3 class="project-title">Airline Reservation System</h3>
+              <p class="project-desc">
+                Full-stack reservation workflow including search, booking logic, and structured data handling for airline scenarios.
+              </p>
+              <div class="project-footer">
+                <div class="project-tags">
+                  <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">React</span>
+                </div>
+                <a class="link-btn" href="https://github.com/Nadeesha-D-Shalom/Airline_Reservation_System" target="_blank" rel="noopener">
+                  <i class="bi bi-github"></i> Repo
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="140">
+              <h3 class="project-title">Vehicle Rental System</h3>
+              <p class="project-desc">
+                System for managing vehicle listings, rentals, and admin workflows with database-backed operations.
+              </p>
+              <div class="project-footer">
+                <div class="project-tags">
+                  <span class="tag">Java</span><span class="tag">JSP/Servlet</span><span class="tag">MySQL</span>
+                </div>
+                <a class="link-btn" href="https://github.com/Nadeesha-D-Shalom/VehicleRentalSystem" target="_blank" rel="noopener">
+                  <i class="bi bi-github"></i> Repo
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="80">
+              <h3 class="project-title">Soil Health Monitor App (IoT + Mobile)</h3>
+              <p class="project-desc">
+                IoT-enabled monitoring concept integrating sensor data and mobile visualization for agriculture use cases.
+              </p>
+              <div class="project-footer">
+                <div class="project-tags">
+                  <span class="tag">IoT</span><span class="tag">Mobile</span><span class="tag">Sensors</span>
+                </div>
+                <a class="link-btn" href="https://github.com/Nadeesha-D-Shalom/Soil-Health-Monitor-App" target="_blank" rel="noopener">
+                  <i class="bi bi-github"></i> Repo
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="110">
+              <h3 class="project-title">Diabetes Prediction (Logistic Regression)</h3>
+              <p class="project-desc">
+                ML project implementing logistic regression for predictive analytics and model evaluation using structured datasets.
+              </p>
+              <div class="project-footer">
+                <div class="project-tags">
+                  <span class="tag">Python</span><span class="tag">ML</span><span class="tag">LogReg</span>
+                </div>
+                <a class="link-btn" href="https://github.com/Nadeesha-D-Shalom/Diabetes-Prediction-Logistic-Regression" target="_blank" rel="noopener">
+                  <i class="bi bi-github"></i> Repo
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="140">
+              <h3 class="project-title">Casper50 Boat IoT Rover</h3>
+              <p class="project-desc">
+                Autonomous/remote rover-style boat project exploring navigation, sensors, and practical embedded system integration.
+              </p>
+              <div class="project-footer">
+                <div class="project-tags">
+                  <span class="tag">IoT</span><span class="tag">Embedded</span><span class="tag">Automation</span>
+                </div>
+                <a class="link-btn" href="https://github.com/Nadeesha-D-Shalom/Casper50-Boat" target="_blank" rel="noopener">
+                  <i class="bi bi-github"></i> Repo
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RESEARCH INTERESTS -->
+      <section id="research">
+        <div class="container-xl">
+          <h2 class="section-title" data-aos="fade-up">Research Interests</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="60">
+            Areas I want to explore deeper—where software engineering, AI/ML, and IoT can deliver measurable real-world outcomes.
+          </p>
+
+          <div class="grid-2">
+            <div class="glass-card info-card" data-aos="fade-up" data-aos-delay="80">
+              <ul class="info-list">
+                <li>
+                  <i class="bi bi-leaf"></i>
+                  <div>
+                    <h6>AI/ML for Agriculture</h6>
+                    <p>Predictive analytics for yield/quality, classification for crop health, and decision-support dashboards for farmers.</p>
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-router"></i>
+                  <div>
+                    <h6>IoT Automation Systems</h6>
+                    <p>Sensor-driven automation, real-time monitoring, alerts, and reliability patterns for device-to-cloud systems.</p>
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-graph-up"></i>
+                  <div>
+                    <h6>Data-driven Product Engineering</h6>
+                    <p>Building features with measurable KPIs using analytics thinking, experimentation mindset, and iterative improvements.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="glass-card info-card" data-aos="fade-up" data-aos-delay="110">
+              <ul class="info-list">
+                <li>
+                  <i class="bi bi-shield-check"></i>
+                  <div>
+                    <h6>Secure and Maintainable Systems</h6>
+                    <p>Clean architecture, secure coding practices, and long-term maintainability across teams and deployments.</p>
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-cloud"></i>
+                  <div>
+                    <h6>Modern Deployments</h6>
+                    <p>CI/CD workflows, versioning, and scalable deployment patterns that support real product lifecycle needs.</p>
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-cpu"></i>
+                  <div>
+                    <h6>Edge + Cloud Integration</h6>
+                    <p>Efficient pipelines between edge devices and cloud services to enable responsive, resilient applications.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENTS -->
+      <section id="achievements">
+        <div class="container-xl">
+          <h2 class="section-title" data-aos="fade-up">Achievements</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="60">
+            Highlights demonstrating consistent learning, project execution, and collaborative delivery.
+          </p>
+
+          <div class="grid-3">
+            <div class="glass-card info-card" data-aos="fade-up" data-aos-delay="80">
+              <h5 style="font-weight: 800; font-size: 14px;"><i class="bi bi-check2-circle me-2"></i>Project Delivery</h5>
+              <p class="muted" style="font-size: 13px; line-height: 1.75; margin: 0;">
+                Built and maintained multiple full-stack applications with real deployment experience, structured APIs, and modern UI.
+              </p>
+            </div>
+            <div class="glass-card info-card" data-aos="fade-up" data-aos-delay="110">
+              <h5 style="font-weight: 800; font-size: 14px;"><i class="bi bi-people me-2"></i>Team Collaboration</h5>
+              <p class="muted" style="font-size: 13px; line-height: 1.75; margin: 0;">
+                Experienced in coordinating tasks, communicating progress, and keeping code quality high through organized workflows.
+              </p>
+            </div>
+            <div class="glass-card info-card" data-aos="fade-up" data-aos-delay="140">
+              <h5 style="font-weight: 800; font-size: 14px;"><i class="bi bi-award me-2"></i>Continuous Learning</h5>
+              <p class="muted" style="font-size: 13px; line-height: 1.75; margin: 0;">
+                Completed structured certifications in SDLC, Git/GitHub, MySQL, Java OOP, Python, DSA, and foundational data science.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="container-xl">
+          <h2 class="section-title" data-aos="fade-up">Contact</h2>
+          <p class="section-sub" data-aos="fade-up" data-aos-delay="60">
+            For internship opportunities, freelance work, or collaborations—reach out via email or phone. Social links are available in the sidebar.
+          </p>
+
+          <div class="grid-2">
+            <div class="glass-card contact-card" data-aos="fade-up" data-aos-delay="80">
+              <div class="contact-item">
+                <i class="bi bi-envelope"></i>
+                <div>
+                  <div style="font-weight: 800;">Email</div>
+                  <a href="mailto:nadeeshashalom1@gmail.com">nadeeshashalom1@gmail.com</a>
+                  <div class="small">Preferred for professional communication</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="bi bi-telephone"></i>
+                <div>
+                  <div style="font-weight: 800;">Phone</div>
+                  <a href="tel:+94707328800">+94 707 32 8800</a>
+                  <div class="small">Sri Lanka (GMT+5:30)</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="bi bi-link-45deg"></i>
+                <div>
+                  <div style="font-weight: 800;">GitHub Pages</div>
+                  <a href="#" onclick="return false;">Nadeesha_UI.github.io</a>
+                  <div class="small">Single-page portfolio site</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card contact-card" data-aos="fade-up" data-aos-delay="110">
+              <h5 style="font-weight: 800; margin: 0 0 10px;">Quick Overview</h5>
+              <p class="muted" style="margin:0; line-height: 1.8; font-size: 13.5px;">
+                Specialties: Java Spring Boot, React.js, database design, Git workflows, and applied AI/ML and IoT prototypes.
+                Available for: internships (2025–2026), freelance web development, and project collaboration.
+              </p>
+
+              <div class="mt-3 d-flex flex-wrap gap-2">
+                <span class="pill"><i class="bi bi-check2"></i>Professional</span>
+                <span class="pill"><i class="bi bi-check2"></i>Reliable</span>
+                <span class="pill"><i class="bi bi-check2"></i>Detail-focused</span>
+                <span class="pill"><i class="bi bi-check2"></i>Growth mindset</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <footer>
+        <div>
+          © <span id="yearFooter"></span> Nadeesha D Shalom • Built for GitHub Pages
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ====== SCRIPTS ====== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+  <script>
+    (function () {
+      const year = new Date().getFullYear();
+      const y1 = document.getElementById("yearNow");
+      const y2 = document.getElementById("yearFooter");
+      if (y1) y1.textContent = year.toString();
+      if (y2) y2.textContent = year.toString();
+    })();
+
+    /* ====== MOBILE SIDEBAR ====== */
+    (function () {
+      const sidebar = document.getElementById("sidebar");
+      const btn = document.getElementById("menuBtn");
+      const backdrop = document.getElementById("sidebarBackdrop");
+
+      function openMenu() {
+        sidebar.classList.add("open");
+        backdrop.classList.add("show");
+      }
+      function closeMenu() {
+        sidebar.classList.remove("open");
+        backdrop.classList.remove("show");
+      }
+
+      if (btn) btn.addEventListener("click", openMenu);
+      if (backdrop) backdrop.addEventListener("click", closeMenu);
+
+      document.querySelectorAll('.side-nav a').forEach(a => {
+        a.addEventListener('click', () => {
+          if (window.innerWidth <= 992) closeMenu();
+        });
+      });
+    })();
+
+    /* ====== AOS INIT ====== */
+    AOS.init({
+      duration: 850,
+      once: false,
+      offset: 80,
+      easing: "ease-out-cubic"
     });
-    requestAnimationFrame(t);
-  }
-  t();
-}
-</script>
 
+    /* ====== TYPED.JS ====== */
+    (function () {
+      const typedEl = document.getElementById("typed");
+      if (!typedEl) return;
+
+      new Typed("#typed", {
+        strings: [
+          "Software Engineer",
+          "Full-Stack Developer",
+          "AI/ML Enthusiast",
+          "IoT Innovator"
+        ],
+        typeSpeed: 45,
+        backSpeed: 22,
+        backDelay: 1200,
+        loop: true,
+        smartBackspace: true,
+        showCursor: true
+      });
+    })();
+
+    /* ====== SKILL BAR ANIMATION (on visible) ====== */
+    (function () {
+      const bars = Array.from(document.querySelectorAll("[data-skill]"));
+      if (!bars.length) return;
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          const val = el.getAttribute("data-skill");
+          if (val && el.style.width === "0%") {
+            el.style.width = val + "%";
+          }
+        });
+      }, { threshold: 0.25 });
+
+      bars.forEach(b => {
+        b.style.width = "0%";
+        io.observe(b);
+      });
+    })();
+
+    /* ====== DECEMBER SNOW (Dec 1–Dec 31, slow) ====== */
+    (function () {
+      const canvas = document.getElementById("snowCanvas");
+      if (!canvas) return;
+
+      const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduceMotion) return;
+
+      const now = new Date();
+      const isDecember = now.getMonth() === 11;
+      const day = now.getDate();
+      const inRange = isDecember && day >= 1 && day <= 31;
+
+      if (!inRange) return;
+
+      const ctx = canvas.getContext("2d");
+      let w = 0, h = 0;
+      const flakes = [];
+      let rafId = null;
+
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+
+      function rand(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      function createFlake() {
+        const size = rand(1.2, 3.2);
+        return {
+          x: rand(0, w),
+          y: rand(-h, 0),
+          r: size,
+          vx: rand(-0.15, 0.15),
+          vy: rand(0.35, 0.85),
+          a: rand(0.35, 0.80)
+        };
+      }
+
+      function initFlakes() {
+        flakes.length = 0;
+        const density = Math.min(120, Math.max(60, Math.floor(w / 14)));
+        for (let i = 0; i < density; i++) flakes.push(createFlake());
+      }
+
+      function step() {
+        ctx.clearRect(0, 0, w, h);
+
+        for (let i = 0; i < flakes.length; i++) {
+          const f = flakes[i];
+          f.x += f.vx;
+          f.y += f.vy;
+
+          if (f.y > h + 10) {
+            f.y = rand(-80, -10);
+            f.x = rand(0, w);
+          }
+          if (f.x < -10) f.x = w + 10;
+          if (f.x > w + 10) f.x = -10;
+
+          ctx.beginPath();
+          ctx.globalAlpha = f.a;
+          ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+          ctx.fillStyle = "#ffffff";
+          ctx.fill();
+        }
+
+        ctx.globalAlpha = 1;
+        rafId = requestAnimationFrame(step);
+      }
+
+      window.addEventListener("resize", () => {
+        resize();
+        initFlakes();
+      });
+
+      resize();
+      initFlakes();
+      canvas.classList.add("active");
+      step();
+
+      window.addEventListener("beforeunload", () => {
+        if (rafId) cancelAnimationFrame(rafId);
+      });
+    })();
+  </script>
 </body>
 </html>
