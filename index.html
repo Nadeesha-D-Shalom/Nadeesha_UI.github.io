@@ -513,7 +513,7 @@
       color: var(--accent);
     }
 
-    /* ===== Clients Marquee ===== */
+   /* ===== Clients Logo Marquee (Minimal) ===== */
 .clients-marquee {
   position: relative;
   width: 100%;
@@ -522,47 +522,37 @@
 
 .clients-track {
   display: flex;
-  gap: 60px;
+  align-items: center;
+  gap: 80px;
   width: max-content;
-  animation: marqueeMove 22s linear infinite;
+  animation: clientsScroll 20s linear infinite;
 }
 
-.client-card {
-  flex: 0 0 auto;
-  display: flex;
+.client-logo {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 18px 28px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.55);
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
-.client-card img {
-  max-height: 56px;
+.client-logo img {
+  max-height: 54px;
   width: auto;
-  object-fituration: contain;
-  filter: brightness(1.05);
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 160ms ease, transform 160ms ease;
 }
 
-.client-card:hover {
-  transform: translateY(-4px) scale(1.04);
-  border-color: rgba(13, 202, 240, 0.35);
-  box-shadow:
-    0 0 0 8px rgba(13, 202, 240, 0.06),
-    0 24px 60px rgba(0, 0, 0, 0.65);
+.client-logo:hover img {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
-/* Pause animation on hover */
+/* Pause animation on hover (professional behavior) */
 .clients-marquee:hover .clients-track {
   animation-play-state: paused;
 }
 
-@keyframes marqueeMove {
+@keyframes clientsScroll {
   from {
     transform: translateX(0);
   }
@@ -570,6 +560,7 @@
     transform: translateX(-50%);
   }
 }
+
 
 
     /* Contact (no form) */
@@ -1392,7 +1383,7 @@
     <div>
       <h2 class="section-title" data-aos="fade-up">My Clients</h2>
       <p class="section-subtitle" data-aos="fade-up" data-aos-delay="50">
-        Trusted collaborations and real-world partnerships
+        Trusted collaborations
       </p>
     </div>
   </div>
@@ -1401,12 +1392,12 @@
     <div class="clients-marquee">
       <div class="clients-track">
 
-        <!-- Client Item -->
+        <!-- Client Logo -->
         <a
           href="https://ceymoslanka.com"
           target="_blank"
           rel="noopener"
-          class="client-card"
+          class="client-logo"
         >
           <img
             src="assets/img/clients/ceymosLogo.png"
@@ -1415,17 +1406,17 @@
         </a>
 
         <!-- Duplicate for seamless loop -->
-        <a
+        <!-- <a
           href="https://ceymoslanka.com"
           target="_blank"
           rel="noopener"
-          class="client-card"
+          class="client-logo"
         >
           <img
             src="assets/img/clients/ceymosLogo.png"
             alt="Ceymos Lanka"
           />
-        </a>
+        </a> -->
 
       </div>
     </div>
