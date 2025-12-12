@@ -513,11 +513,11 @@
       color: var(--accent);
     }
 
-   /* ===== Clients Logo Marquee (Minimal) ===== */
+   /* ===== Clients Infinite Logo Marquee ===== */
 .clients-marquee {
-  position: relative;
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .clients-track {
@@ -525,9 +525,11 @@
   align-items: center;
   gap: 80px;
   width: max-content;
-  animation: clientsScroll 20s linear infinite;
+
+  animation: marquee-left 18s linear infinite;
 }
 
+/* Logo only – no box, no border */
 .client-logo {
   display: inline-flex;
   align-items: center;
@@ -535,28 +537,29 @@
 }
 
 .client-logo img {
-  max-height: 54px;
+  max-height: 52px;
   width: auto;
   object-fit: contain;
-  opacity: 0.85;
+  opacity: 0.9;
   transition: opacity 160ms ease, transform 160ms ease;
 }
 
 .client-logo:hover img {
   opacity: 1;
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-/* Pause animation on hover (professional behavior) */
+/* Pause on hover (enterprise UX standard) */
 .clients-marquee:hover .clients-track {
   animation-play-state: paused;
 }
 
-@keyframes clientsScroll {
-  from {
+/* === TRUE LOOP === */
+@keyframes marquee-left {
+  0% {
     transform: translateX(0);
   }
-  to {
+  100% {
     transform: translateX(-50%);
   }
 }
@@ -1392,32 +1395,16 @@
     <div class="clients-marquee">
       <div class="clients-track">
 
-        <!-- Client Logo -->
-        <a
-          href="https://ceymoslanka.com"
-          target="_blank"
-          rel="noopener"
-          class="client-logo"
-        >
-          <img
-            src="assets/img/clients/ceymosLogo.png"
-            alt="Ceymos Lanka"
-          />
+        <!-- SET 1 -->
+        <a href="https://ceymoslanka.com" target="_blank" rel="noopener" class="client-logo">
+          <img src="assets/img/clients/ceymosLogo.png" alt="Ceymos Lanka" />
         </a>
 
-        <!-- Duplicate for seamless loop -->
-        <!-- <a
-          href="https://ceymoslanka.com"
-          target="_blank"
-          rel="noopener"
-          class="client-logo"
-        >
-          <img
-            src="assets/img/clients/ceymosLogo.png"
-            alt="Ceymos Lanka"
-          />
-        </a> -->
-
+        <!--  SET 2 (duplicate for seamless loop) 
+        <a href="https://ceymoslanka.com" target="_blank" rel="noopener" class="client-logo">
+          <img src="assets/img/clients/ceymosLogo.png" alt="Ceymos Lanka" />
+        </a>  -->
+        
       </div>
     </div>
   </div>
