@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nadeesha-d-shalom.github.io/Nadeesha_UI.github.io/sitemap.xml
