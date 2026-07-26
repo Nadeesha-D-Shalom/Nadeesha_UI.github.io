@@ -1,7 +1,7 @@
 # Nadeesha Shalom — Software Engineering Portfolio
 
 [![Portfolio](https://img.shields.io/badge/Live_Portfolio-Visit-36dca5?style=for-the-badge)](https://nadeesha-d-shalom.github.io/Nadeesha_UI.github.io/)
-[![Version](https://img.shields.io/badge/version-5.0.0-6f67ff?style=for-the-badge)](https://github.com/Nadeesha-D-Shalom/Nadeesha_UI.github.io/releases/tag/v5.0.0)
+[![Version](https://img.shields.io/badge/version-5.0.1-6f67ff?style=for-the-badge)](https://github.com/Nadeesha-D-Shalom/Nadeesha_UI.github.io/releases/tag/v5.0.1)
 [![Deploy portfolio](https://github.com/Nadeesha-D-Shalom/Nadeesha_UI.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/Nadeesha-D-Shalom/Nadeesha_UI.github.io/actions/workflows/deploy.yml)
 
 A premium, responsive portfolio presenting the software engineering work, technical expertise, education, certifications, leadership, and professional profile of **Nadeesha Shalom**.

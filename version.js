@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 // Single source of truth for the portfolio version.
 // Change only this value, then run: npm run version:sync
-export const VERSION = '5.0.0';
+export const VERSION = '5.0.1';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 const args = new Set(process.argv.slice(2));
@@ -64,7 +64,7 @@ function syncVersion({ check = false } = {}) {
 }
 
 function git(...parameters) {
-  return execFileSync('git', parameters, { cwd: root, encoding: 'utf8' }).trim();
+  return execFileSync('git', parameters, { cwd: root, encoding: 'utf8' }).trimEnd();
 }
 
 function prepareRelease() {
