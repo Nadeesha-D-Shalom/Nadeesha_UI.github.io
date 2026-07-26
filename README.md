@@ -101,29 +101,26 @@ You do not need to build or upload `dist/` manually.
 
 ## Versioning and releases
 
-This project follows [Semantic Versioning](https://semver.org/):
+The `VERSION` constant in [`version.js`](version.js) is the single source of truth. This project follows [Semantic Versioning](https://semver.org/):
 
 - `MAJOR` — large redesigns or breaking changes, for example `5.0.0`.
 - `MINOR` — backward-compatible features, for example `5.1.0`.
 - `PATCH` — bug fixes, for example `5.0.1`, `5.0.2`, and `5.0.3`.
 
-Pushing a version tag automatically triggers [release.yml](.github/workflows/release.yml) and creates a GitHub Release with generated release notes.
-
-Example bug-fix release:
+To prepare a release:
 
 ```bash
-npm version patch
-git push origin main
-git push origin v5.0.1
+# 1. Change only VERSION in version.js.
+# 2. Synchronize, validate, commit, and create the matching local tag.
+npm run release
+
+# 3. Publish the release commit and tag.
+git push origin main --follow-tags
 ```
 
-Example feature release:
+The release command updates `package.json`, `package-lock.json`, and the README version badge; validates the production build; creates a release commit; and creates the matching annotated tag. Pushing that tag triggers [release.yml](.github/workflows/release.yml), which validates version consistency and creates the GitHub Release with generated release notes.
 
-```bash
-npm version minor
-git push origin main
-git push origin v5.1.0
-```
+To synchronize the version without creating a release, run `npm run version:sync`. CI uses `npm run version:check` to reject mismatched version files or release tags.
 
 ## Contact
 

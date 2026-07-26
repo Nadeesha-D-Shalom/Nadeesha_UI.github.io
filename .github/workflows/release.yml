@@ -24,15 +24,18 @@ jobs:
       - name: Install locked dependencies
         run: npm ci
 
+      - name: Verify synchronized version files
+        run: npm run version:check
+
       - name: Validate production build
         run: npm run build
 
-      - name: Verify tag matches package version
+      - name: Verify tag matches the central version
         shell: bash
         run: |
-          PACKAGE_VERSION="$(node -p "require('./package.json').version")"
-          if [[ "${GITHUB_REF_NAME}" != "v${PACKAGE_VERSION}" ]]; then
-            echo "Tag ${GITHUB_REF_NAME} does not match package version v${PACKAGE_VERSION}."
+          VERSION="$(node -e "import('./version.js').then(module => process.stdout.write(module.VERSION))")"
+          if [[ "${GITHUB_REF_NAME}" != "v${VERSION}" ]]; then
+            echo "Tag ${GITHUB_REF_NAME} does not match version.js value v${VERSION}."
             exit 1
           fi
 
