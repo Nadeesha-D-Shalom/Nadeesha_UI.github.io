@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 
 // Single source of truth for the portfolio version.
 // Change only this value, then run: npm run version:sync
@@ -94,10 +95,14 @@ function prepareRelease() {
   console.log('Publish with: git push origin main --follow-tags');
 }
 
-if (args.has('--check')) {
-  syncVersion({ check: true });
-} else if (args.has('--release')) {
-  prepareRelease();
-} else {
-  syncVersion();
+const isMainModule = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isMainModule) {
+  if (args.has('--check')) {
+    syncVersion({ check: true });
+  } else if (args.has('--release')) {
+    prepareRelease();
+  } else {
+    syncVersion();
+  }
 }
