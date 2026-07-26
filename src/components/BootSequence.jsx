@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import lottie from 'lottie-web/build/player/lottie_light';
 import helloAnimationUrl from '../../assets/vid/Hello (apple).json?url';
 
 export default function BootSequence({onComplete}) {
@@ -27,6 +26,11 @@ export default function BootSequence({onComplete}) {
 
   useEffect(()=>{
     if(stage!=='hello'||!lottieRef.current)return;
+    const lottie=window.lottie;
+    if(!lottie){
+      finish();
+      return;
+    }
     const animation=lottie.loadAnimation({
       container:lottieRef.current,
       renderer:'svg',

@@ -12,7 +12,6 @@
     "release": "node version.js --release"
   },
   "dependencies": {
-    "lottie-web": "^5.13.0",
     "react": "latest",
     "react-dom": "latest"
   },
