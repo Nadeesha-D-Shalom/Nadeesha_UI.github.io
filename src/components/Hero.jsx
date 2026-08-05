@@ -33,7 +33,7 @@ export default function Hero({active}) {
     <div key={baseVr?'vr':'normal'} className="hero-tile-transition" aria-hidden="true">{Array.from({length:24},(_,index)=>{
       const row=Math.floor(index/6);
       const column=index%6;
-      return <i key={index} style={{'--tile-delay':`${(row+column)*70}ms`,'--tile-turn':`${row%2===0?1:-1}`}}/>;
+      return <i key={index} style={{'--tile-delay':`${(row+column)*70}ms`}}/>;
     })}</div>
     <div className="image-grade" aria-hidden="true"/>
     <HeroContent/>
