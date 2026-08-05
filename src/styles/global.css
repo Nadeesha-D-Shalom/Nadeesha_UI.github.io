@@ -375,6 +375,10 @@ button {
     --reveal-size: clamp(6rem, 12vw, 11rem)
 }
 
+.photo-hero.touch-revealing {
+    --reveal-size: clamp(5rem, 24vw, 8rem)
+}
+
 .image-grade {
     position: absolute;
     z-index: 3;
@@ -1304,4 +1308,13 @@ img,svg{max-width:100%}
   .apple-glass-nav.menu-open nav{opacity:1;visibility:visible;transform:none;pointer-events:auto}
   .apple-glass-nav nav a{min-height:3rem;display:flex;align-items:center;gap:.65rem;padding:.7rem .75rem;border:1px solid rgba(255,255,255,.08);border-radius:.72rem;background:rgba(255,255,255,.035);font-size:.72rem}
   .apple-glass-nav nav a:last-child{grid-column:1/-1}
+  .photo-hero{height:auto;min-height:100svh;padding-top:min(56.25vw,25rem);background:linear-gradient(180deg,#061a2b 0,#082536 58%,#061a2b 100%)}
+  .hero-image{top:4.6rem;bottom:auto;width:100%;height:min(56.25vw,25rem);object-fit:contain;object-position:center center}
+  .image-grade{background:linear-gradient(180deg,rgba(3,18,30,.12) 4.6rem,rgba(3,18,30,.08) 34vw,#061a2b min(61vw,27rem),rgba(6,26,43,.2) 100%)}
+  .photo-hero-content{position:relative;left:auto!important;right:auto!important;top:auto;bottom:auto;width:auto!important;max-width:34rem;margin:clamp(1.25rem,6vw,2.5rem) auto 0;padding:1rem 1.15rem 3rem;transform:translateY(1rem);text-align:center}
+  .photo-hero.active .photo-hero-content{transform:none}
+  .photo-eyebrow{justify-content:center;flex-wrap:wrap;margin-bottom:1rem;line-height:1.5}
+  .photo-hero-content h1{font-size:clamp(2.45rem,11vw,3.65rem);line-height:.92}
+  .photo-hero-content>p{font-size:.88rem;line-height:1.6}
+  .photo-actions{max-width:22rem;margin:0 auto;flex-direction:column}.photo-actions a{min-height:3rem}
 }
