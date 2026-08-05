@@ -371,6 +371,64 @@ button {
     transition: --reveal-size .45s ease
 }
 
+.photo-hero.base-vr .normal-image {
+    z-index: 1;
+    mask-image: none;
+    -webkit-mask-image: none
+}
+
+.photo-hero.base-vr .vr-image {
+    z-index: 2;
+    mask-image: radial-gradient(circle var(--reveal-size) at var(--reveal-x) var(--reveal-y), transparent 0, transparent 52%, rgba(0, 0, 0, .3) 72%, #000 100%);
+    -webkit-mask-image: radial-gradient(circle var(--reveal-size) at var(--reveal-x) var(--reveal-y), transparent 0, transparent 52%, rgba(0, 0, 0, .3) 72%, #000 100%);
+    transition: --reveal-size .45s ease
+}
+
+.hero-tile-transition {
+    position: absolute;
+    z-index: 4;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    pointer-events: none;
+    perspective: 700px
+}
+
+.hero-tile-transition i {
+    background: linear-gradient(135deg, rgba(7, 45, 58, .96), rgba(34, 120, 105, .84));
+    transform-origin: center;
+    animation: heroTileTurn 1.15s cubic-bezier(.65, 0, .2, 1) both;
+    animation-delay: calc(var(--tile-index) * 24ms)
+}
+
+@keyframes heroTileTurn {
+    0% { opacity: 0; transform: rotateY(90deg) scale(.96) }
+    35% { opacity: 1; transform: rotateY(0) scale(1.015) }
+    65% { opacity: 1; transform: rotateY(0) scale(1.015) }
+    100% { opacity: 0; transform: rotateY(-90deg) scale(.96) }
+}
+
+/* Clearer hero and navigation typography */
+.hero-brand strong{font-size:1rem}
+.hero-brand span{font-size:.66rem;line-height:1.35}
+.apple-glass-nav nav a{font-size:.8rem;font-weight:600}
+.photo-eyebrow{font-size:.7rem;font-weight:600;line-height:1.5}
+.photo-actions a{font-size:.82rem;font-weight:600}
+.photo-actions a span{font-size:1rem}
+@media(max-width:900px){
+  .apple-glass-nav nav a{font-size:.74rem}
+}
+@media(max-width:600px){
+  .hero-brand strong{font-size:.92rem}
+  .hero-brand span{font-size:.6rem}
+  .apple-glass-nav nav a{font-size:.8rem}
+  .apple-glass-nav nav a small{font-size:.5rem}
+  .photo-eyebrow{font-size:.66rem;letter-spacing:.1em}
+  .photo-actions a{font-size:.88rem}
+  .photo-actions a span{font-size:1.05rem}
+}
+
 .photo-hero.revealing {
     --reveal-size: clamp(6rem, 12vw, 11rem)
 }
