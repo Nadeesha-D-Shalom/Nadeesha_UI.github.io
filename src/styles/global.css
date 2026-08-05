@@ -396,17 +396,18 @@ button {
 }
 
 .hero-tile-transition i {
-    background: linear-gradient(135deg, rgba(7, 45, 58, .96), rgba(34, 120, 105, .84));
+    background: linear-gradient(135deg, #76f2b7 0%, #35ce8d 38%, #12865c 72%, #07513d 100%);
+    box-shadow: inset 0 0 0 1px rgba(211, 255, 235, .18), inset 0 0 1.3rem rgba(2, 55, 38, .24);
     transform-origin: center;
-    animation: heroTileTurn 1.15s cubic-bezier(.65, 0, .2, 1) both;
-    animation-delay: calc(var(--tile-index) * 24ms)
+    animation: heroTileTurn 1.3s cubic-bezier(.65, 0, .2, 1) both;
+    animation-delay: var(--tile-delay)
 }
 
 @keyframes heroTileTurn {
-    0% { opacity: 0; transform: rotateY(90deg) scale(.96) }
-    35% { opacity: 1; transform: rotateY(0) scale(1.015) }
-    65% { opacity: 1; transform: rotateY(0) scale(1.015) }
-    100% { opacity: 0; transform: rotateY(-90deg) scale(.96) }
+    0% { opacity: 0; transform: rotateY(calc(90deg * var(--tile-turn))) scale(.9) }
+    32% { opacity: 1; transform: rotateY(0) scale(1.025) }
+    62% { opacity: 1; transform: rotateY(0) scale(1.025) }
+    100% { opacity: 0; transform: rotateY(calc(-90deg * var(--tile-turn))) scale(.9) }
 }
 
 /* Clearer hero and navigation typography */
@@ -428,6 +429,29 @@ button {
   .photo-actions a{font-size:.88rem}
   .photo-actions a span{font-size:1.05rem}
 }
+
+/* Dimensional floating robot */
+.floating-assistant{filter:drop-shadow(0 .75rem .9rem rgba(0,8,14,.38))}
+.assistant-robot{width:2.9rem;height:3.25rem}
+.assistant-shadow{position:absolute;z-index:0;left:.55rem;bottom:-.08rem;width:1.9rem;height:.36rem;border-radius:50%;background:rgba(0,8,14,.55);filter:blur(.22rem)}
+.assistant-head{left:.27rem;top:.5rem;width:2.38rem;height:1.55rem;padding:.18rem;border:1px solid rgba(211,247,255,.72);border-radius:.72rem .72rem .62rem .62rem;background:linear-gradient(145deg,#d9f5f5 0,#78aeb8 18%,#183c49 51%,#071d29 100%);box-shadow:inset .12rem .12rem .25rem rgba(255,255,255,.72),inset -.16rem -.2rem .35rem rgba(0,7,13,.72),0 .15rem .3rem rgba(0,10,17,.45)}
+.assistant-head:before,.assistant-head:after{content:"";position:absolute;top:.5rem;width:.2rem;height:.55rem;border:1px solid rgba(182,238,239,.55);background:linear-gradient(#3e7782,#102f3b)}
+.assistant-head:before{left:-.24rem;border-radius:.2rem 0 0 .2rem}.assistant-head:after{right:-.24rem;border-radius:0 .2rem .2rem 0}
+.assistant-face{position:absolute;inset:.22rem;overflow:hidden;border:1px solid rgba(75,224,213,.28);border-radius:.48rem;background:radial-gradient(circle at 50% 20%,rgba(70,192,189,.2),transparent 40%),linear-gradient(160deg,#0b2734,#020b12);box-shadow:inset 0 0 .45rem rgba(0,0,0,.8),0 0 .2rem rgba(99,226,217,.2)}
+.assistant-face:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.14) 38%,transparent 51%);pointer-events:none}
+.assistant-head .assistant-face b{top:.43rem;width:.34rem;height:.28rem;border-radius:45%;background:#94fff0;box-shadow:0 0 .18rem #57e7d7,0 0 .5rem rgba(87,231,215,.65)}
+.assistant-head .assistant-face b:first-child{left:.48rem}.assistant-head .assistant-face b:nth-child(2){right:.48rem}
+.assistant-face em{position:absolute;left:50%;bottom:.25rem;width:.48rem;height:.12rem;border-bottom:1px solid rgba(119,245,229,.8);border-radius:0 0 50% 50%;transform:translateX(-50%)}
+.assistant-antenna{left:1.43rem;top:.02rem;height:.52rem;background:linear-gradient(#74f0d0,#8db6bd)}
+.assistant-antenna:after{left:-.17rem;top:-.14rem;width:.35rem;height:.35rem;border:1px solid rgba(220,255,246,.7);background:radial-gradient(circle at 35% 30%,#fff,#6ff1bd 42%,#158167);box-shadow:0 0 .55rem rgba(73,227,161,.75)}
+.assistant-neck{position:absolute;z-index:1;left:1.17rem;top:1.95rem;width:.58rem;height:.35rem;border:1px solid rgba(206,244,242,.35);border-radius:.1rem;background:linear-gradient(90deg,#244b54,#92bdc1,#173640)}
+.assistant-body{left:.55rem;top:2.15rem;width:1.9rem;height:.88rem;border-color:rgba(209,245,241,.48);border-radius:.28rem .28rem .72rem .72rem;background:linear-gradient(145deg,#9cc9ca 0,#315d65 22%,#0d303b 63%,#061923);box-shadow:inset .1rem .1rem .2rem rgba(255,255,255,.38),inset -.12rem -.16rem .22rem rgba(0,7,12,.58),0 .15rem .28rem rgba(0,8,13,.35)}
+.assistant-body>b{position:absolute;left:50%;top:.21rem;width:.34rem;height:.34rem;border:1px solid rgba(194,255,237,.55);border-radius:50%;background:radial-gradient(circle,#caffee 0,#49e3a1 35%,#12654b 72%);box-shadow:0 0 .4rem rgba(73,227,161,.7);transform:translateX(-50%)}
+.assistant-body>em{position:absolute;left:.45rem;right:.45rem;bottom:.16rem;height:1px;background:linear-gradient(90deg,transparent,rgba(149,234,226,.55),transparent)}
+.assistant-resting-arm,.assistant-hand{background:linear-gradient(145deg,#82afb3,#17434d 42%,#092732);box-shadow:inset 1px 1px rgba(255,255,255,.28)}
+.assistant-resting-arm{left:.08rem;top:2.18rem}.assistant-hand{right:-.08rem;top:1.88rem}
+.assistant-legs{left:.88rem;top:2.88rem;width:1.15rem}.assistant-legs b{background:linear-gradient(90deg,#173e48,#7ba8aa 48%,#12333d);box-shadow:inset 1px 0 rgba(255,255,255,.25)}
+@media(max-width:600px){.assistant-robot{transform:translate(-50%,-50%) scale(1.16)}}
 
 .photo-hero.revealing {
     --reveal-size: clamp(6rem, 12vw, 11rem)

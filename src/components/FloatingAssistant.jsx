@@ -63,9 +63,11 @@ export default function FloatingAssistant(){
     aria-label="Nadeesha AI assistant, online. Wave hello"
   >
     <span className="assistant-robot" aria-hidden="true">
+      <i className="assistant-shadow"/>
       <i className="assistant-antenna"/>
-      <i className="assistant-head"><b/><b/></i>
-      <i className="assistant-body"/>
+      <i className="assistant-head"><span className="assistant-face"><b/><b/><em/></span></i>
+      <i className="assistant-neck"/>
+      <i className="assistant-body"><b/><em/></i>
       <i className="assistant-resting-arm"/>
       <i className="assistant-hand"><b/><b/><b/></i>
       <i className="assistant-legs"><b/><b/></i>

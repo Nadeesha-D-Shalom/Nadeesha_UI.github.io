@@ -30,7 +30,11 @@ export default function Hero({active}) {
   return <main ref={hero} id="home" className={`photo-hero ${active?'active':''} ${baseVr?'base-vr':'base-normal'} ${revealing?'revealing':''} ${touchReveal?'touch-revealing':''}`} onPointerEnter={e=>{if(e.pointerType!=='touch'){setRevealing(true);move(e);}}} onPointerMove={e=>e.pointerType!=='touch'&&move(e)} onPointerLeave={()=>setRevealing(false)} onPointerDown={revealOnTouch}>
     <img className="hero-image vr-image" src={withVR} width="1672" height="941" loading="eager" decoding="async" alt="Nadeesha exploring a virtual environment"/>
     <img className="hero-image normal-image" src={withoutVR} width="1672" height="941" loading="eager" decoding="async" fetchPriority="high" alt="Nadeesha Shalom"/>
-    <div key={baseVr?'vr':'normal'} className="hero-tile-transition" aria-hidden="true">{Array.from({length:24},(_,index)=><i key={index} style={{'--tile-index':index}}/>)}</div>
+    <div key={baseVr?'vr':'normal'} className="hero-tile-transition" aria-hidden="true">{Array.from({length:24},(_,index)=>{
+      const row=Math.floor(index/6);
+      const column=index%6;
+      return <i key={index} style={{'--tile-delay':`${(row+column)*70}ms`,'--tile-turn':`${row%2===0?1:-1}`}}/>;
+    })}</div>
     <div className="image-grade" aria-hidden="true"/>
     <HeroContent/>
   </main>;
