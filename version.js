@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 
 // Single source of truth for the portfolio version.
 // Change only this value, then run: npm run version:sync
-export const VERSION = '5.0.1';
+export const VERSION = '5.0.10';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 const args = new Set(process.argv.slice(2));
