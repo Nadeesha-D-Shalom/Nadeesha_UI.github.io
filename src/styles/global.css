@@ -389,25 +389,28 @@ button {
     z-index: 4;
     inset: 0;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
     pointer-events: none;
     perspective: 700px
 }
 
 .hero-tile-transition i {
+    opacity: 0;
     background: linear-gradient(145deg, rgba(19, 35, 47, .98), rgba(5, 14, 22, .98));
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), inset 0 0 1.3rem rgba(0, 0, 0, .24);
-    transform-origin: center;
-    animation: heroTileTurn 1.3s cubic-bezier(.65, 0, .2, 1) both;
+    transform-origin: left center
+}
+
+.hero-tile-transition.is-changing i {
+    animation: heroTileTurn .9s cubic-bezier(.65, 0, .2, 1) both;
     animation-delay: var(--tile-delay)
 }
 
 @keyframes heroTileTurn {
-    0% { opacity: 0; transform: rotateY(90deg) scale(.9) }
-    32% { opacity: 1; transform: rotateY(0) scale(1.025) }
-    62% { opacity: 1; transform: rotateY(0) scale(1.025) }
-    100% { opacity: 0; transform: rotateY(-90deg) scale(.9) }
+    0% { opacity: 0; transform: rotateY(90deg) scale(.94) }
+    28%, 52% { opacity: 1; transform: rotateY(0) scale(1.02) }
+    100% { opacity: 0; transform: rotateY(-90deg) scale(.94) }
 }
 
 /* Clearer hero and navigation typography */
